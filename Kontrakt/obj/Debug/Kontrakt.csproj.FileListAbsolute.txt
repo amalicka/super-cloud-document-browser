@@ -1,0 +1,6 @@
+C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\Kontrakt\obj\Debug\Kontrakt.csprojResolveAssemblyReference.cache
+C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\Kontrakt\bin\Debug\Kontrakt.dll.config
+C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\Kontrakt\bin\Debug\Kontrakt.dll
+C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\Kontrakt\bin\Debug\Kontrakt.pdb
+C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\Kontrakt\obj\Debug\Kontrakt.dll
+C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\Kontrakt\obj\Debug\Kontrakt.pdb

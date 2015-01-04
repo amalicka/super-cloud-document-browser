@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kontrakt", "Kontrakt\Kontrakt.csproj", "{15B3E0D2-6217-493A-A690-158C497F5318}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerwerGry", "SerwerGry\SerwerGry.csproj", "{8A6A8F76-B40A-41C8-BF66-AD15FB7E5981}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlientTest", "KlientTest\KlientTest.csproj", "{148EC033-2904-4A4C-A228-9466AC3FEAB5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{15B3E0D2-6217-493A-A690-158C497F5318}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15B3E0D2-6217-493A-A690-158C497F5318}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15B3E0D2-6217-493A-A690-158C497F5318}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15B3E0D2-6217-493A-A690-158C497F5318}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A6A8F76-B40A-41C8-BF66-AD15FB7E5981}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A6A8F76-B40A-41C8-BF66-AD15FB7E5981}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A6A8F76-B40A-41C8-BF66-AD15FB7E5981}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A6A8F76-B40A-41C8-BF66-AD15FB7E5981}.Release|Any CPU.Build.0 = Release|Any CPU
+		{148EC033-2904-4A4C-A228-9466AC3FEAB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{148EC033-2904-4A4C-A228-9466AC3FEAB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{148EC033-2904-4A4C-A228-9466AC3FEAB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{148EC033-2904-4A4C-A228-9466AC3FEAB5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
