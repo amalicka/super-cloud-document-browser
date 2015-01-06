@@ -14,11 +14,15 @@ namespace Kontrakt {
         Dictionary<string, Player> players = new Dictionary<string, Player>();
 
         public Player[] GetData() {
+            // Wyslij dane -> stan swiata gry
+            Console.WriteLine("GetData() send data to client!");
             return players.Values.ToArray();
         }
 
         public string SendData(Player ja) {
+            // Odbierz dane -> ruch gracza
             try {
+                Console.WriteLine("SendData(): got data from client!");
                 if (!players.ContainsKey(ja.Nick)) {
                     Console.WriteLine("{0} zalogował(a) sie do gry", ja.Nick);
                 }

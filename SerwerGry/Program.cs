@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ServiceModel;
 using Kontrakt;
+using System.Threading;
 
 namespace SerwerGry {
     class Program {
@@ -14,6 +15,10 @@ namespace SerwerGry {
             //tworzenie instacnji hoosta i wskazanie jaki kontrakt ma obsługiwać (Game Service)
             ServiceHost host = new ServiceHost(new ServiceGame());
             host.Open();
+            while (true) {
+                Console.WriteLine("Next frame!!!!");
+                Thread.Sleep(350);
+            }
             Console.ReadKey();
             host.Close();
 
