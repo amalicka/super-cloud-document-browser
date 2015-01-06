@@ -1,0 +1,8 @@
+C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\bin\Release\KlientTest.exe.config
+C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\bin\Release\KlientTest.exe
+C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\bin\Release\KlientTest.pdb
+C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\obj\Release\KlientTest.Form1.resources
+C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\obj\Release\KlientTest.Properties.Resources.resources
+C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\obj\Release\KlientTest.csproj.GenerateResource.Cache
+C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\obj\Release\KlientTest.exe
+C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\obj\Release\KlientTest.pdb
