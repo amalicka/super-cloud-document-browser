@@ -20,9 +20,23 @@ namespace Kontrakt {
                 new DocumentPdf(),
                 new DocumentDoc()
             };
+            documents[0].Name = "Name Jeden";
+            documents[1].Name = "Name Dwa";
+            documents[2].Name = "Name Trzy";
+            documents[0].Author = "Autor Jeden";
+            documents[1].Author = "Autor Dwa";
+            documents[2].Author = "Autor Trzy";
+            documents[0].Size = 111;
+            documents[1].Size = 222;
+            documents[2].Size = 333;
         }
 
         public Document[] GetDocumentsList() {
+            Console.WriteLine("#### Accessing documents ####");
+            foreach (var doc in documents) {
+                Console.WriteLine("Name: " + doc.Name + ", author: " + doc.Author + ", size: " + doc.Size);
+            }
+            Console.WriteLine("#### DONE ####");
             return documents;
         }
 

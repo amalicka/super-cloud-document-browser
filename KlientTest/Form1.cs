@@ -16,7 +16,11 @@ namespace KlientTest {
         ServiceGameClient client = new ServiceGameClient();
         public Form1() {
             InitializeComponent();
+            documentAddForm1.Visible = false;
             documentsArray = client.GetDocumentsList();
+            foreach(var d in documentsArray){
+                System.Diagnostics.Debug.WriteLine("name: " + d.Name + "author: " + d.Author + "size: " + d.Size);
+            }
             listView1.View = View.Details;
             listView1.Columns.Add("Name", 70);
             listView1.Columns.Add("Author", 70);
@@ -50,26 +54,16 @@ namespace KlientTest {
             //listView1.Items.Clear();
 
             //stackoverflow.com/questions/473148/c-sharp-listview-how-do-i-add-items-to-columns-2-3-and-4-etc
-            listView1.Items.Add("Nazwa").SubItems.AddRange(new string[] { "Autor", "Rozmiar" });
+            foreach (var d in documentsArray) {
+                listView1.Items.Add(d.Name).SubItems.AddRange(new string[] {d.Author, Convert.ToString(d.Size) });
+            }
         }
         catch (Exception ms) { }
         }
 
-        public DataTable GetTable() {
-            // Here we create a DataTable with four columns.
-            DataTable table = new DataTable();
-            table.Columns.Add("Name", typeof(string));
-            table.Columns.Add("Author", typeof(string));
-            table.Columns.Add("Size", typeof(double));
-
-            // Here we add five DataRows.
-            foreach (var d in documentsArray) {
-                table.Rows.Add(d.Name, d.Author, d.Size);
-            }
-            
-            return table;
+        private void buttonAddDocument_Click(object sender, EventArgs e) {
+            documentAddForm1.Visible = true;
         }
-
     }
 
     

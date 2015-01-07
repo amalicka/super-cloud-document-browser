@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MyLibrary {
-    public partial class MyControl : UserControl {
-        public MyControl() {
+    public partial class DocumentAddForm : UserControl {
+        public DocumentAddForm() {
             InitializeComponent();
         }
     }
