@@ -64,12 +64,61 @@ namespace Kontrakt {
         public string Nick {
             get { return nick; }
             set { nick = value; }
-        }   
+        }
+
+
+        public abstract class Document {
+            string fileExtension;
+            double size;
+            string author;
+            DateTime creationDate;
+
+            public string FileExtension {
+                get { return fileExtension; }
+                set { fileExtension = value; }
+            }
+            protected double Size {
+                get { return size; }
+                set { size = value; }
+            }
+            protected string Author {
+                get { return author; }
+                set { author = value; }
+            }
+            protected DateTime CreationDate {
+                get { return creationDate; }
+                set { creationDate = value; }
+            }
+
+            protected Document();
+            protected Document(string extention, string author){
+                this.fileExtension = extention;
+                this.author = author;
+            }
+
+            virtual void showFileContent();
+        }
+
+        public class DocumentPdf : Document {
+            public DocumentPdf(){
+                FileExtension = "pdf";
+            }
+            
+            public override void showFileContent(){
+            }
+        }
+        public class DocumentDoc : Document {
+            public DocumentPdf() {
+                FileExtension = "doc";
+            }
+
+            public override void showFileContent() {
+            }
+        }
+
+
+
+
 
     }
-
-
-
-
-
 }

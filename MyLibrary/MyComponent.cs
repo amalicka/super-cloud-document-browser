@@ -8,14 +8,27 @@ using System.Threading.Tasks;
 
 namespace MyLibrary {
     public partial class MyComponent : Component {
+
+        private String text;
+
+        public String Text {
+            get { return text; }
+            set { text = value; }
+        }
+
         public MyComponent() {
             InitializeComponent();
+            text = "tekst z komponentu";
         }
 
         public MyComponent(IContainer container) {
             container.Add(this);
-
             InitializeComponent();
+            text = "tekst z komponentu";
+        }
+
+        public string dajMiText(){
+            return this.text;
         }
     }
 }

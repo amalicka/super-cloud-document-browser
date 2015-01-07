@@ -11,7 +11,10 @@ namespace Kontrakt {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class ServiceGame : IServiceGame {
 
-        Dictionary<string, Player> players = new Dictionary<string, Player>();
+       // Dictionary<string, Player> players = new Dictionary<string, Player>();
+        Dictionary<string, Document> documents = new Dictionary<string, Document>();
+
+
 
         public Player[] GetData() {
             // Wyslij dane -> stan swiata gry

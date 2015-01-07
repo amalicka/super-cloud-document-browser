@@ -32,12 +32,17 @@ namespace KlientTest {
         private void timer1_Tick(object sender, EventArgs e) {
             //if (client.State == System.ServiceModel.CommunicationState.Opened ||
             //    client.State == System.ServiceModel.CommunicationState.Created) {
-                client.SendData(ja);
-                playersi = client.GetData();
+                //client.SendData(ja);
+                //playersi = client.GetData();
                 pictureBox1.Refresh();
            // }
-
         }
+
+        private void button1_Click(object sender, EventArgs e) {
+            label1.Text = myComponent1.dajMiText();
+        }
+
+        
     }
 }
 

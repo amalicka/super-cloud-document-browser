@@ -7,3 +7,5 @@ C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\obj\Debug\Klient
 C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\obj\Debug\KlientTest.exe
 C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\obj\Debug\KlientTest.pdb
 C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\obj\Debug\KlientTest.csprojResolveAssemblyReference.cache
+C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\bin\Debug\MyLibrary.dll
+C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\bin\Debug\MyLibrary.pdb
