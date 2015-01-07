@@ -13,16 +13,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="InserTestDocs">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="InserTestDocsResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
   <xs:element name="SendData">
     <xs:complexType>
       <xs:sequence>

@@ -12,43 +12,22 @@ namespace Kontrakt {
     public class ServiceGame : IServiceGame {
 
        // Dictionary<string, Player> players = new Dictionary<string, Player>();
-        Document[] documents = new Document[10];
+        Document[] documents; // = new Document[10];
 
-        
-
-        //public Player[] GetData() {
-            // Wyslij dane -> stan swiata gry
-        //    Console.WriteLine("GetData() send data to client!");
-        //    return players.Values.ToArray();
-        //}
-
-        //public string SendData(Player ja) {
-        //    // Odbierz dane -> ruch gracza
-        //    try {
-        //        Console.WriteLine("SendData(): got data from client!");
-        //        //if (!players.ContainsKey(ja.Nick)) {
-        //        //    Console.WriteLine("{0} zalogował(a) sie do gry", ja.Nick);
-        //        //}
-        //        players[ja.Nick] = ja;
-        //        return "ok";
-        //    } 
-        //    catch {
-        //        return "Błąd";
-        //    }
-        //}
+        public ServiceGame() {
+            documents = new Document[] {
+                new DocumentDoc(),
+                new DocumentPdf(),
+                new DocumentDoc()
+            };
+        }
 
         public Document[] GetData() {
-            // Wyslij dane -> do kleinta
             return documents;
-            //DocumentDoc dokumentTest = (DocumentDoc)documents.ElementAt(2);
-            //string aut = dokumentTest.Author;
-
         }
+
         public void SendData(Document[] doc) {
-        //przyjmij dane wysłane rpzez klienta
-            for(int i=0; i < documents.Length; i++){
-                documents[i] = doc[i];
-            }
+            Console.WriteLine("Trololololo łochochochoooo!");
         }
     }
 }
