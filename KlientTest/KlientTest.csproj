@@ -80,7 +80,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\ServiceGameReference\KlientTest.ServiceGameReference.Player.datasource">
+    <None Include="Service References\ServiceGameReference\KlientTest.ServiceGameReference.Document.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceGameReference\Kontrakt.xsd">
@@ -91,9 +91,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceGameReference\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceGameReference\System.Drawing.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

@@ -42,22 +42,25 @@ namespace Kontrakt {
             return documents.ToArray();
         }
         public void SendData(Document[] doc) {
-            documents = doc.ToList<Document>();
+        //przyjmij dane wysłane rpzez klienta
+            documents = doc.ToList();
         }
 
         public void InserTestDocs() {
-            Document dok1 = new DocumentDoc("Dokument 1", "Autor 1");
-            Document dok2 = new DocumentDoc("Dokument 1", "Autor 2");
-            Document dok3 = new DocumentDoc("Dokument 1", "Autor 3");
-            Document dok4 = new DocumentDoc("Dokument 1", "Autor 4");
-            Document dok5 = new DocumentDoc("Dokument 1", "Autor 5");
-            Document dok6 = new DocumentDoc("Dokument 1", "Autor 6");
-            documents.Add(dok1);
-            documents.Add(dok2);
-            documents.Add(dok3);
-            documents.Add(dok4);
-            documents.Add(dok5);
-            documents.Add(dok6);
+            try {
+                Document dok1 = new DocumentDoc("Dokument 1", "Autor 1");
+                Document dok2 = new DocumentDoc("Dokument 1", "Autor 2");
+                Document dok3 = new DocumentDoc("Dokument 1", "Autor 3");
+                Document dok4 = new DocumentDoc("Dokument 1", "Autor 4");
+                Document dok5 = new DocumentDoc("Dokument 1", "Autor 5");
+                Document dok6 = new DocumentDoc("Dokument 1", "Autor 6");
+                documents.Add(dok1);
+                documents.Add(dok2);
+                documents.Add(dok3);
+                documents.Add(dok4);
+                documents.Add(dok5);
+                documents.Add(dok6);
+            } catch { }
 
         }
     }

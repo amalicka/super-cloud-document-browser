@@ -15,27 +15,14 @@ namespace KlientTest.ServiceGameReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Player", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Document", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
     [System.SerializableAttribute()]
-    public partial class Player : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KlientTest.ServiceGameReference.DocumentPdf))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KlientTest.ServiceGameReference.DocumentDoc))]
+    public partial class Document : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NickField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Drawing.Point[] ShapeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int TypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double XField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double YField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -44,71 +31,6 @@ namespace KlientTest.ServiceGameReference {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nick {
-            get {
-                return this.NickField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NickField, value) != true)) {
-                    this.NickField = value;
-                    this.RaisePropertyChanged("Nick");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Drawing.Point[] Shape {
-            get {
-                return this.ShapeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ShapeField, value) != true)) {
-                    this.ShapeField = value;
-                    this.RaisePropertyChanged("Shape");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Type {
-            get {
-                return this.TypeField;
-            }
-            set {
-                if ((this.TypeField.Equals(value) != true)) {
-                    this.TypeField = value;
-                    this.RaisePropertyChanged("Type");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double X {
-            get {
-                return this.XField;
-            }
-            set {
-                if ((this.XField.Equals(value) != true)) {
-                    this.XField = value;
-                    this.RaisePropertyChanged("X");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Y {
-            get {
-                return this.YField;
-            }
-            set {
-                if ((this.YField.Equals(value) != true)) {
-                    this.YField = value;
-                    this.RaisePropertyChanged("Y");
-                }
             }
         }
         
@@ -122,21 +44,41 @@ namespace KlientTest.ServiceGameReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DocumentPdf", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
+    [System.SerializableAttribute()]
+    public partial class DocumentPdf : KlientTest.ServiceGameReference.Document {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DocumentDoc", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
+    [System.SerializableAttribute()]
+    public partial class DocumentDoc : KlientTest.ServiceGameReference.Document {
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceGameReference.IServiceGame")]
     public interface IServiceGame {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGame/SendData", ReplyAction="http://tempuri.org/IServiceGame/SendDataResponse")]
-        string SendData(KlientTest.ServiceGameReference.Player ja);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGame/SendData", ReplyAction="http://tempuri.org/IServiceGame/SendDataResponse")]
-        System.Threading.Tasks.Task<string> SendDataAsync(KlientTest.ServiceGameReference.Player ja);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGame/GetData", ReplyAction="http://tempuri.org/IServiceGame/GetDataResponse")]
+        KlientTest.ServiceGameReference.Document[] GetData();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGame/GetData", ReplyAction="http://tempuri.org/IServiceGame/GetDataResponse")]
-        KlientTest.ServiceGameReference.Player[] GetData();
+        System.Threading.Tasks.Task<KlientTest.ServiceGameReference.Document[]> GetDataAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGame/GetData", ReplyAction="http://tempuri.org/IServiceGame/GetDataResponse")]
-        System.Threading.Tasks.Task<KlientTest.ServiceGameReference.Player[]> GetDataAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGame/InserTestDocs", ReplyAction="http://tempuri.org/IServiceGame/InserTestDocsResponse")]
+        void InserTestDocs();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGame/InserTestDocs", ReplyAction="http://tempuri.org/IServiceGame/InserTestDocsResponse")]
+        System.Threading.Tasks.Task InserTestDocsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGame/SendData", ReplyAction="http://tempuri.org/IServiceGame/SendDataResponse")]
+        void SendData(KlientTest.ServiceGameReference.Document[] doc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGame/SendData", ReplyAction="http://tempuri.org/IServiceGame/SendDataResponse")]
+        System.Threading.Tasks.Task SendDataAsync(KlientTest.ServiceGameReference.Document[] doc);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -166,20 +108,28 @@ namespace KlientTest.ServiceGameReference {
                 base(binding, remoteAddress) {
         }
         
-        public string SendData(KlientTest.ServiceGameReference.Player ja) {
-            return base.Channel.SendData(ja);
-        }
-        
-        public System.Threading.Tasks.Task<string> SendDataAsync(KlientTest.ServiceGameReference.Player ja) {
-            return base.Channel.SendDataAsync(ja);
-        }
-        
-        public KlientTest.ServiceGameReference.Player[] GetData() {
+        public KlientTest.ServiceGameReference.Document[] GetData() {
             return base.Channel.GetData();
         }
         
-        public System.Threading.Tasks.Task<KlientTest.ServiceGameReference.Player[]> GetDataAsync() {
+        public System.Threading.Tasks.Task<KlientTest.ServiceGameReference.Document[]> GetDataAsync() {
             return base.Channel.GetDataAsync();
+        }
+        
+        public void InserTestDocs() {
+            base.Channel.InserTestDocs();
+        }
+        
+        public System.Threading.Tasks.Task InserTestDocsAsync() {
+            return base.Channel.InserTestDocsAsync();
+        }
+        
+        public void SendData(KlientTest.ServiceGameReference.Document[] doc) {
+            base.Channel.SendData(doc);
+        }
+        
+        public System.Threading.Tasks.Task SendDataAsync(KlientTest.ServiceGameReference.Document[] doc) {
+            return base.Channel.SendDataAsync(doc);
         }
     }
 }

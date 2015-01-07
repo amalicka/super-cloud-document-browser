@@ -1,20 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Kontrakt" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Kontrakt" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import namespace="http://schemas.datacontract.org/2004/07/System.Drawing" />
-  <xs:complexType name="Player">
+  <xs:complexType name="ArrayOfDocument">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Nick" nillable="true" type="xs:string" />
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="Shape" nillable="true" type="q1:ArrayOfPoint" />
-      <xs:element minOccurs="0" name="Type" type="xs:int" />
-      <xs:element minOccurs="0" name="X" type="xs:double" />
-      <xs:element minOccurs="0" name="Y" type="xs:double" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Document" nillable="true" type="tns:Document" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Player" nillable="true" type="tns:Player" />
-  <xs:complexType name="ArrayOfPlayer">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Player" nillable="true" type="tns:Player" />
-    </xs:sequence>
+  <xs:element name="ArrayOfDocument" nillable="true" type="tns:ArrayOfDocument" />
+  <xs:complexType name="Document">
+    <xs:sequence />
   </xs:complexType>
-  <xs:element name="ArrayOfPlayer" nillable="true" type="tns:ArrayOfPlayer" />
+  <xs:element name="Document" nillable="true" type="tns:Document" />
+  <xs:complexType name="DocumentPdf">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Document">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DocumentPdf" nillable="true" type="tns:DocumentPdf" />
+  <xs:complexType name="DocumentDoc">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Document">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DocumentDoc" nillable="true" type="tns:DocumentDoc" />
 </xs:schema>
