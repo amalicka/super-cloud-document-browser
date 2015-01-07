@@ -22,7 +22,7 @@ namespace Kontrakt {
             };
         }
 
-        public Document[] GetData() {
+        public Document[] GetDocumentsList() {
             return documents;
         }
 

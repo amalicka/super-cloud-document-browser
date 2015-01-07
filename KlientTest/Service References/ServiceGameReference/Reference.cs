@@ -17,8 +17,8 @@ namespace KlientTest.ServiceGameReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Document", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KlientTest.ServiceGameReference.DocumentDoc))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(KlientTest.ServiceGameReference.DocumentPdf))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KlientTest.ServiceGameReference.DocumentDoc))]
     public partial class Document : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -29,9 +29,6 @@ namespace KlientTest.ServiceGameReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime CreationDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string FileExtensionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
@@ -76,19 +73,6 @@ namespace KlientTest.ServiceGameReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FileExtension {
-            get {
-                return this.FileExtensionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FileExtensionField, value) != true)) {
-                    this.FileExtensionField = value;
-                    this.RaisePropertyChanged("FileExtension");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name {
             get {
                 return this.NameField;
@@ -126,33 +110,27 @@ namespace KlientTest.ServiceGameReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DocumentDoc", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DocumentPdf", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
     [System.SerializableAttribute()]
-    public partial class DocumentDoc : KlientTest.ServiceGameReference.Document {
+    public partial class DocumentPdf : KlientTest.ServiceGameReference.Document {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DocumentPdf", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DocumentDoc", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
     [System.SerializableAttribute()]
-    public partial class DocumentPdf : KlientTest.ServiceGameReference.Document {
+    public partial class DocumentDoc : KlientTest.ServiceGameReference.Document {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceGameReference.IServiceGame")]
     public interface IServiceGame {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGame/GetData", ReplyAction="http://tempuri.org/IServiceGame/GetDataResponse")]
-        KlientTest.ServiceGameReference.Document[] GetData();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGame/GetDocumentsList", ReplyAction="http://tempuri.org/IServiceGame/GetDocumentsListResponse")]
+        KlientTest.ServiceGameReference.Document[] GetDocumentsList();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGame/GetData", ReplyAction="http://tempuri.org/IServiceGame/GetDataResponse")]
-        System.Threading.Tasks.Task<KlientTest.ServiceGameReference.Document[]> GetDataAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGame/SendData", ReplyAction="http://tempuri.org/IServiceGame/SendDataResponse")]
-        void SendData(KlientTest.ServiceGameReference.Document[] doc);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGame/SendData", ReplyAction="http://tempuri.org/IServiceGame/SendDataResponse")]
-        System.Threading.Tasks.Task SendDataAsync(KlientTest.ServiceGameReference.Document[] doc);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGame/GetDocumentsList", ReplyAction="http://tempuri.org/IServiceGame/GetDocumentsListResponse")]
+        System.Threading.Tasks.Task<KlientTest.ServiceGameReference.Document[]> GetDocumentsListAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -182,20 +160,12 @@ namespace KlientTest.ServiceGameReference {
                 base(binding, remoteAddress) {
         }
         
-        public KlientTest.ServiceGameReference.Document[] GetData() {
-            return base.Channel.GetData();
+        public KlientTest.ServiceGameReference.Document[] GetDocumentsList() {
+            return base.Channel.GetDocumentsList();
         }
         
-        public System.Threading.Tasks.Task<KlientTest.ServiceGameReference.Document[]> GetDataAsync() {
-            return base.Channel.GetDataAsync();
-        }
-        
-        public void SendData(KlientTest.ServiceGameReference.Document[] doc) {
-            base.Channel.SendData(doc);
-        }
-        
-        public System.Threading.Tasks.Task SendDataAsync(KlientTest.ServiceGameReference.Document[] doc) {
-            return base.Channel.SendDataAsync(doc);
+        public System.Threading.Tasks.Task<KlientTest.ServiceGameReference.Document[]> GetDocumentsListAsync() {
+            return base.Channel.GetDocumentsListAsync();
         }
     }
 }

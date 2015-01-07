@@ -12,24 +12,26 @@ namespace Kontrakt {
     public interface IServiceGame {
 
         [OperationContract]
-        Document[] GetData();
+        Document[] GetDocumentsList();
 
-        [OperationContract]
-        void SaveDocument(Document newDoc);
+        //    [OperationContract]
+        //    void AddDocument(Document newDoc);
 
-        [OperationContract]
-        void RemoveDocument(Document delDoc);
+        //    [OperationContract]
+        //    void RemoveDocument(Document delDoc);
 
-        [OperationContract]
-        byte[] GetContents(Document doc);
+        //    [OperationContract]
+        //    byte[] GetContents(Document doc);
+        //}
+
+        // Use a data contract as illustrated in the sample below to add composite types to service operations.
+        // You can add XSD files into the project. After building the project, you can directly use the data types defined there, with the namespace "Kontrakt.ContractType".
+
     }
-
-    // Use a data contract as illustrated in the sample below to add composite types to service operations.
-    // You can add XSD files into the project. After building the project, you can directly use the data types defined there, with the namespace "Kontrakt.ContractType".
 
     [DataContract]
     [KnownType(typeof(DocumentDoc))]
-    [KnownType(typeof(DocumentPdf))] 
+    [KnownType(typeof(DocumentPdf))]
     public abstract class Document {
         string name;
         double size;
@@ -68,7 +70,7 @@ namespace Kontrakt {
 
     [DataContract]
     public class DocumentDoc : Document {
-        public DocumentDoc() {}
+        public DocumentDoc() { }
 
         public DocumentDoc(string name, string author)
             : base() {

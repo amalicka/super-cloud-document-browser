@@ -11,13 +11,12 @@ using KlientTest.ServiceGameReference;
 
 namespace KlientTest {
     public partial class Form1 : Form {
-        //Player ja = new Player();
-        //Player[] playersi = new Player[0];
         Document[] documentsArray = new Document[10];
 
         ServiceGameClient client = new ServiceGameClient();
         public Form1() {
             InitializeComponent();
+            documentsArray = client.GetDocumentsList();
             listView1.View = View.Details;
             listView1.Columns.Add("Name", 70);
             listView1.Columns.Add("Author", 70);
@@ -30,7 +29,7 @@ namespace KlientTest {
         }
 
         private void button2_Click(object sender, EventArgs e) {
-            documentsArray = client.GetData();
+            documentsArray = client.GetDocumentsList();
         }
 
         private void button3_Click(object sender, EventArgs e) {

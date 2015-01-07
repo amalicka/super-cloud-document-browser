@@ -7,41 +7,22 @@
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/Kontrakt" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IServiceGame_GetData_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetData" />
+  <wsdl:message name="IServiceGame_GetDocumentsList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentsList" />
   </wsdl:message>
-  <wsdl:message name="IServiceGame_GetData_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataResponse" />
-  </wsdl:message>
-  <wsdl:message name="IServiceGame_SendData_InputMessage">
-    <wsdl:part name="parameters" element="tns:SendData" />
-  </wsdl:message>
-  <wsdl:message name="IServiceGame_SendData_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SendDataResponse" />
+  <wsdl:message name="IServiceGame_GetDocumentsList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentsListResponse" />
   </wsdl:message>
   <wsdl:portType name="IServiceGame">
-    <wsdl:operation name="GetData">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGame/GetData" message="tns:IServiceGame_GetData_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGame/GetDataResponse" message="tns:IServiceGame_GetData_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="SendData">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGame/SendData" message="tns:IServiceGame_SendData_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGame/SendDataResponse" message="tns:IServiceGame_SendData_OutputMessage" />
+    <wsdl:operation name="GetDocumentsList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceGame/GetDocumentsList" message="tns:IServiceGame_GetDocumentsList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceGame/GetDocumentsListResponse" message="tns:IServiceGame_GetDocumentsList_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServiceGame" type="tns:IServiceGame">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetData">
-      <soap:operation soapAction="http://tempuri.org/IServiceGame/GetData" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SendData">
-      <soap:operation soapAction="http://tempuri.org/IServiceGame/SendData" style="document" />
+    <wsdl:operation name="GetDocumentsList">
+      <soap:operation soapAction="http://tempuri.org/IServiceGame/GetDocumentsList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
