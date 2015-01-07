@@ -12,11 +12,11 @@ using KlientTest.ServiceGameReference;
 namespace KlientTest {
     public partial class Form1 : Form {
         Document[] documentsArray = new Document[10];
+        Form2addDocument addDocumentForm = new Form2addDocument();
 
         ServiceGameClient client = new ServiceGameClient();
         public Form1() {
             InitializeComponent();
-            documentAddForm1.Visible = false;
             documentsArray = client.GetDocumentsList();
             foreach(var d in documentsArray){
                 System.Diagnostics.Debug.WriteLine("name: " + d.Name + "author: " + d.Author + "size: " + d.Size);
@@ -62,7 +62,7 @@ namespace KlientTest {
         }
 
         private void buttonAddDocument_Click(object sender, EventArgs e) {
-            documentAddForm1.Visible = true;
+            addDocumentForm.ShowDialog();
         }
     }
 

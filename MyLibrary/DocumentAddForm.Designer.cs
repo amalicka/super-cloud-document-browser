@@ -28,13 +28,13 @@
             this.labelAuthor = new System.Windows.Forms.Label();
             this.labelContent = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.labelName = new System.Windows.Forms.Label();
-            this.textBoxName = new System.Windows.Forms.TextBox();
-            this.textAuthor = new System.Windows.Forms.TextBox();
-            this.richTextBoxContent = new System.Windows.Forms.RichTextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.comboBoxType = new System.Windows.Forms.ComboBox();
+            this.richTextBoxContent = new System.Windows.Forms.RichTextBox();
+            this.textBoxAuthor = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.labelName = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,9 +78,9 @@
             // 
             this.panel1.Controls.Add(this.buttonCancel);
             this.panel1.Controls.Add(this.buttonAdd);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.comboBoxType);
             this.panel1.Controls.Add(this.richTextBoxContent);
-            this.panel1.Controls.Add(this.textAuthor);
+            this.panel1.Controls.Add(this.textBoxAuthor);
             this.panel1.Controls.Add(this.textBoxName);
             this.panel1.Controls.Add(this.labelName);
             this.panel1.Controls.Add(this.labelContent);
@@ -91,51 +91,14 @@
             this.panel1.Size = new System.Drawing.Size(478, 286);
             this.panel1.TabIndex = 5;
             // 
-            // labelName
+            // buttonCancel
             // 
-            this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(7, 16);
-            this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(35, 13);
-            this.labelName.TabIndex = 2;
-            this.labelName.Text = "Name";
-            // 
-            // textBoxName
-            // 
-            this.textBoxName.Location = new System.Drawing.Point(114, 13);
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(342, 20);
-            this.textBoxName.TabIndex = 5;
-            // 
-            // textAuthor
-            // 
-            this.textAuthor.Location = new System.Drawing.Point(114, 89);
-            this.textAuthor.Name = "textAuthor";
-            this.textAuthor.Size = new System.Drawing.Size(342, 20);
-            this.textAuthor.TabIndex = 6;
-            // 
-            // richTextBoxContent
-            // 
-            this.richTextBoxContent.Location = new System.Drawing.Point(114, 127);
-            this.richTextBoxContent.Name = "richTextBoxContent";
-            this.richTextBoxContent.Size = new System.Drawing.Size(342, 80);
-            this.richTextBoxContent.TabIndex = 7;
-            this.richTextBoxContent.Text = "";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "pdf",
-            "doc",
-            "psd",
-            "jpg",
-            "png"});
-            this.comboBox1.Location = new System.Drawing.Point(114, 52);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 8;
+            this.buttonCancel.Location = new System.Drawing.Point(357, 225);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(99, 39);
+            this.buttonCancel.TabIndex = 10;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = true;
             // 
             // buttonAdd
             // 
@@ -145,15 +108,53 @@
             this.buttonAdd.TabIndex = 9;
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
-            // buttonCancel
+            // comboBoxType
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(357, 225);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(99, 39);
-            this.buttonCancel.TabIndex = 10;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.comboBoxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxType.FormattingEnabled = true;
+            this.comboBoxType.Items.AddRange(new object[] {
+            "pdf",
+            "doc",
+            "psd",
+            "jpg",
+            "png"});
+            this.comboBoxType.Location = new System.Drawing.Point(114, 52);
+            this.comboBoxType.Name = "comboBoxType";
+            this.comboBoxType.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxType.TabIndex = 8;
+            // 
+            // richTextBoxContent
+            // 
+            this.richTextBoxContent.Location = new System.Drawing.Point(114, 127);
+            this.richTextBoxContent.Name = "richTextBoxContent";
+            this.richTextBoxContent.Size = new System.Drawing.Size(342, 80);
+            this.richTextBoxContent.TabIndex = 7;
+            this.richTextBoxContent.Text = "";
+            // 
+            // textBoxAuthor
+            // 
+            this.textBoxAuthor.Location = new System.Drawing.Point(114, 89);
+            this.textBoxAuthor.Name = "textBoxAuthor";
+            this.textBoxAuthor.Size = new System.Drawing.Size(342, 20);
+            this.textBoxAuthor.TabIndex = 6;
+            // 
+            // textBoxName
+            // 
+            this.textBoxName.Location = new System.Drawing.Point(114, 13);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(342, 20);
+            this.textBoxName.TabIndex = 5;
+            // 
+            // labelName
+            // 
+            this.labelName.AutoSize = true;
+            this.labelName.Location = new System.Drawing.Point(7, 16);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(35, 13);
+            this.labelName.TabIndex = 2;
+            this.labelName.Text = "Name";
             // 
             // DocumentAddForm
             // 
@@ -180,9 +181,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxType;
         private System.Windows.Forms.RichTextBox richTextBoxContent;
-        private System.Windows.Forms.TextBox textAuthor;
+        private System.Windows.Forms.TextBox textBoxAuthor;
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Label labelName;
     }

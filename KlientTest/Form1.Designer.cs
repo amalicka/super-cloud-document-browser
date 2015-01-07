@@ -29,9 +29,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.documentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.listView1 = new System.Windows.Forms.ListView();
-            this.myComponent1 = new MyLibrary.MyComponent(this.components);
             this.buttonAddDocument = new System.Windows.Forms.Button();
-            this.documentAddForm1 = new MyLibrary.DocumentAddForm();
+            this.myComponent1 = new MyLibrary.MyComponent(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.documentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,10 +66,6 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
-            // myComponent1
-            // 
-            this.myComponent1.Text = "tekst z komponentu";
-            // 
             // buttonAddDocument
             // 
             this.buttonAddDocument.Location = new System.Drawing.Point(28, 122);
@@ -81,20 +76,15 @@
             this.buttonAddDocument.UseVisualStyleBackColor = true;
             this.buttonAddDocument.Click += new System.EventHandler(this.buttonAddDocument_Click);
             // 
-            // documentAddForm1
+            // myComponent1
             // 
-            this.documentAddForm1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.documentAddForm1.Location = new System.Drawing.Point(305, 200);
-            this.documentAddForm1.Name = "documentAddForm1";
-            this.documentAddForm1.Size = new System.Drawing.Size(528, 359);
-            this.documentAddForm1.TabIndex = 10;
+            this.myComponent1.Text = "tekst z komponentu";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(870, 602);
-            this.Controls.Add(this.documentAddForm1);
             this.Controls.Add(this.buttonAddDocument);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.button1);
@@ -116,7 +106,6 @@
         private System.Windows.Forms.BindingSource documentBindingSource;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button buttonAddDocument;
-        private MyLibrary.DocumentAddForm documentAddForm1;
     }
 }
 

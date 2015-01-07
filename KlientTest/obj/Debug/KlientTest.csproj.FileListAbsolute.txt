@@ -9,3 +9,4 @@ C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\obj\Debug\Klient
 C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\obj\Debug\KlientTest.csproj.GenerateResource.Cache
 C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\obj\Debug\KlientTest.exe
 C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\obj\Debug\KlientTest.pdb
+C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\obj\Debug\KlientTest.Form2addDocument.resources
