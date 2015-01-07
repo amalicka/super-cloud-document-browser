@@ -27,9 +27,6 @@ namespace Kontrakt {
         Document[] GetData();
 
         [OperationContract]
-        void InserTestDocs();
-
-        [OperationContract]
         void SendData(Document[] doc);
         
         // TODO: Add your service operations here

@@ -13,7 +13,7 @@ namespace KlientTest {
     public partial class Form1 : Form {
         //Player ja = new Player();
         //Player[] playersi = new Player[0];
-        Document[] documents = new Document[10];
+        Document[] documentsArray = new Document[10];
 
         ServiceGameClient client = new ServiceGameClient();
         public Form1() {
@@ -45,8 +45,6 @@ namespace KlientTest {
         }
 
         private void button2_Click(object sender, EventArgs e) {
-            
-            //client.InserTestDocs();
             //Document dok1 = new DocumentDoc("Dokument 1", "Autor 1");
             //Document dok2 = new DocumentDoc("Dokument 1", "Autor 2");
             //Document dok3 = new DocumentDoc("Dokument 1", "Autor 3");
@@ -54,40 +52,44 @@ namespace KlientTest {
             //Document dok5 = new DocumentDoc("Dokument 1", "Autor 5");
             //Document dok6 = new DocumentDoc("Dokument 1", "Autor 6");
             Document dok1 = new DocumentDoc();
+            dok1.FileExtension = "doc";
             Document dok2 = new DocumentDoc();
             Document dok3 = new DocumentDoc();
             Document dok4 = new DocumentDoc();
             Document dok5 = new DocumentDoc();
             Document dok6 = new DocumentPdf();
-            documents[0] = dok1;
-            documents[1] = dok2;
-            documents[2] = dok3;
-            documents[3] = dok4;
-            documents[4] = dok5;
-            documents[5] = dok6;
+            documentsArray[0] = dok1;
+            documentsArray[1] = dok2;
+            documentsArray[2] = dok3;
+            documentsArray[3] = dok4;
+            documentsArray[4] = dok5;
+            documentsArray[5] = dok6;
+            dok6.FileExtension = "pdf";
             label1.Text = "Zrobiono testowe dokumenty";
 
             //if (client.State == System.ServiceModel.CommunicationState.Opened ||
             //    client.State == System.ServiceModel.CommunicationState.Created) {
-                client.SendData(documents);
+            client.SendData(documentsArray);
             //}
             label1.Text = "Zrobiono SendData";
             System.Diagnostics.Debug.WriteLine("1 Debug po SendData");
         }
 
         private void button3_Click(object sender, EventArgs e) {
-            System.Diagnostics.Debug.WriteLine(" docu wypisz extention: "+ documents[0].FileExtension + " ! ");
-            System.Diagnostics.Debug.WriteLine(" docu wypisz: " + documents[0].ToString());
-            System.Diagnostics.Debug.WriteLine(" docu wypisz: " + documents[5].ToString());
+            System.Diagnostics.Debug.WriteLine(" docu wypisz extention: " + documentsArray[0].FileExtension + " ! ");
+            System.Diagnostics.Debug.WriteLine(" docu wypisz extention: " + documentsArray[5].FileExtension + " ! ");
+            System.Diagnostics.Debug.WriteLine(" docu wypisz: " + documentsArray[0].ToString());
+            System.Diagnostics.Debug.WriteLine(" docu wypisz: " + documentsArray[5].ToString());
             System.Diagnostics.Debug.WriteLine("2 Kliknieto wyswietl dane");
             label1.Text = "Spis dokumentów: ";
             System.Diagnostics.Debug.WriteLine("3 Zmieniono tekst labelki");
-            documents = client.GetData();
+            documentsArray = client.GetData();
             System.Diagnostics.Debug.WriteLine("4 Zrbion GetData");
-            label2.Text = documents[0].Name;// Convert.ToString(documents[0].Name);// + " " +  documents[0].Author + " " + documents[0].FileExtension + " " +  Convert.ToString(documents[0].Size);
-            System.Diagnostics.Debug.WriteLine("docu extention: " + documents[0].FileExtension + " !!! ");
-            System.Diagnostics.Debug.WriteLine(" docu wypisz: " + documents[0].ToString());
-            System.Diagnostics.Debug.WriteLine(" docu wypisz: " + documents[5].ToString());
+            label2.Text = documentsArray[0].Name;// Convert.ToString(documents[0].Name);// + " " +  documents[0].Author + " " + documents[0].FileExtension + " " +  Convert.ToString(documents[0].Size);
+            System.Diagnostics.Debug.WriteLine("docu extention: " + documentsArray[0].FileExtension + " !!! ");
+            System.Diagnostics.Debug.WriteLine(" docu wypisz extention: " + documentsArray[5].FileExtension + " !!!! ");
+            System.Diagnostics.Debug.WriteLine(" docu wypisz: " + documentsArray[0].ToString());
+            System.Diagnostics.Debug.WriteLine(" docu wypisz: " + documentsArray[5].ToString());
             //foreach (var d in documents) {
             //    richTextBox1.AppendText(Convert.ToString(d.ToString()));
             //}
