@@ -18,31 +18,13 @@ namespace KlientTest {
         ServiceGameClient client = new ServiceGameClient();
         public Form1() {
             InitializeComponent();
-            listView1.Columns.Add("Name");
-            listView1.Columns.Add("Author");
-            listView1.Columns.Add("Size");
-            //ja.Nick = textBox1.Text;
-            //ja.X = 300;
-            //ja.Y = 300;
-            timer1.Start();
+            listView1.View = View.Details;
+            listView1.Columns.Add("Name", 70);
+            listView1.Columns.Add("Author", 70);
+            listView1.Columns.Add("Size", 70);
+            listViewFill();
         }
-
-        private void pictureBox1_Paint(object sender, PaintEventArgs e) {
-            //foreach (var p in playersi) {
-            //    e.Graphics.FillEllipse(Brushes.Red, (float)p.X - 8, (float)p.Y - 8, 16, 16);
-            //    e.Graphics.DrawString(p.Nick, Font, Brushes.Red, (float)p.X + 8, (float)p.Y + 8);
-            //}
-        }
-
-        private void timer1_Tick(object sender, EventArgs e) {
-            //if (client.State == System.ServiceModel.CommunicationState.Opened ||
-            //    client.State == System.ServiceModel.CommunicationState.Created) {
-                //client.SendData(ja);
-                //playersi = client.GetData();
-                //pictureBox1.Refresh();
-           // }
-        }
-
+        
         private void button1_Click(object sender, EventArgs e) {
             label1.Text = myComponent1.dajMiText();
         }
@@ -61,6 +43,32 @@ namespace KlientTest {
                     System.Diagnostics.Debug.WriteLine("got DOC");
                 }
             }
+        }
+
+        public void listViewFill(){
+        try{
+            //DataTable dt = GetTable();
+            //listView1.Items.Clear();
+
+            //stackoverflow.com/questions/473148/c-sharp-listview-how-do-i-add-items-to-columns-2-3-and-4-etc
+            listView1.Items.Add("Nazwa").SubItems.AddRange(new string[] { "Autor", "Rozmiar" });
+        }
+        catch (Exception ms) { }
+        }
+
+        public DataTable GetTable() {
+            // Here we create a DataTable with four columns.
+            DataTable table = new DataTable();
+            table.Columns.Add("Name", typeof(string));
+            table.Columns.Add("Author", typeof(string));
+            table.Columns.Add("Size", typeof(double));
+
+            // Here we add five DataRows.
+            foreach (var d in documentsArray) {
+                table.Rows.Add(d.Name, d.Author, d.Size);
+            }
+            
+            return table;
         }
 
     }
