@@ -11,10 +11,11 @@ namespace SerwerGry {
     class Program {
         static void Main(string[] args) {
 
-            Console.WriteLine("Serwer gry Oli");
+            Console.WriteLine("Serwer Oli");
             //tworzenie instacnji hoosta i wskazanie jaki kontrakt ma obsługiwać (Game Service)
             ServiceHost host = new ServiceHost(new ServiceGame());
             host.Open();
+
             Thread thread = new Thread(new ThreadStart(write));
             thread.Start();
 
@@ -33,5 +34,6 @@ namespace SerwerGry {
                 Console.WriteLine("thread");
             }
         }
+        
     }
 }
