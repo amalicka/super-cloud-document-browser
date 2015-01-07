@@ -48,32 +48,38 @@ namespace Kontrakt {
         string author;
         DateTime creationDate;
 
+        [DataMember]
         public string Name {
             get { return name; }
             set { name = value; }
         }
-
+        [DataMember]
         public string FileExtension {
             get { return fileExtension; }
             set { fileExtension = value; }
         }
-        protected double Size {
+        [DataMember]
+        public double Size {
             get { return size; }
             set { size = value; }
         }
-        protected string Author {
+        [DataMember]
+        public string Author {
             get { return author; }
             set { author = value; }
         }
-        protected DateTime CreationDate {
+        [DataMember]
+        public DateTime CreationDate {
             get { return creationDate; }
             set { creationDate = value; }
         }
-
-        protected Document() {
-
+        public Document() {
+            name = "abstr test name";
+            fileExtension = "abstr test ext";
+            size = 123;
+            author = "abstr test author";
         }
-        protected Document(string name, string author) {
+        public Document(string name, string author) {
             this.name = name;
             this.author = author;
         }
@@ -84,7 +90,10 @@ namespace Kontrakt {
 
     public class DocumentPdf : Document {
         public DocumentPdf() {
+            Name = " test name";
             FileExtension = "pdf";
+            Size = 123;
+            Author = " test author";
         }
         public DocumentPdf(string name, string author)
             : base(name, author) { }
@@ -96,8 +105,10 @@ namespace Kontrakt {
     [DataContract]
     public class DocumentDoc : Document {
         public DocumentDoc() {
-            this.Name = "test name";
+            Name = " test name";
             FileExtension = "doc";
+            Size = 123;
+            Author = " test author";
         }
         public DocumentDoc(string name, string author)
             : base(name, author) {

@@ -40,6 +40,9 @@ namespace Kontrakt {
         public Document[] GetData() {
             // Wyslij dane -> do kleinta
             return documents.ToArray();
+            //DocumentDoc dokumentTest = (DocumentDoc)documents.ElementAt(2);
+            //string aut = dokumentTest.Author;
+
         }
         public void SendData(Document[] doc) {
         //przyjmij dane wysłane rpzez klienta

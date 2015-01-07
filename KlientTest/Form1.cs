@@ -58,7 +58,7 @@ namespace KlientTest {
             Document dok3 = new DocumentDoc();
             Document dok4 = new DocumentDoc();
             Document dok5 = new DocumentDoc();
-            Document dok6 = new DocumentDoc();
+            Document dok6 = new DocumentPdf();
             documents[0] = dok1;
             documents[1] = dok2;
             documents[2] = dok3;
@@ -69,18 +69,29 @@ namespace KlientTest {
 
             //if (client.State == System.ServiceModel.CommunicationState.Opened ||
             //    client.State == System.ServiceModel.CommunicationState.Created) {
-            client.SendData(documents);
-            
+                client.SendData(documents);
+            //}
+            label1.Text = "Zrobiono SendData";
+            System.Diagnostics.Debug.WriteLine("1 Debug po SendData");
         }
 
         private void button3_Click(object sender, EventArgs e) {
-            richTextBox1.Text = "Spis dokumentów: ";
+            System.Diagnostics.Debug.WriteLine(" docu wypisz extention: "+ documents[0].FileExtension + " ! ");
+            System.Diagnostics.Debug.WriteLine(" docu wypisz: " + documents[0].ToString());
+            System.Diagnostics.Debug.WriteLine(" docu wypisz: " + documents[5].ToString());
+            System.Diagnostics.Debug.WriteLine("2 Kliknieto wyswietl dane");
+            label1.Text = "Spis dokumentów: ";
+            System.Diagnostics.Debug.WriteLine("3 Zmieniono tekst labelki");
             documents = client.GetData();
-            string tmp = documents[0].ToString();
-            richTextBox1.Text = tmp;
+            System.Diagnostics.Debug.WriteLine("4 Zrbion GetData");
+            label2.Text = documents[0].Name;// Convert.ToString(documents[0].Name);// + " " +  documents[0].Author + " " + documents[0].FileExtension + " " +  Convert.ToString(documents[0].Size);
+            System.Diagnostics.Debug.WriteLine("docu extention: " + documents[0].FileExtension + " !!! ");
+            System.Diagnostics.Debug.WriteLine(" docu wypisz: " + documents[0].ToString());
+            System.Diagnostics.Debug.WriteLine(" docu wypisz: " + documents[5].ToString());
             //foreach (var d in documents) {
             //    richTextBox1.AppendText(Convert.ToString(d.ToString()));
             //}
+            System.Diagnostics.Debug.WriteLine("5 END");
         }
     }
 }

@@ -16,16 +16,16 @@ namespace SerwerGry {
             ServiceHost host = new ServiceHost(new ServiceGame());
             host.Open();
 
-            Thread thread = new Thread(new ThreadStart(write));
-            thread.Start();
+            //Thread thread = new Thread(new ThreadStart(write));
+            //thread.Start();
 
-            while(true){
-                Thread.Sleep(100);
-                Console.WriteLine("petla gry");
-            }
-           
-            //Console.ReadKey();
-            //host.Close();
+            //while(true){
+            //    Thread.Sleep(100);
+            //    Console.WriteLine("petla gry");
+            //}
+
+            Console.ReadKey();
+            host.Close();
         }
 
         public static void write() {
