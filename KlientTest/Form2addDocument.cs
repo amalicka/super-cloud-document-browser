@@ -24,16 +24,9 @@ namespace KlientTest {
         }
 
         private void  documentAddForm1_AddClick(string[] str){
+            
             System.Diagnostics.Debug.WriteLine("documentAddForm1_AddClick");
-            document = new DocumentDoc();
-            document.Name = "Test";
-            //document = makeDocumentFromData(str);
-            //if (str[1] == "pdf") {
-            //    document = (DocumentPdf)document;
-            //} else if (str[1] == "doc") {
-            //    document = (DocumentDoc)document;
-            //}
-            client.AddDocument(document);
+            client.AddDocument(makeDocumentFromData(str));
             this.Close();
         }
 
@@ -43,12 +36,23 @@ namespace KlientTest {
         }
 
         private Document makeDocumentFromData(string[] str){
-            Document tmpDoc = new Document();
-            tmpDoc.Name = str[0];
-            //tmpDoc.Type = str[1];
-            tmpDoc.Author = str[2];
-            tmpDoc.Content = str[3];
-            return tmpDoc;
+            if (str[1] == "pdf") {
+                DocumentPdf tmpDoc = new DocumentPdf();
+                tmpDoc.Name = str[0];
+                //tmpDoc.Type = str[1];
+                tmpDoc.Author = str[2];
+                tmpDoc.Content = str[3];
+                return tmpDoc;
+            } 
+            else if (str[1] == "doc") {
+                DocumentDoc tmpDoc = new DocumentDoc();
+                tmpDoc.Name = str[0];
+                //tmpDoc.Type = str[1];
+                tmpDoc.Author = str[2];
+                tmpDoc.Content = str[3];
+                return tmpDoc;
+            }
+            return new DocumentDoc();
         }
     }
 }
