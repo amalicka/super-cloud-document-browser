@@ -25,20 +25,29 @@ namespace KlientTest {
 
         private void  documentAddForm1_AddClick(string[] str){
             System.Diagnostics.Debug.WriteLine("documentAddForm1_AddClick");
-            document = makeDocumentFromData(str);
+            document = new DocumentDoc();
+            document.Name = "Test";
+            //document = makeDocumentFromData(str);
+            //if (str[1] == "pdf") {
+            //    document = (DocumentPdf)document;
+            //} else if (str[1] == "doc") {
+            //    document = (DocumentDoc)document;
+            //}
             client.AddDocument(document);
+            this.Close();
         }
 
         private void documentAddForm1_CancelClick(object sender, EventArgs arg){
             System.Diagnostics.Debug.WriteLine("documentAddForm1_CancelClick");
+            this.Close();
         }
 
         private Document makeDocumentFromData(string[] str){
             Document tmpDoc = new Document();
-            //tmpDoc.Name = str[0];
+            tmpDoc.Name = str[0];
             //tmpDoc.Type = str[1];
-            //tmpDoc.Author = str[2];
-            //tmpDoc.Content = str[3];
+            tmpDoc.Author = str[2];
+            tmpDoc.Content = str[3];
             return tmpDoc;
         }
     }

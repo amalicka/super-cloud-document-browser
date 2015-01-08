@@ -47,7 +47,10 @@ namespace Kontrakt {
         }
 
         public void AddDocument(Document newDoc) {
+            Console.WriteLine("metoda: łochAddDocumentochochoooo!");
             documents.Add(newDoc);
+            Console.WriteLine("**************************\nDodano dokument wprowadzony przez usera:");
+            Console.WriteLine(newDoc.Name + " " + newDoc.Author + " " + newDoc.Content);
         }
 
         public void RemoveDocument(Document delDoc) {
