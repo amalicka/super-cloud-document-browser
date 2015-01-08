@@ -1,8 +1,2 @@
-C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\SerwerGry\bin\Debug\SerwerGry.exe.config
 C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\SerwerGry\bin\Debug\SerwerGry.exe
-C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\SerwerGry\bin\Debug\SerwerGry.pdb
 C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\SerwerGry\bin\Debug\Kontrakt.dll
-C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\SerwerGry\bin\Debug\Kontrakt.pdb
-C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\SerwerGry\obj\Debug\SerwerGry.csprojResolveAssemblyReference.cache
-C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\SerwerGry\obj\Debug\SerwerGry.exe
-C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\SerwerGry\obj\Debug\SerwerGry.pdb

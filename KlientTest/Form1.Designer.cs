@@ -27,9 +27,9 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.documentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.listView1 = new System.Windows.Forms.ListView();
             this.buttonAddDocument = new System.Windows.Forms.Button();
+            this.documentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.myComponent1 = new MyLibrary.MyComponent(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.documentBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -53,10 +53,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // documentBindingSource
-            // 
-            this.documentBindingSource.DataSource = typeof(KlientTest.ServiceGameReference.Document);
-            // 
             // listView1
             // 
             this.listView1.Location = new System.Drawing.Point(183, 28);
@@ -74,7 +70,10 @@
             this.buttonAddDocument.TabIndex = 9;
             this.buttonAddDocument.Text = "Dodaj dokument";
             this.buttonAddDocument.UseVisualStyleBackColor = true;
-            this.buttonAddDocument.Click += new System.EventHandler(this.buttonAddDocument_Click);
+            // 
+            // documentBindingSource
+            // 
+            this.documentBindingSource.DataSource = typeof(KlientTest.ServiceGameReference.Document);
             // 
             // myComponent1
             // 

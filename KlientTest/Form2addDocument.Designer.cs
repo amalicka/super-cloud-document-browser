@@ -29,9 +29,12 @@
             // 
             // documentAddForm1
             // 
+            this.documentAddForm1.Author = "";
             this.documentAddForm1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.documentAddForm1.Content = "";
             resources.ApplyResources(this.documentAddForm1, "documentAddForm1");
             this.documentAddForm1.Name = "documentAddForm1";
+            this.documentAddForm1.Type = "";
             // 
             // Form2addDocument
             // 
@@ -46,5 +49,7 @@
         #endregion
 
         private MyLibrary.DocumentAddForm documentAddForm1;
+
+
     }
 }

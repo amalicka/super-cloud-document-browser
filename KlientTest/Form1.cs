@@ -17,6 +17,10 @@ namespace KlientTest {
         ServiceGameClient client = new ServiceGameClient();
         public Form1() {
             InitializeComponent();
+
+            // Zarejestruj obserwatora w buttonie
+            this.buttonAddDocument.Click += new EventHandler(buttonAddDocument_Click);
+
             documentsArray = client.GetDocumentsList();
             foreach(var d in documentsArray){
                 System.Diagnostics.Debug.WriteLine("name: " + d.Name + "author: " + d.Author + "size: " + d.Size);

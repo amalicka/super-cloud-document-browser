@@ -5,8 +5,8 @@ C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\bin\Debug\MyLibr
 C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\bin\Debug\MyLibrary.pdb
 C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\obj\Debug\KlientTest.csprojResolveAssemblyReference.cache
 C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\obj\Debug\KlientTest.Form1.resources
+C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\obj\Debug\KlientTest.Form2addDocument.resources
 C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\obj\Debug\KlientTest.Properties.Resources.resources
 C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\obj\Debug\KlientTest.csproj.GenerateResource.Cache
 C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\obj\Debug\KlientTest.exe
 C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\obj\Debug\KlientTest.pdb
-C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\KlientTest\obj\Debug\KlientTest.Form2addDocument.resources

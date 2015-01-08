@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MyLibrary {
+    public delegate void DodajDokumentHandler(string[] str);
+
     public partial class DocumentAddForm : UserControl {
 
-        public delegate void TypZdarzenia();
-
         private string[] docData = new string[4];
+        public event DodajDokumentHandler AddClick;
+        public event EventHandler CancelClick;
 
         [Category("Dane dokumentu")]
         public string Name {
@@ -56,22 +58,24 @@ namespace MyLibrary {
 
         public DocumentAddForm() {
             InitializeComponent();
+            buttonAdd.Click += new EventHandler(buttonAdd_Click);
+            buttonCancel.Click += new EventHandler(buttonCancel_Click);
         }
 
-        public event TypZdarzenia ZapiszClicked;
-
-        private void buttonAdd_Click(object sender, EventArgs e) {
-            docData[0] = this.Name;
-            docData[1] = this.Author;
-            docData[2] = this.Type;
-            docData[3] = this.Content;
-
-            if (ZapiszClicked != null) {
-                ZapiszClicked();
-            }
-        }
         public string[] getDocumentData() {
             return docData;
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs arg) {
+            if (AddClick != null) {
+                AddClick(docData);
+            }
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs arg) {
+            if (CancelClick != null) {
+                CancelClick(this, null);
+            }
         }
     }
 }
