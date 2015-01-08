@@ -69,8 +69,8 @@ namespace MyLibrary {
         private void buttonAdd_Click(object sender, EventArgs arg) {
             if (AddClick != null) {
                 docData[0] = textBoxName.Text;
-                docData[1] = textBoxAuthor.Text;
-                docData[2] = comboBoxType.Text;
+                docData[1] = comboBoxType.Text;
+                docData[2] = textBoxAuthor.Text;
                 docData[3] = richTextBoxContent.Text;
                 for (int i = 0; i < docData.Length; i++) {
                     Console.WriteLine("docData [ " + i + " ] " + docData[i] + "!");

@@ -44,7 +44,7 @@ namespace KlientTest {
                 tmpDoc.Content = str[3];
                 return tmpDoc;
             } 
-            else if (str[1] == "doc") {
+            else  /*(str[1] == "doc") */{
                 DocumentDoc tmpDoc = new DocumentDoc();
                 tmpDoc.Name = str[0];
                 //tmpDoc.Type = str[1];
@@ -52,7 +52,6 @@ namespace KlientTest {
                 tmpDoc.Content = str[3];
                 return tmpDoc;
             }
-            return new DocumentDoc();
         }
     }
 }
