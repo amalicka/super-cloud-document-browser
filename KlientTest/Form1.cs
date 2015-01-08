@@ -46,30 +46,57 @@ namespace KlientTest {
             }
         }
 
-        public void listViewFill(){
-            try{
-                foreach (var d in documentsArray) {
-                    listView1.Items.Add(d.Name).SubItems.AddRange(new string[] {d.Author, Convert.ToString(d.Size) });
-                }
-            }
-            catch (Exception ms) {}
-        }
-
         private void buttonAddDocument_Click(object sender, EventArgs e) {
             addDocumentForm.ShowDialog();
         }
 
         private void refreshDocumentList() {
             documentsArray = client.GetDocumentsList();
-            foreach (var d in documentsArray) {
-                System.Diagnostics.Debug.WriteLine("name: " + d.Name + "author: " + d.Author + "size: " + d.Size);
-            }
-            listView1.View = View.Details;
+
+            //http: //msdn.microsoft.com/pl-pl/library/system.windows.forms.listview.checkboxes(v=vs.110).aspx
             listView1.Columns.Add("Name", 70);
             listView1.Columns.Add("Author", 70);
             listView1.Columns.Add("Size", 70);
+
+
+            listView1.View = View.Details;
+            listView1.CheckBoxes = true;
+            // Select the item and subitems when selection is made.
+            listView1.FullRowSelect = true;
+            listView1.GridLines = true;
+            listView1.Sorting = SortOrder.Ascending;
             listViewFill();
         }
+
+        private void listViewFill() {
+            try {
+                foreach (var d in documentsArray) {
+                    listView1.Items.Add(d.Name).SubItems.AddRange(new string[] { d.Author, Convert.ToString(d.Size) });
+                }
+            } catch (Exception ms) { }
+        }
+
+        private void deleteDocument() {
+            int c = listView1.CheckedItems.Count;
+            List<string> docsToDeleteNames = new List<string>();
+
+            if (c == 0) {
+                MessageBox.Show("Zaznacz pliki do usunięcia");
+            } 
+            else {
+                System.Diagnostics.Debug.WriteLine("zaznaczone itemy:");
+                foreach (var ch in listView1.CheckedItems) {
+                    System.Diagnostics.Debug.WriteLine(ch.ToString());
+                    docsToDeleteNames.Add(ch.ToString());
+                }
+
+            }
+        }
+
+        private void buttonDeleteDocs_Click(object sender, EventArgs e) {
+            deleteDocument();
+        }
+
     }
 
     

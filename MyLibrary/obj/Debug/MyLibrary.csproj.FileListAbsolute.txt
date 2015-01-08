@@ -1,6 +1,5 @@
 C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\MyLibrary\bin\Debug\MyLibrary.dll
 C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\MyLibrary\bin\Debug\MyLibrary.pdb
-C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\MyLibrary\obj\Debug\MyLibrary.csprojResolveAssemblyReference.cache
 C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\MyLibrary\obj\Debug\MyLibrary.DocumentAddForm.resources
 C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\MyLibrary\obj\Debug\MyLibrary.csproj.GenerateResource.Cache
 C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\MyLibrary\obj\Debug\MyLibrary.dll
