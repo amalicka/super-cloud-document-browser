@@ -23,16 +23,11 @@ namespace KlientTest {
 
             // Zarejestruj obserwatora w buttonie
             this.buttonAddDocument.Click += new EventHandler(buttonAddDocument_Click);
+            addDocumentForm.AllowUpdate += new ReadyToUpadeHandler(refreshDocumentList);
 
-            documentsArray = client.GetDocumentsList();
-            foreach(var d in documentsArray){
-                System.Diagnostics.Debug.WriteLine("name: " + d.Name + "author: " + d.Author + "size: " + d.Size);
-            }
-            listView1.View = View.Details;
-            listView1.Columns.Add("Name", 70);
-            listView1.Columns.Add("Author", 70);
-            listView1.Columns.Add("Size", 70);
-            listViewFill();
+            refreshDocumentList();
+
+            
         }
         
         private void button1_Click(object sender, EventArgs e) {
@@ -62,6 +57,18 @@ namespace KlientTest {
 
         private void buttonAddDocument_Click(object sender, EventArgs e) {
             addDocumentForm.ShowDialog();
+        }
+
+        private void refreshDocumentList() {
+            documentsArray = client.GetDocumentsList();
+            foreach (var d in documentsArray) {
+                System.Diagnostics.Debug.WriteLine("name: " + d.Name + "author: " + d.Author + "size: " + d.Size);
+            }
+            listView1.View = View.Details;
+            listView1.Columns.Add("Name", 70);
+            listView1.Columns.Add("Author", 70);
+            listView1.Columns.Add("Size", 70);
+            listViewFill();
         }
     }
 

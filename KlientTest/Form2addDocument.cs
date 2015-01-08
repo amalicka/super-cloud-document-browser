@@ -11,10 +11,13 @@ using KlientTest.ServiceGameReference;
 using MyLibrary;
 
 namespace KlientTest {
+    public delegate void ReadyToUpadeHandler();
+
     public partial class Form2addDocument : Form {
 
         ServiceGameClient client;
         private Document document = new Document();
+        public event ReadyToUpadeHandler AllowUpdate;
 
         public Form2addDocument(ServiceGameClient client) {
             this.client = client;
@@ -27,6 +30,9 @@ namespace KlientTest {
             
             System.Diagnostics.Debug.WriteLine("documentAddForm1_AddClick");
             client.AddDocument(makeDocumentFromData(str));
+            if (AllowUpdate != null) {
+                AllowUpdate();
+            }
             this.Close();
         }
 
@@ -39,7 +45,6 @@ namespace KlientTest {
             if (str[1] == "pdf") {
                 DocumentPdf tmpDoc = new DocumentPdf();
                 tmpDoc.Name = str[0];
-                //tmpDoc.Type = str[1];
                 tmpDoc.Author = str[2];
                 tmpDoc.Content = str[3];
                 return tmpDoc;
@@ -47,7 +52,6 @@ namespace KlientTest {
             else  /*(str[1] == "doc") */{
                 DocumentDoc tmpDoc = new DocumentDoc();
                 tmpDoc.Name = str[0];
-                //tmpDoc.Type = str[1];
                 tmpDoc.Author = str[2];
                 tmpDoc.Content = str[3];
                 return tmpDoc;
