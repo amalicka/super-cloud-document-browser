@@ -11,11 +11,14 @@ using KlientTest.ServiceGameReference;
 
 namespace KlientTest {
     public partial class Form1 : Form {
-        Document[] documentsArray = new Document[10];
-        Form2addDocument addDocumentForm = new Form2addDocument();
+        Document[] documentsArray;
+        Form2addDocument addDocumentForm;
+        ServiceGameClient client;
 
-        ServiceGameClient client = new ServiceGameClient();
         public Form1() {
+            client = new ServiceGameClient();
+            addDocumentForm = new Form2addDocument(client);
+            
             InitializeComponent();
 
             // Zarejestruj obserwatora w buttonie
@@ -36,10 +39,6 @@ namespace KlientTest {
             label1.Text = myComponent1.dajMiText();
         }
 
-        private void button2_Click(object sender, EventArgs e) {
-            documentsArray = client.GetDocumentsList();
-        }
-
         private void button3_Click(object sender, EventArgs e) {
 
             foreach (var d in documentsArray) {
@@ -53,16 +52,12 @@ namespace KlientTest {
         }
 
         public void listViewFill(){
-        try{
-            //DataTable dt = GetTable();
-            //listView1.Items.Clear();
-
-            //stackoverflow.com/questions/473148/c-sharp-listview-how-do-i-add-items-to-columns-2-3-and-4-etc
-            foreach (var d in documentsArray) {
-                listView1.Items.Add(d.Name).SubItems.AddRange(new string[] {d.Author, Convert.ToString(d.Size) });
+            try{
+                foreach (var d in documentsArray) {
+                    listView1.Items.Add(d.Name).SubItems.AddRange(new string[] {d.Author, Convert.ToString(d.Size) });
+                }
             }
-        }
-        catch (Exception ms) { }
+            catch (Exception ms) {}
         }
 
         private void buttonAddDocument_Click(object sender, EventArgs e) {

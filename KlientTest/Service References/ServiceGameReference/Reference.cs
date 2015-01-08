@@ -28,6 +28,9 @@ namespace KlientTest.ServiceGameReference {
         private string AuthorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ContentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime CreationDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -55,6 +58,19 @@ namespace KlientTest.ServiceGameReference {
                 if ((object.ReferenceEquals(this.AuthorField, value) != true)) {
                     this.AuthorField = value;
                     this.RaisePropertyChanged("Author");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Content {
+            get {
+                return this.ContentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ContentField, value) != true)) {
+                    this.ContentField = value;
+                    this.RaisePropertyChanged("Content");
                 }
             }
         }
@@ -131,6 +147,18 @@ namespace KlientTest.ServiceGameReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGame/GetDocumentsList", ReplyAction="http://tempuri.org/IServiceGame/GetDocumentsListResponse")]
         System.Threading.Tasks.Task<KlientTest.ServiceGameReference.Document[]> GetDocumentsListAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGame/AddDocument", ReplyAction="http://tempuri.org/IServiceGame/AddDocumentResponse")]
+        void AddDocument(KlientTest.ServiceGameReference.Document newDoc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGame/AddDocument", ReplyAction="http://tempuri.org/IServiceGame/AddDocumentResponse")]
+        System.Threading.Tasks.Task AddDocumentAsync(KlientTest.ServiceGameReference.Document newDoc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGame/RemoveDocument", ReplyAction="http://tempuri.org/IServiceGame/RemoveDocumentResponse")]
+        void RemoveDocument(KlientTest.ServiceGameReference.Document delDoc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceGame/RemoveDocument", ReplyAction="http://tempuri.org/IServiceGame/RemoveDocumentResponse")]
+        System.Threading.Tasks.Task RemoveDocumentAsync(KlientTest.ServiceGameReference.Document delDoc);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -166,6 +194,22 @@ namespace KlientTest.ServiceGameReference {
         
         public System.Threading.Tasks.Task<KlientTest.ServiceGameReference.Document[]> GetDocumentsListAsync() {
             return base.Channel.GetDocumentsListAsync();
+        }
+        
+        public void AddDocument(KlientTest.ServiceGameReference.Document newDoc) {
+            base.Channel.AddDocument(newDoc);
+        }
+        
+        public System.Threading.Tasks.Task AddDocumentAsync(KlientTest.ServiceGameReference.Document newDoc) {
+            return base.Channel.AddDocumentAsync(newDoc);
+        }
+        
+        public void RemoveDocument(KlientTest.ServiceGameReference.Document delDoc) {
+            base.Channel.RemoveDocument(delDoc);
+        }
+        
+        public System.Threading.Tasks.Task RemoveDocumentAsync(KlientTest.ServiceGameReference.Document delDoc) {
+            return base.Channel.RemoveDocumentAsync(delDoc);
         }
     }
 }

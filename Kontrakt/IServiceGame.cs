@@ -14,19 +14,11 @@ namespace Kontrakt {
         [OperationContract]
         Document[] GetDocumentsList();
 
-        //    [OperationContract]
-        //    void AddDocument(Document newDoc);
+        [OperationContract]
+        void AddDocument(Document newDoc);
 
-        //    [OperationContract]
-        //    void RemoveDocument(Document delDoc);
-
-        //    [OperationContract]
-        //    byte[] GetContents(Document doc);
-        //}
-
-        // Use a data contract as illustrated in the sample below to add composite types to service operations.
-        // You can add XSD files into the project. After building the project, you can directly use the data types defined there, with the namespace "Kontrakt.ContractType".
-
+        [OperationContract]
+        void RemoveDocument(Document delDoc);
     }
 
     [DataContract]
@@ -36,6 +28,7 @@ namespace Kontrakt {
         string name;
         double size;
         string author;
+        string content;
         DateTime creationDate;
 
         [DataMember]
@@ -59,6 +52,12 @@ namespace Kontrakt {
             set { creationDate = value; }
         }
 
+        [DataMember]
+        public string Content {
+            get { return content; }
+            set { content = value; }
+        }
+
         public abstract void showFileContent();
     }
 
@@ -70,7 +69,7 @@ namespace Kontrakt {
 
     [DataContract]
     public class DocumentDoc : Document {
-        public DocumentDoc() { }
+        public DocumentDoc() {}
 
         public DocumentDoc(string name, string author)
             : base() {

@@ -8,14 +8,16 @@ using System.Drawing;
 
 namespace Kontrakt {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
+    [ServiceBehavior(
+        InstanceContextMode = InstanceContextMode.Single,
+        ConcurrencyMode = ConcurrencyMode.Single)]
     public class ServiceGame : IServiceGame {
 
        // Dictionary<string, Player> players = new Dictionary<string, Player>();
-        Document[] documents; // = new Document[10];
+        List<Document> documents; // = new Document[10];
 
         public ServiceGame() {
-            documents = new Document[] {
+            documents = new List<Document> {
                 new DocumentDoc(),
                 new DocumentPdf(),
                 new DocumentDoc()
@@ -37,11 +39,19 @@ namespace Kontrakt {
                 Console.WriteLine("Name: " + doc.Name + ", author: " + doc.Author + ", size: " + doc.Size);
             }
             Console.WriteLine("#### DONE ####");
-            return documents;
+            return documents.ToArray();
         }
 
         public void SendData(Document[] doc) {
             Console.WriteLine("Trololololo łochochochoooo!");
+        }
+
+        public void AddDocument(Document newDoc) {
+            documents.Add(newDoc);
+        }
+
+        public void RemoveDocument(Document delDoc) {
+            documents.Remove(delDoc);
         }
     }
 }
