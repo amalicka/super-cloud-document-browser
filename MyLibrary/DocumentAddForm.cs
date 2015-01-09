@@ -18,7 +18,7 @@ namespace MyLibrary {
         public event EventHandler CancelClick;
 
         [Category("Dane dokumentu")]
-        public string Name {
+        public string DocumentName {
             get {
                 return textBoxName.Text;
             }

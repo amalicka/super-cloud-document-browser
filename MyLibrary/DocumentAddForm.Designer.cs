@@ -41,16 +41,17 @@
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
-            this.labelTitle.Location = new System.Drawing.Point(25, 22);
+            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelTitle.Location = new System.Drawing.Point(10, 11);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(113, 13);
+            this.labelTitle.Size = new System.Drawing.Size(188, 20);
             this.labelTitle.TabIndex = 0;
-            this.labelTitle.Text = "Adding document form";
+            this.labelTitle.Text = "Fill the document data";
             // 
             // labelType
             // 
             this.labelType.AutoSize = true;
-            this.labelType.Location = new System.Drawing.Point(11, 55);
+            this.labelType.Location = new System.Drawing.Point(20, 90);
             this.labelType.Name = "labelType";
             this.labelType.Size = new System.Drawing.Size(31, 13);
             this.labelType.TabIndex = 2;
@@ -59,7 +60,7 @@
             // labelAuthor
             // 
             this.labelAuthor.AutoSize = true;
-            this.labelAuthor.Location = new System.Drawing.Point(11, 92);
+            this.labelAuthor.Location = new System.Drawing.Point(11, 130);
             this.labelAuthor.Name = "labelAuthor";
             this.labelAuthor.Size = new System.Drawing.Size(38, 13);
             this.labelAuthor.TabIndex = 3;
@@ -68,7 +69,7 @@
             // labelContent
             // 
             this.labelContent.AutoSize = true;
-            this.labelContent.Location = new System.Drawing.Point(11, 127);
+            this.labelContent.Location = new System.Drawing.Point(11, 165);
             this.labelContent.Name = "labelContent";
             this.labelContent.Size = new System.Drawing.Size(44, 13);
             this.labelContent.TabIndex = 4;
@@ -77,6 +78,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.buttonCancel);
+            this.panel1.Controls.Add(this.labelTitle);
             this.panel1.Controls.Add(this.buttonAdd);
             this.panel1.Controls.Add(this.comboBoxType);
             this.panel1.Controls.Add(this.richTextBoxContent);
@@ -86,14 +88,14 @@
             this.panel1.Controls.Add(this.labelContent);
             this.panel1.Controls.Add(this.labelType);
             this.panel1.Controls.Add(this.labelAuthor);
-            this.panel1.Location = new System.Drawing.Point(28, 56);
+            this.panel1.Location = new System.Drawing.Point(8, 13);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(478, 286);
+            this.panel1.Size = new System.Drawing.Size(476, 319);
             this.panel1.TabIndex = 5;
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(357, 225);
+            this.buttonCancel.Location = new System.Drawing.Point(357, 263);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(99, 39);
             this.buttonCancel.TabIndex = 10;
@@ -102,7 +104,7 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(114, 225);
+            this.buttonAdd.Location = new System.Drawing.Point(114, 263);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(121, 39);
             this.buttonAdd.TabIndex = 9;
@@ -119,14 +121,14 @@
             "psd",
             "jpg",
             "png"});
-            this.comboBoxType.Location = new System.Drawing.Point(114, 52);
+            this.comboBoxType.Location = new System.Drawing.Point(114, 90);
             this.comboBoxType.Name = "comboBoxType";
             this.comboBoxType.Size = new System.Drawing.Size(121, 21);
             this.comboBoxType.TabIndex = 8;
             // 
             // richTextBoxContent
             // 
-            this.richTextBoxContent.Location = new System.Drawing.Point(114, 127);
+            this.richTextBoxContent.Location = new System.Drawing.Point(114, 165);
             this.richTextBoxContent.Name = "richTextBoxContent";
             this.richTextBoxContent.Size = new System.Drawing.Size(342, 80);
             this.richTextBoxContent.TabIndex = 7;
@@ -134,14 +136,14 @@
             // 
             // textBoxAuthor
             // 
-            this.textBoxAuthor.Location = new System.Drawing.Point(114, 89);
+            this.textBoxAuthor.Location = new System.Drawing.Point(114, 127);
             this.textBoxAuthor.Name = "textBoxAuthor";
             this.textBoxAuthor.Size = new System.Drawing.Size(342, 20);
             this.textBoxAuthor.TabIndex = 6;
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(114, 13);
+            this.textBoxName.Location = new System.Drawing.Point(114, 51);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(342, 20);
             this.textBoxName.TabIndex = 5;
@@ -149,7 +151,7 @@
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(7, 16);
+            this.labelName.Location = new System.Drawing.Point(20, 51);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(35, 13);
             this.labelName.TabIndex = 2;
@@ -159,15 +161,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.labelTitle);
+            this.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.Name = "DocumentAddForm";
-            this.Size = new System.Drawing.Size(578, 382);
+            this.Size = new System.Drawing.Size(998, 484);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

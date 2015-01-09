@@ -29,12 +29,12 @@
             // 
             // documentAddForm1
             // 
-            this.documentAddForm1.Author = "";
+            this.documentAddForm1.Author = "AuthorName";
             this.documentAddForm1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.documentAddForm1.Content = "";
+            this.documentAddForm1.Content = "Some text";
             resources.ApplyResources(this.documentAddForm1, "documentAddForm1");
             this.documentAddForm1.Name = "documentAddForm1";
-            this.documentAddForm1.Type = "";
+            this.documentAddForm1.Type = "pdf";
             // 
             // Form2addDocument
             // 
