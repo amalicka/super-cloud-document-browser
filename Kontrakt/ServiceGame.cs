@@ -54,7 +54,15 @@ namespace Kontrakt {
         }
 
         public void RemoveDocument(Document delDoc) {
-            documents.Remove(delDoc);
+            Console.WriteLine("#### Searching for document to delete ####");
+            foreach(Document document in documents){
+                if (delDoc.Name == document.Name) {
+                    Console.WriteLine("\n#### Accessing documents ####");
+                    documents.Remove(document);
+                    Console.WriteLine(document.Name + " deleted \ndeleted#### DONE ####");
+                    return;
+                }
+            }
         }
     }
 }
