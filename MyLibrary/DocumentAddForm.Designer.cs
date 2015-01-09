@@ -35,7 +35,9 @@
             this.textBoxAuthor = new System.Windows.Forms.TextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.labelName = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelTitle
@@ -51,7 +53,8 @@
             // labelType
             // 
             this.labelType.AutoSize = true;
-            this.labelType.Location = new System.Drawing.Point(20, 90);
+            this.labelType.Location = new System.Drawing.Point(3, 35);
+            this.labelType.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.labelType.Name = "labelType";
             this.labelType.Size = new System.Drawing.Size(31, 13);
             this.labelType.TabIndex = 2;
@@ -60,7 +63,8 @@
             // labelAuthor
             // 
             this.labelAuthor.AutoSize = true;
-            this.labelAuthor.Location = new System.Drawing.Point(11, 130);
+            this.labelAuthor.Location = new System.Drawing.Point(3, 65);
+            this.labelAuthor.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.labelAuthor.Name = "labelAuthor";
             this.labelAuthor.Size = new System.Drawing.Size(38, 13);
             this.labelAuthor.TabIndex = 3;
@@ -69,7 +73,8 @@
             // labelContent
             // 
             this.labelContent.AutoSize = true;
-            this.labelContent.Location = new System.Drawing.Point(11, 165);
+            this.labelContent.Location = new System.Drawing.Point(3, 95);
+            this.labelContent.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.labelContent.Name = "labelContent";
             this.labelContent.Size = new System.Drawing.Size(44, 13);
             this.labelContent.TabIndex = 4;
@@ -77,42 +82,37 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Controls.Add(this.buttonCancel);
             this.panel1.Controls.Add(this.labelTitle);
             this.panel1.Controls.Add(this.buttonAdd);
-            this.panel1.Controls.Add(this.comboBoxType);
-            this.panel1.Controls.Add(this.richTextBoxContent);
-            this.panel1.Controls.Add(this.textBoxAuthor);
-            this.panel1.Controls.Add(this.textBoxName);
-            this.panel1.Controls.Add(this.labelName);
-            this.panel1.Controls.Add(this.labelContent);
-            this.panel1.Controls.Add(this.labelType);
-            this.panel1.Controls.Add(this.labelAuthor);
-            this.panel1.Location = new System.Drawing.Point(8, 13);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(476, 319);
+            this.panel1.Size = new System.Drawing.Size(444, 381);
             this.panel1.TabIndex = 5;
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(357, 263);
+            this.buttonCancel.Location = new System.Drawing.Point(338, 322);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(99, 39);
+            this.buttonCancel.Size = new System.Drawing.Size(81, 39);
             this.buttonCancel.TabIndex = 10;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(114, 263);
+            this.buttonAdd.Location = new System.Drawing.Point(220, 322);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(121, 39);
+            this.buttonAdd.Size = new System.Drawing.Size(89, 39);
             this.buttonAdd.TabIndex = 9;
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = true;
             // 
             // comboBoxType
             // 
+            this.comboBoxType.Dock = System.Windows.Forms.DockStyle.Left;
             this.comboBoxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxType.FormattingEnabled = true;
             this.comboBoxType.Items.AddRange(new object[] {
@@ -121,29 +121,32 @@
             "psd",
             "jpg",
             "png"});
-            this.comboBoxType.Location = new System.Drawing.Point(114, 90);
+            this.comboBoxType.Location = new System.Drawing.Point(53, 33);
             this.comboBoxType.Name = "comboBoxType";
             this.comboBoxType.Size = new System.Drawing.Size(121, 21);
             this.comboBoxType.TabIndex = 8;
             // 
             // richTextBoxContent
             // 
-            this.richTextBoxContent.Location = new System.Drawing.Point(114, 165);
+            this.richTextBoxContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBoxContent.Location = new System.Drawing.Point(53, 93);
             this.richTextBoxContent.Name = "richTextBoxContent";
-            this.richTextBoxContent.Size = new System.Drawing.Size(342, 80);
+            this.richTextBoxContent.Size = new System.Drawing.Size(349, 144);
             this.richTextBoxContent.TabIndex = 7;
             this.richTextBoxContent.Text = "";
             // 
             // textBoxAuthor
             // 
-            this.textBoxAuthor.Location = new System.Drawing.Point(114, 127);
+            this.textBoxAuthor.Dock = System.Windows.Forms.DockStyle.Left;
+            this.textBoxAuthor.Location = new System.Drawing.Point(53, 63);
             this.textBoxAuthor.Name = "textBoxAuthor";
             this.textBoxAuthor.Size = new System.Drawing.Size(342, 20);
             this.textBoxAuthor.TabIndex = 6;
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(114, 51);
+            this.textBoxName.Dock = System.Windows.Forms.DockStyle.Left;
+            this.textBoxName.Location = new System.Drawing.Point(53, 3);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(342, 20);
             this.textBoxName.TabIndex = 5;
@@ -151,11 +154,35 @@
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(20, 51);
+            this.labelName.Location = new System.Drawing.Point(3, 5);
+            this.labelName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(35, 13);
             this.labelName.TabIndex = 2;
             this.labelName.Text = "Name";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.labelName, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxName, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.labelType, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.richTextBoxContent, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxType, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.labelContent, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxAuthor, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.labelAuthor, 0, 2);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(14, 57);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(405, 240);
+            this.tableLayoutPanel1.TabIndex = 6;
             // 
             // DocumentAddForm
             // 
@@ -165,9 +192,11 @@
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.Name = "DocumentAddForm";
-            this.Size = new System.Drawing.Size(998, 484);
+            this.Size = new System.Drawing.Size(444, 381);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -186,5 +215,6 @@
         private System.Windows.Forms.TextBox textBoxAuthor;
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

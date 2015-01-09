@@ -32,6 +32,8 @@
             this.documentAddForm1.Author = "AuthorName";
             this.documentAddForm1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.documentAddForm1.Content = "Some text";
+            this.documentAddForm1.DocumentName = "Name";
+            this.documentAddForm1.ForeColor = System.Drawing.SystemColors.WindowFrame;
             resources.ApplyResources(this.documentAddForm1, "documentAddForm1");
             this.documentAddForm1.Name = "documentAddForm1";
             this.documentAddForm1.Type = "pdf";
