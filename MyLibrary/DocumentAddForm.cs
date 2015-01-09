@@ -86,5 +86,11 @@ namespace MyLibrary {
                 CancelClick(this, null);
             }
         }
+
+        public void addTypesToComboBox(string[] types) {
+            foreach(string type in types){
+                comboBoxType.Items.Add(type);
+            }
+        }
     }
 }

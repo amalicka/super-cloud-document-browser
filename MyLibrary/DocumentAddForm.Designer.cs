@@ -28,14 +28,14 @@
             this.labelAuthor = new System.Windows.Forms.Label();
             this.labelContent = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelName = new System.Windows.Forms.Label();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.richTextBoxContent = new System.Windows.Forms.RichTextBox();
+            this.comboBoxType = new System.Windows.Forms.ComboBox();
+            this.textBoxAuthor = new System.Windows.Forms.TextBox();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.comboBoxType = new System.Windows.Forms.ComboBox();
-            this.richTextBoxContent = new System.Windows.Forms.RichTextBox();
-            this.textBoxAuthor = new System.Windows.Forms.TextBox();
-            this.textBoxName = new System.Windows.Forms.TextBox();
-            this.labelName = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -92,75 +92,6 @@
             this.panel1.Size = new System.Drawing.Size(444, 381);
             this.panel1.TabIndex = 5;
             // 
-            // buttonCancel
-            // 
-            this.buttonCancel.Location = new System.Drawing.Point(338, 322);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(81, 39);
-            this.buttonCancel.TabIndex = 10;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
-            // 
-            // buttonAdd
-            // 
-            this.buttonAdd.Location = new System.Drawing.Point(220, 322);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(89, 39);
-            this.buttonAdd.TabIndex = 9;
-            this.buttonAdd.Text = "Add";
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            // 
-            // comboBoxType
-            // 
-            this.comboBoxType.Dock = System.Windows.Forms.DockStyle.Left;
-            this.comboBoxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxType.FormattingEnabled = true;
-            this.comboBoxType.Items.AddRange(new object[] {
-            "pdf",
-            "doc",
-            "psd",
-            "jpg",
-            "png"});
-            this.comboBoxType.Location = new System.Drawing.Point(53, 33);
-            this.comboBoxType.Name = "comboBoxType";
-            this.comboBoxType.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxType.TabIndex = 8;
-            // 
-            // richTextBoxContent
-            // 
-            this.richTextBoxContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBoxContent.Location = new System.Drawing.Point(53, 93);
-            this.richTextBoxContent.Name = "richTextBoxContent";
-            this.richTextBoxContent.Size = new System.Drawing.Size(349, 144);
-            this.richTextBoxContent.TabIndex = 7;
-            this.richTextBoxContent.Text = "";
-            // 
-            // textBoxAuthor
-            // 
-            this.textBoxAuthor.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBoxAuthor.Location = new System.Drawing.Point(53, 63);
-            this.textBoxAuthor.Name = "textBoxAuthor";
-            this.textBoxAuthor.Size = new System.Drawing.Size(342, 20);
-            this.textBoxAuthor.TabIndex = 6;
-            // 
-            // textBoxName
-            // 
-            this.textBoxName.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBoxName.Location = new System.Drawing.Point(53, 3);
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(342, 20);
-            this.textBoxName.TabIndex = 5;
-            // 
-            // labelName
-            // 
-            this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(3, 5);
-            this.labelName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-            this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(35, 13);
-            this.labelName.TabIndex = 2;
-            this.labelName.Text = "Name";
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
@@ -181,8 +112,71 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(405, 240);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(405, 259);
             this.tableLayoutPanel1.TabIndex = 6;
+            // 
+            // labelName
+            // 
+            this.labelName.AutoSize = true;
+            this.labelName.Location = new System.Drawing.Point(3, 5);
+            this.labelName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(35, 13);
+            this.labelName.TabIndex = 2;
+            this.labelName.Text = "Name";
+            // 
+            // textBoxName
+            // 
+            this.textBoxName.Dock = System.Windows.Forms.DockStyle.Left;
+            this.textBoxName.Location = new System.Drawing.Point(53, 3);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(342, 20);
+            this.textBoxName.TabIndex = 5;
+            // 
+            // richTextBoxContent
+            // 
+            this.richTextBoxContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBoxContent.Location = new System.Drawing.Point(53, 93);
+            this.richTextBoxContent.Name = "richTextBoxContent";
+            this.richTextBoxContent.Size = new System.Drawing.Size(349, 163);
+            this.richTextBoxContent.TabIndex = 7;
+            this.richTextBoxContent.Text = "";
+            // 
+            // comboBoxType
+            // 
+            this.comboBoxType.Dock = System.Windows.Forms.DockStyle.Left;
+            this.comboBoxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxType.FormattingEnabled = true;
+            this.comboBoxType.Location = new System.Drawing.Point(53, 33);
+            this.comboBoxType.Name = "comboBoxType";
+            this.comboBoxType.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxType.TabIndex = 8;
+            // 
+            // textBoxAuthor
+            // 
+            this.textBoxAuthor.Dock = System.Windows.Forms.DockStyle.Left;
+            this.textBoxAuthor.Location = new System.Drawing.Point(53, 63);
+            this.textBoxAuthor.Name = "textBoxAuthor";
+            this.textBoxAuthor.Size = new System.Drawing.Size(342, 20);
+            this.textBoxAuthor.TabIndex = 6;
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Location = new System.Drawing.Point(338, 322);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(81, 39);
+            this.buttonCancel.TabIndex = 10;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Location = new System.Drawing.Point(220, 322);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(89, 39);
+            this.buttonAdd.TabIndex = 9;
+            this.buttonAdd.Text = "Add";
+            this.buttonAdd.UseVisualStyleBackColor = true;
             // 
             // DocumentAddForm
             // 
@@ -191,6 +185,8 @@
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.MaximumSize = new System.Drawing.Size(500, 400);
+            this.MinimumSize = new System.Drawing.Size(400, 300);
             this.Name = "DocumentAddForm";
             this.Size = new System.Drawing.Size(444, 381);
             this.panel1.ResumeLayout(false);

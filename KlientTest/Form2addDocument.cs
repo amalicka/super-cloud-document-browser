@@ -24,6 +24,8 @@ namespace KlientTest {
             InitializeComponent();
             documentAddForm1.AddClick += new DodajDokumentHandler(documentAddForm1_AddClick);
             documentAddForm1.CancelClick += new EventHandler(documentAddForm1_CancelClick);
+            string[] types = {"pdf", "doc"};
+            documentAddForm1.addTypesToComboBox(types);
         }
 
         private void  documentAddForm1_AddClick(string[] str){
@@ -56,6 +58,10 @@ namespace KlientTest {
                 tmpDoc.Content = str[3];
                 return tmpDoc;
             }
+        }
+
+        private void documentAddForm1_Load(object sender, EventArgs e) {
+
         }
     }
 }
