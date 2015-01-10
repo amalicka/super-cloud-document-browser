@@ -17,7 +17,7 @@ namespace MyLibrary {
         public event DodajDokumentHandler AddClick;
         public event EventHandler CancelClick;
 
-        [Category("Dane dokumentu")]
+        [Category("Document's info")]
         public string DocumentName {
             get {
                 return textBoxName.Text;
@@ -27,7 +27,7 @@ namespace MyLibrary {
             }
         }
 
-        [Category("Dane dokumentu")]
+        [Category("Document's info")]
         public string Type {
             get {
                 return comboBoxType.Text;
@@ -37,7 +37,7 @@ namespace MyLibrary {
             }
         }
 
-        [Category("Dane dokumentu")]
+        [Category("Document's info")]
         public string Author {
             get {
                 return textBoxAuthor.Text;
@@ -46,7 +46,7 @@ namespace MyLibrary {
                 textBoxAuthor.Text = value;
             }
         }
-        [Category("Dane dokumentu")]
+        [Category("Document's info")]
         public string Content {
             get {
                 return richTextBoxContent.Text;
@@ -76,7 +76,6 @@ namespace MyLibrary {
                     Console.WriteLine("docData [ " + i + " ] " + docData[i] + "!");
                 }
                 Console.WriteLine("buttonAdd_Click");
-
                 AddClick(docData);
             }
         }

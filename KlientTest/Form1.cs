@@ -78,9 +78,7 @@ namespace KlientTest {
             deleteDocument();
         }
 
-    }
-
-    
+    }    
 }
 
 

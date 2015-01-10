@@ -16,13 +16,9 @@ namespace MyLibrary {
             set { text = value; }
         }
 
-        public MyComponent() {
-            InitializeComponent();
-            text = "tekst z komponentu";
-        }
-
         public MyComponent(IContainer container) {
             container.Add(this);
+
             InitializeComponent();
             text = "tekst z komponentu";
         }
