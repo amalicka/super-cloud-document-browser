@@ -1,5 +1,0 @@
-C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\Kontrakt\bin\Release\Kontrakt.dll.config
-C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\Kontrakt\bin\Release\Kontrakt.dll
-C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\Kontrakt\bin\Release\Kontrakt.pdb
-C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\Kontrakt\obj\Release\Kontrakt.dll
-C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\Kontrakt\obj\Release\Kontrakt.pdb
