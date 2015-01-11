@@ -17,8 +17,8 @@ namespace KlientTest.ServiceGameReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Document", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KlientTest.ServiceGameReference.DocumentDoc))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(KlientTest.ServiceGameReference.DocumentPdf))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KlientTest.ServiceGameReference.DocumentDoc))]
     public partial class Document : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -126,16 +126,16 @@ namespace KlientTest.ServiceGameReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DocumentDoc", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DocumentPdf", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
     [System.SerializableAttribute()]
-    public partial class DocumentDoc : KlientTest.ServiceGameReference.Document {
+    public partial class DocumentPdf : KlientTest.ServiceGameReference.Document {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DocumentPdf", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DocumentDoc", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
     [System.SerializableAttribute()]
-    public partial class DocumentPdf : KlientTest.ServiceGameReference.Document {
+    public partial class DocumentDoc : KlientTest.ServiceGameReference.Document {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]

@@ -57,6 +57,10 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Content.cs" />
+    <Compile Include="Document.cs" />
+    <Compile Include="EditableContent.cs" />
+    <Compile Include="EditableField.cs" />
     <Compile Include="IServiceGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

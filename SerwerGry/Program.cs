@@ -12,7 +12,9 @@ namespace SerwerGry {
         static void Main(string[] args) {
 
             Console.WriteLine("Serwer Oli");
-            //tworzenie instacnji hoosta i wskazanie jaki kontrakt ma obsługiwać (Game Service)
+            
+            
+            
             ServiceHost host = new ServiceHost(new ServiceGame());
             host.Open();
             Console.ReadKey();

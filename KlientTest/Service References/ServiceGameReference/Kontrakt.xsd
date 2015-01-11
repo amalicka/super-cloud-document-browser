@@ -16,14 +16,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Document" nillable="true" type="tns:Document" />
-  <xs:complexType name="DocumentDoc">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:Document">
-        <xs:sequence />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="DocumentDoc" nillable="true" type="tns:DocumentDoc" />
   <xs:complexType name="DocumentPdf">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:Document">
@@ -32,4 +24,12 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="DocumentPdf" nillable="true" type="tns:DocumentPdf" />
+  <xs:complexType name="DocumentDoc">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Document">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DocumentDoc" nillable="true" type="tns:DocumentDoc" />
 </xs:schema>

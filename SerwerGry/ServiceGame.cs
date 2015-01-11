@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using System.Drawing;
 using Kontrakt;
+using System.Data.SqlClient;
 
 namespace SerwerGry {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
@@ -14,8 +13,7 @@ namespace SerwerGry {
         ConcurrencyMode = ConcurrencyMode.Single)]
     public class ServiceGame : IServiceGame {
 
-       // Dictionary<string, Player> players = new Dictionary<string, Player>();
-        List<Document> documents; // = new Document[10];
+        List<Document> documents;
 
         public ServiceGame() {
             documents = new List<Document> {
@@ -32,6 +30,16 @@ namespace SerwerGry {
             documents[0].Size = 111;
             documents[1].Size = 222;
             documents[2].Size = 333;
+
+            //tworzenie instacnji hoosta i wskazanie jaki kontrakt ma obsługiwać (Game Service)
+            SqlConnection con = null;
+            string connectionString = "data source = NT-17.wwsi.edu.pl,1601; database = KASETY_502_14; Persist Security Info=False user id = Z502_14; password  =Z502_14 ";
+            try {
+                con = new SqlConnection(connectionString);
+                Console.WriteLine("Łączenie z bazą danych");
+            } catch {
+                Console.WriteLine("Nie udalo się połączyć z bazą danych");
+            }
         }
 
         public Document[] GetDocumentsList() {
