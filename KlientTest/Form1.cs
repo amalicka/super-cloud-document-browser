@@ -34,9 +34,7 @@ namespace KlientTest {
             // Zarejestruj obserwatora w buttonie
             this.buttonAddDocument.Click += new EventHandler(buttonAddDocument_Click);
             addDocumentForm.AllowUpdate += new ReadyToUpadeHandler(refreshDocumentList);
-
             refreshDocumentList();
-
         }
         private void buttonAddDocument_Click(object sender, EventArgs e) {
             addDocumentForm.ShowDialog();
@@ -47,6 +45,7 @@ namespace KlientTest {
             listView1.Items.Clear();
             string tpmContent;
             foreach (var document in documentsArray) {
+                getListOfEditableFields(document);
                 try{
                      tpmContent = document.Content.DocContent;
                 }
@@ -65,26 +64,23 @@ namespace KlientTest {
                         Convert.ToString(document.Size), tpmContent
                     });
             }
-
-            foreach (var document in documentsArray) {
-                
-            }
         }
 
         private EditableField[] getListOfEditableFields(Document document) {
             try {
-                if (document.Content.GetType().IsAssignableFrom((new EditableContent()).GetType())) {
+                if (document.Content.GetType() == typeof(EditableContent)) {
                     EditableContent editableContent = (EditableContent)document.Content;
                     EditableField[] editableFields = editableContent.EditableFields;
+                    System.Diagnostics.Debug.WriteLine("Yupii! Got editable content!");
                     return editableFields;
                 } 
                 else {
-                    System.Diagnostics.Debug.WriteLine(document.Name + " ma Content typu Content");
+                    System.Diagnostics.Debug.WriteLine(document.Name + " ma EditableContent");
                     return null;
                 }
 
             } catch {
-                 System.Diagnostics.Debug.WriteLine("Coś poszło nie tak, przy szukaniu edytowalnych");
+                 System.Diagnostics.Debug.WriteLine("Coś poszło nie tak, przy szukaniu pól edytowalnych");
                  return null;
             }
         }
@@ -103,6 +99,15 @@ namespace KlientTest {
 
         private void buttonDeleteDocs_Click(object sender, EventArgs e) {
             deleteDocument();
+        }
+
+        private void buttonShowDoc_Click(object sender, EventArgs e) {
+            if (listView1.CheckedItems.Count != 1) {
+                MessageBox.Show("Wybierz 1 plik");
+                return;
+            }
+            Form3ShowDocumentContent showDocumentContent = new Form3ShowDocumentContent((Document)listView1.CheckedItems[0].Tag);
+            showDocumentContent.ShowDialog();
         }
 
     }    

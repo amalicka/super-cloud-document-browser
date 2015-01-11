@@ -25,8 +25,7 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonShowDoc = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.buttonAddDocument = new System.Windows.Forms.Button();
             this.documentBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -34,23 +33,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.documentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // buttonShowDoc
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 81);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Tekst z komponentu";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(28, 55);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Poaz tekst";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonShowDoc.Location = new System.Drawing.Point(28, 28);
+            this.buttonShowDoc.Name = "buttonShowDoc";
+            this.buttonShowDoc.Size = new System.Drawing.Size(75, 70);
+            this.buttonShowDoc.TabIndex = 3;
+            this.buttonShowDoc.Text = "Pokaż dokument";
+            this.buttonShowDoc.UseVisualStyleBackColor = true;
+            this.buttonShowDoc.Click += new System.EventHandler(this.buttonShowDoc_Click);
             // 
             // listView1
             // 
@@ -63,9 +54,9 @@
             // 
             // buttonAddDocument
             // 
-            this.buttonAddDocument.Location = new System.Drawing.Point(28, 122);
+            this.buttonAddDocument.Location = new System.Drawing.Point(28, 104);
             this.buttonAddDocument.Name = "buttonAddDocument";
-            this.buttonAddDocument.Size = new System.Drawing.Size(75, 69);
+            this.buttonAddDocument.Size = new System.Drawing.Size(75, 77);
             this.buttonAddDocument.TabIndex = 9;
             this.buttonAddDocument.Text = "Dodaj dokument";
             this.buttonAddDocument.UseVisualStyleBackColor = true;
@@ -76,7 +67,7 @@
             // 
             // buttonDeleteDocs
             // 
-            this.buttonDeleteDocs.Location = new System.Drawing.Point(28, 197);
+            this.buttonDeleteDocs.Location = new System.Drawing.Point(28, 187);
             this.buttonDeleteDocs.Name = "buttonDeleteDocs";
             this.buttonDeleteDocs.Size = new System.Drawing.Size(75, 76);
             this.buttonDeleteDocs.TabIndex = 10;
@@ -92,21 +83,18 @@
             this.Controls.Add(this.buttonDeleteDocs);
             this.Controls.Add(this.buttonAddDocument);
             this.Controls.Add(this.listView1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.buttonShowDoc);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.documentBindingSource)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonShowDoc;
         private System.Windows.Forms.BindingSource documentBindingSource;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button buttonAddDocument;
