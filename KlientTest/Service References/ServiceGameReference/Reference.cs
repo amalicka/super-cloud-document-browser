@@ -17,8 +17,9 @@ namespace KlientTest.ServiceGameReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Document", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KlientTest.ServiceGameReference.DocumentPdf))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(KlientTest.ServiceGameReference.DocumentDoc))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KlientTest.ServiceGameReference.DocumentHtml))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KlientTest.ServiceGameReference.DocumentPdf))]
     public partial class Document : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -28,7 +29,7 @@ namespace KlientTest.ServiceGameReference {
         private string AuthorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ContentField;
+        private KlientTest.ServiceGameReference.Content ContentField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime CreationDateField;
@@ -63,7 +64,7 @@ namespace KlientTest.ServiceGameReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Content {
+        public KlientTest.ServiceGameReference.Content Content {
             get {
                 return this.ContentField;
             }
@@ -126,9 +127,48 @@ namespace KlientTest.ServiceGameReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DocumentPdf", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Content", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
     [System.SerializableAttribute()]
-    public partial class DocumentPdf : KlientTest.ServiceGameReference.Document {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KlientTest.ServiceGameReference.EditableContent))]
+    public partial class Content : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DocContentField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DocContent {
+            get {
+                return this.DocContentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DocContentField, value) != true)) {
+                    this.DocContentField = value;
+                    this.RaisePropertyChanged("DocContent");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -136,6 +176,134 @@ namespace KlientTest.ServiceGameReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="DocumentDoc", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
     [System.SerializableAttribute()]
     public partial class DocumentDoc : KlientTest.ServiceGameReference.Document {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DocumentHtml", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
+    [System.SerializableAttribute()]
+    public partial class DocumentHtml : KlientTest.ServiceGameReference.Document {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DocumentPdf", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
+    [System.SerializableAttribute()]
+    public partial class DocumentPdf : KlientTest.ServiceGameReference.Document {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EditableContent", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
+    [System.SerializableAttribute()]
+    public partial class EditableContent : KlientTest.ServiceGameReference.Content {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private KlientTest.ServiceGameReference.EditableField[] EditableFieldsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public KlientTest.ServiceGameReference.EditableField[] EditableFields {
+            get {
+                return this.EditableFieldsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EditableFieldsField, value) != true)) {
+                    this.EditableFieldsField = value;
+                    this.RaisePropertyChanged("EditableFields");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EditableField", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
+    [System.SerializableAttribute()]
+    public partial class EditableField : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private KlientTest.ServiceGameReference.FieldType FieldTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ValueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public KlientTest.ServiceGameReference.FieldType FieldType {
+            get {
+                return this.FieldTypeField;
+            }
+            set {
+                if ((this.FieldTypeField.Equals(value) != true)) {
+                    this.FieldTypeField = value;
+                    this.RaisePropertyChanged("FieldType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Value {
+            get {
+                return this.ValueField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ValueField, value) != true)) {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FieldType", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
+    public enum FieldType : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        STRING = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NUMBER = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DATE = 2,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]

@@ -31,6 +31,21 @@ namespace SerwerGry {
             documents[1].Size = 222;
             documents[2].Size = 333;
 
+            Document editablePdfDoc = new DocumentPdf();
+
+            // Stworz liste edytowalnych pol
+            List<EditableField> editableFields = new List<EditableField>();
+            editableFields.Add(new EditableField(FieldType.STRING, "name", "Katarzyna"));
+            editableFields.Add(new EditableField(FieldType.STRING, "surname", "Stankiewicz"));
+
+            // Ustaw editable content w dokumentcie
+            editablePdfDoc.Content = new EditableContent("My document content", editableFields);
+            editablePdfDoc.Author = "Joanna XYZ";
+            editablePdfDoc.Name = "Editable PDF";
+
+            // Dodaj dokument
+            documents.Add(editablePdfDoc);
+
             //tworzenie instacnji hoosta i wskazanie jaki kontrakt ma obsługiwać (Game Service)
             SqlConnection con = null;
             string connectionString = "data source = NT-17.wwsi.edu.pl,1601; database = KASETY_502_14; Persist Security Info=False user id = Z502_14; password  =Z502_14 ";

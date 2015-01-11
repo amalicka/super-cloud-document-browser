@@ -15,5 +15,10 @@ namespace Kontrakt {
             get { return docContent; }
             set { docContent = value; }
         }
+
+        public Content() { }
+        public Content(String content) {
+            this.docContent = content;
+        }
     }
 }

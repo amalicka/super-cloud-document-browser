@@ -47,12 +47,6 @@
     <Compile Include="DocumentAddForm.Designer.cs">
       <DependentUpon>DocumentAddForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyComponent.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="MyComponent.Designer.cs">
-      <DependentUpon>MyComponent.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsageStatisticsReporter.cs">
       <SubType>Component</SubType>

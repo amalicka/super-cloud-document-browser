@@ -61,6 +61,7 @@
     <Compile Include="Document.cs" />
     <Compile Include="EditableContent.cs" />
     <Compile Include="EditableField.cs" />
+    <Compile Include="FieldType.cs" />
     <Compile Include="IServiceGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

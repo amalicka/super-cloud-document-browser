@@ -48,14 +48,18 @@ namespace KlientTest {
                 DocumentPdf tmpDoc = new DocumentPdf();
                 tmpDoc.Name = str[0];
                 tmpDoc.Author = str[2];
-                tmpDoc.Content = str[3];
+                Content content = new Content();
+                content.DocContent = str[3];
+                tmpDoc.Content = content;
                 return tmpDoc;
             } 
             else  /*(str[1] == "doc") */{
                 DocumentDoc tmpDoc = new DocumentDoc();
                 tmpDoc.Name = str[0];
                 tmpDoc.Author = str[2];
-                tmpDoc.Content = str[3];
+                Content content = new Content();
+                content.DocContent = str[3];
+                tmpDoc.Content = content;
                 return tmpDoc;
             }
         }

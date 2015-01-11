@@ -9,21 +9,51 @@
   <xs:complexType name="Document">
     <xs:sequence>
       <xs:element minOccurs="0" name="Author" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Content" nillable="true" type="tns:Content" />
       <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Size" type="xs:double" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Document" nillable="true" type="tns:Document" />
-  <xs:complexType name="DocumentPdf">
+  <xs:complexType name="Content">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DocContent" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Content" nillable="true" type="tns:Content" />
+  <xs:complexType name="EditableContent">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:Document">
-        <xs:sequence />
+      <xs:extension base="tns:Content">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EditableFields" nillable="true" type="tns:ArrayOfEditableField" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="DocumentPdf" nillable="true" type="tns:DocumentPdf" />
+  <xs:element name="EditableContent" nillable="true" type="tns:EditableContent" />
+  <xs:complexType name="ArrayOfEditableField">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EditableField" nillable="true" type="tns:EditableField" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEditableField" nillable="true" type="tns:ArrayOfEditableField" />
+  <xs:complexType name="EditableField">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FieldType" type="tns:FieldType" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EditableField" nillable="true" type="tns:EditableField" />
+  <xs:simpleType name="FieldType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="STRING" />
+      <xs:enumeration value="NUMBER" />
+      <xs:enumeration value="DATE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FieldType" nillable="true" type="tns:FieldType" />
   <xs:complexType name="DocumentDoc">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:Document">
@@ -32,4 +62,20 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="DocumentDoc" nillable="true" type="tns:DocumentDoc" />
+  <xs:complexType name="DocumentHtml">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Document">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DocumentHtml" nillable="true" type="tns:DocumentHtml" />
+  <xs:complexType name="DocumentPdf">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Document">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DocumentPdf" nillable="true" type="tns:DocumentPdf" />
 </xs:schema>

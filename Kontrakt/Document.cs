@@ -44,27 +44,33 @@ namespace Kontrakt {
             set { content = value; }
         }
 
-        public abstract void getContent(Content content);
+        public abstract Content getContent();
         //public abstract void edit();
     }
 
     [DataContract]
     public class DocumentPdf : Document {
         public DocumentPdf() { }
-        override public void getContent(Content content) { }
+        override public Content getContent() {
+            return null;
+        }
         //public void edit() { }
     }
 
     [DataContract]
     public class DocumentDoc : Document {
         public DocumentDoc() { }
-        override public void getContent(Content editableContent) { }
+        override public Content getContent() {
+            return null;
+        }
         //public void edit() { }
     }
     [DataContract]
     public class DocumentHtml : Document {
         public DocumentHtml() { }
-        override public void getContent(Content editableContent) { }
+        override public Content getContent() {
+            return null;
+        }
         //public void edit() { }
     }
 }

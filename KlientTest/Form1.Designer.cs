@@ -30,7 +30,6 @@
             this.listView1 = new System.Windows.Forms.ListView();
             this.buttonAddDocument = new System.Windows.Forms.Button();
             this.documentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.myComponent1 = new MyLibrary.MyComponent(this.components);
             this.buttonDeleteDocs = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.documentBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -52,7 +51,6 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Poaz tekst";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // listView1
             // 
@@ -75,10 +73,6 @@
             // documentBindingSource
             // 
             this.documentBindingSource.DataSource = typeof(KlientTest.ServiceGameReference.Document);
-            // 
-            // myComponent1
-            // 
-            this.myComponent1.Text = "tekst z komponentu";
             // 
             // buttonDeleteDocs
             // 
@@ -111,7 +105,6 @@
         #endregion
 
         private System.Windows.Forms.Timer timer1;
-        private MyLibrary.MyComponent myComponent1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.BindingSource documentBindingSource;

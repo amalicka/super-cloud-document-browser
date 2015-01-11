@@ -20,9 +20,10 @@ namespace KlientTest {
             addDocumentForm = new Form2addDocument(client);
             InitializeComponent();
             //http: //msdn.microsoft.com/pl-pl/library/system.windows.forms.listview.checkboxes(v=vs.110).aspx
-            listView1.Columns.Add("Name", 70);
+            listView1.Columns.Add("Name", 120);
             listView1.Columns.Add("Author", 70);
             listView1.Columns.Add("Size", 70);
+            listView1.Columns.Add("Content",70 );
             listView1.View = View.Details;
             listView1.CheckBoxes = true;
             // Select the item and subitems when selection is made.
@@ -35,12 +36,8 @@ namespace KlientTest {
             addDocumentForm.AllowUpdate += new ReadyToUpadeHandler(refreshDocumentList);
 
             refreshDocumentList();
-        }
-        
-        private void button1_Click(object sender, EventArgs e) {
-            label1.Text = myComponent1.dajMiText();
-        }
 
+        }
         private void buttonAddDocument_Click(object sender, EventArgs e) {
             addDocumentForm.ShowDialog();
         }
@@ -48,7 +45,15 @@ namespace KlientTest {
         private void refreshDocumentList() {
             documentsArray = client.GetDocumentsList();
             listView1.Items.Clear();
+            string tpmContent;
             foreach (var document in documentsArray) {
+                try{
+                     tpmContent = document.Content.DocContent;
+                }
+                catch{
+                    tpmContent = "brak tresci";
+                }
+                   
                 ListViewItem item = new ListViewItem();
                 item.Text = document.Name;
                 item.Tag = document;
@@ -57,8 +62,30 @@ namespace KlientTest {
                     .SubItems
                     .AddRange(new string[] { 
                         document.Author,
-                        Convert.ToString(document.Size)
+                        Convert.ToString(document.Size), tpmContent
                     });
+            }
+
+            foreach (var document in documentsArray) {
+                
+            }
+        }
+
+        private EditableField[] getListOfEditableFields(Document document) {
+            try {
+                if (document.Content.GetType().IsAssignableFrom((new EditableContent()).GetType())) {
+                    EditableContent editableContent = (EditableContent)document.Content;
+                    EditableField[] editableFields = editableContent.EditableFields;
+                    return editableFields;
+                } 
+                else {
+                    System.Diagnostics.Debug.WriteLine(document.Name + " ma Content typu Content");
+                    return null;
+                }
+
+            } catch {
+                 System.Diagnostics.Debug.WriteLine("Coś poszło nie tak, przy szukaniu edytowalnych");
+                 return null;
             }
         }
 
