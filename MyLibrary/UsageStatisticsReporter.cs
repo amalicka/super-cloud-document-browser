@@ -12,8 +12,8 @@ namespace MyLibrary {
 
     public partial class UsageStatisticsReporter : Component {
         public event UserStatisticsSendingHandler UserStatisticsSend;
-        private List<string> userActionsInfo = new List<string>();
-        private Timer timer = new Timer(15*1000);
+        private List<string> userActions = new List<string>();
+        private Timer timer = new Timer(10*1000);
         private Uri statisticsCollectingServer;        
 
         [Category("Server connection data")]
@@ -34,24 +34,33 @@ namespace MyLibrary {
             System.Diagnostics.Debug.WriteLine("Usage Statistics Reporter raised");
             if(UserStatisticsSend != null){
                 UserStatisticsSend();
-            }            
+            }
+            //clear the list 
+            userActions.Clear();
             timer.Elapsed += new ElapsedEventHandler(sendDataToTheStatisticsCollectingServer);
+            timer.Start();
         }
 
         public void reportClickedButton(string buttonName){
-            userActionsInfo.Add("Button clisked " + buttonName);
+            userActions.Add("Clicked:  " + buttonName);
         }
         public void reportAddedDocuemnts(int howManyDocs){
-            userActionsInfo.Add("Number of documents added : " + howManyDocs);
+            userActions.Add("Number of documents added : " + howManyDocs);
         }
         public void reportDeletedDocuments(int howManyDocs){
-            userActionsInfo.Add("Number of documents added : " + howManyDocs);
+            userActions.Add("Number of documents added : " + howManyDocs);
         }
 
         public void sendDataToTheStatisticsCollectingServer(object sender, ElapsedEventArgs e) {
-            //TODO: making JSON from the userActionsInfo List and sending to the server
-            //http:// msdn.microsoft.com/en-us/library/debx8sh9%28v=vs.110%29.aspx
-            System.Diagnostics.Debug.WriteLine("Data send");
+            System.Diagnostics.Debug.WriteLine("Statistic data send");
+            if (userActions.Count > 0){
+                System.Diagnostics.Debug.WriteLine("Writing to file " + userActions.Count + " events!");
+                System.IO.StreamWriter file = new System.IO.StreamWriter(
+                    @"C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\statistics.txt", true);
+                file.WriteLine(string.Join("\r\n", userActions));
+                file.Close();
+                userActions.Clear();
+            }
         }
 
 

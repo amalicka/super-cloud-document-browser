@@ -101,8 +101,8 @@ namespace KlientTest {
         }
 
         private void buttonAddDocument_Click(object sender, EventArgs e) {
-            addDocumentForm.ShowDialog();
             usageStatisticsReporter1.reportClickedButton("Button Add");
+            addDocumentForm.ShowDialog();
         }
 
         private void buttonDeleteDocs_Click(object sender, EventArgs e) {
@@ -119,9 +119,6 @@ namespace KlientTest {
                 new Form3ShowDocumentContent((Document)listView1.CheckedItems[0].Tag);
             showDocumentContent.ShowDialog();
         }
-
-        
-
     }    
 }
 
