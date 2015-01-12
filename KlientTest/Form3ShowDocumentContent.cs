@@ -19,18 +19,39 @@ namespace KlientTest {
             InitializeComponent();
             this.labelName.Text = document.Name;
             this.labelSize.Text = Convert.ToString(document.Size);
+            this.labelType.Text = checkWhatIsTheDocumentType(document);
             this.labelAuthor.Text = document.Author;
-            if (document.Content.DocContent != null) {
-                this.labelContent.Text = document.Content.DocContent;
+            try {
+                if (document.Content.DocContent != null) {
+                    this.labelContent.Text = document.Content.DocContent;
+                }
+            } 
+            catch {
+                this.labelContent.Text = "---- nie znaleziono zawartości ---";
             }
-            if (document.Content.GetType() == typeof(EditableContent)) {
-                EditableContent editableContent = (EditableContent)document.Content;
-                docEditFields = editableContent.EditableFields;
-                System.Diagnostics.Debug.WriteLine("Yupii! Got editable content!");
-                this.labelEditabeFields.Text = docEditFields[0].Name + " " + docEditFields[0].Value
-                    + "\n" + docEditFields[1].Name + " " + docEditFields[1].Value;
-            }
- 
+            try {
+                if (document.Content.GetType() == typeof(EditableContent)) {
+                    EditableContent editableContent = (EditableContent)document.Content;
+                    docEditFields = editableContent.EditableFields;
+                    System.Diagnostics.Debug.WriteLine("Yupii! Got editable content!");
+                    this.labelEditabeFields.Text = docEditFields[0].Name + " " + docEditFields[0].Value
+                        + "\n" + docEditFields[1].Name + " " + docEditFields[1].Value;
+                }
+            } catch {
+                this.labelEditabeFields.Text = "---- nie znaleziono pól edytowalnych ---";
+            } 
+        }
+
+        public string checkWhatIsTheDocumentType(Document document) {
+            string docType;
+            if (document.GetType() == typeof(DocumentDoc))
+                return "doc";
+            else if (document.GetType() == typeof(DocumentPdf))
+                return "pdf";
+            else if (document.GetType() == typeof(DocumentHtml))
+                return "html";
+            else
+                return "unnown";
         }
     }
 }

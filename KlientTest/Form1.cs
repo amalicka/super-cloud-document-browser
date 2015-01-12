@@ -106,7 +106,8 @@ namespace KlientTest {
                 MessageBox.Show("Wybierz 1 plik");
                 return;
             }
-            Form3ShowDocumentContent showDocumentContent = new Form3ShowDocumentContent((Document)listView1.CheckedItems[0].Tag);
+            Form3ShowDocumentContent showDocumentContent = 
+                new Form3ShowDocumentContent((Document)listView1.CheckedItems[0].Tag);
             showDocumentContent.ShowDialog();
         }
 
