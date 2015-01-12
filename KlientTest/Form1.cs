@@ -15,7 +15,6 @@ namespace KlientTest {
         Document[] documentsArray;
         Form2addDocument addDocumentForm;
         ServiceGameClient client;
-        private MyLibrary.UsageStatisticsReporter usageStatisticReporter = new MyLibrary.UsageStatisticsReporter();
 
         public Form1() {
             client = new ServiceGameClient();
@@ -40,7 +39,12 @@ namespace KlientTest {
         }
 
         private void refreshDocumentList() {
-            documentsArray = client.GetDocumentsList();
+            try { documentsArray = client.GetDocumentsList(); } 
+            catch { 
+                System.Diagnostics.Debug.WriteLine("Brak połaczenia z serwerem"); 
+                MessageBox.Show("Włącz serwer"); 
+                return; 
+            }
             listView1.Items.Clear();
             string tpmContent;
             foreach (var document in documentsArray) {
@@ -98,11 +102,12 @@ namespace KlientTest {
 
         private void buttonAddDocument_Click(object sender, EventArgs e) {
             addDocumentForm.ShowDialog();
-            
+            usageStatisticsReporter1.reportClickedButton("Button Add");
         }
 
         private void buttonDeleteDocs_Click(object sender, EventArgs e) {
             deleteDocument();
+            usageStatisticsReporter1.reportClickedButton("Button Delete");
         }
 
         private void buttonShowDoc_Click(object sender, EventArgs e) {

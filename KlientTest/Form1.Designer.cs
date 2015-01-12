@@ -27,6 +27,7 @@
             this.listView1 = new System.Windows.Forms.ListView();
             this.buttonAddDocument = new System.Windows.Forms.Button();
             this.buttonDeleteDocs = new System.Windows.Forms.Button();
+            this.usageStatisticsReporter1 = new MyLibrary.UsageStatisticsReporter();
             this.SuspendLayout();
             // 
             // buttonShowDoc
@@ -67,6 +68,10 @@
             this.buttonDeleteDocs.UseVisualStyleBackColor = true;
             this.buttonDeleteDocs.Click += new System.EventHandler(this.buttonDeleteDocs_Click);
             // 
+            // usageStatisticsReporter1
+            // 
+            this.usageStatisticsReporter1.StatisticsCollectingServer = null;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -88,6 +93,7 @@
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button buttonAddDocument;
         private System.Windows.Forms.Button buttonDeleteDocs;
+        private MyLibrary.UsageStatisticsReporter usageStatisticsReporter1;
     }
 }
 
