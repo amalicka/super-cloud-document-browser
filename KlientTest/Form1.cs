@@ -35,6 +35,7 @@ namespace KlientTest {
             // Zarejestruj obserwatora w buttonie
             this.buttonAddDocument.Click += new EventHandler(buttonAddDocument_Click);
             addDocumentForm.AllowUpdate += new ReadyToUpadeHandler(refreshDocumentList);
+            usageStatisticsReporter1.UserStatisticsSend += new UserStatisticsSendingHandler(statisticsSend);
             refreshDocumentList();
         }
 
@@ -118,6 +119,9 @@ namespace KlientTest {
             Form3ShowDocumentContent showDocumentContent = 
                 new Form3ShowDocumentContent((Document)listView1.CheckedItems[0].Tag);
             showDocumentContent.ShowDialog();
+        }
+        public void statisticsSend() {
+            System.Diagnostics.Debug.WriteLine("Klient app: statistics send");
         }
     }    
 }

@@ -70,6 +70,7 @@
             // 
             // usageStatisticsReporter1
             // 
+            this.usageStatisticsReporter1.FileName = "";
             this.usageStatisticsReporter1.StatisticsCollectingServer = null;
             // 
             // Form1

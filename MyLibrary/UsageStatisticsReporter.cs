@@ -14,7 +14,8 @@ namespace MyLibrary {
         public event UserStatisticsSendingHandler UserStatisticsSend;
         private List<string> userActions = new List<string>();
         private Timer timer = new Timer(10*1000);
-        private Uri statisticsCollectingServer;        
+        private Uri statisticsCollectingServer;
+        private string fileName;
 
         [Category("Server connection data")]
         public Uri StatisticsCollectingServer {
@@ -27,6 +28,12 @@ namespace MyLibrary {
             set { timer = value; }
         }
 
+        [Category("Server connection data")]
+        public string FileName {
+            get { return fileName; }
+            set { fileName = value; }
+        }
+
         //-- CONSTRUCTOR --
         public UsageStatisticsReporter(/*IContainer container*/) {
             //container.Add(this);
@@ -34,6 +41,9 @@ namespace MyLibrary {
             System.Diagnostics.Debug.WriteLine("Usage Statistics Reporter raised");
             if(UserStatisticsSend != null){
                 UserStatisticsSend();
+            }
+            if (fileName == null) {
+                fileName = "statistics";
             }
             //clear the list 
             userActions.Clear();
@@ -52,17 +62,18 @@ namespace MyLibrary {
         }
 
         public void sendDataToTheStatisticsCollectingServer(object sender, ElapsedEventArgs e) {
-            System.Diagnostics.Debug.WriteLine("Statistic data send");
+            System.Diagnostics.Debug.WriteLine("StatisticsReporter: statistics send");
             if (userActions.Count > 0){
-                System.Diagnostics.Debug.WriteLine("Writing to file " + userActions.Count + " events!");
                 System.IO.StreamWriter file = new System.IO.StreamWriter(
-                    @"C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\statistics.txt", true);
+                    @"C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\"+ fileName+ ".txt", true);
                 file.WriteLine(string.Join("\r\n", userActions));
                 file.Close();
                 userActions.Clear();
+                if(UserStatisticsSend != null ){
+                    UserStatisticsSend();
+                }
+
             }
         }
-
-
     }
 }
