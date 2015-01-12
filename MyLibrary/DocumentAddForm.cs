@@ -19,41 +19,25 @@ namespace MyLibrary {
 
         [Category("Document's info")]
         public string DocumentName {
-            get {
-                return textBoxName.Text;
-            }
-            set {
-                textBoxName.Text = value;
-            }
+            get { return textBoxName.Text; }
+            set { textBoxName.Text = value; }
         }
 
         [Category("Document's info")]
         public string Type {
-            get {
-                return comboBoxType.Text;
-            }
-            set {
-                comboBoxType.Text = value;
-            }
+            get { return comboBoxType.Text; }
+            set { comboBoxType.Text = value; }
         }
 
         [Category("Document's info")]
         public string Author {
-            get {
-                return textBoxAuthor.Text;
-            }
-            set {
-                textBoxAuthor.Text = value;
-            }
+            get { return textBoxAuthor.Text; }
+            set { textBoxAuthor.Text = value; }
         }
         [Category("Document's info")]
         public string Content {
-            get {
-                return richTextBoxContent.Text;
-            }
-            set {
-                richTextBoxContent.Text = value;
-            }
+            get { return richTextBoxContent.Text; }
+            set {richTextBoxContent.Text = value; }
         }
 
         public DocumentAddForm() {

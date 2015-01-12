@@ -29,6 +29,7 @@
             this.labelSize = new System.Windows.Forms.Label();
             this.labelContent = new System.Windows.Forms.Label();
             this.labelEditabeFields = new System.Windows.Forms.Label();
+            this.panelEditableElements = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // labelName
@@ -85,18 +86,26 @@
             this.labelEditabeFields.TabIndex = 5;
             this.labelEditabeFields.Text = "--EditabeFields--";
             // 
-            // Form2ShowDocumentContent
+            // panelEditableElements
+            // 
+            this.panelEditableElements.Location = new System.Drawing.Point(252, 234);
+            this.panelEditableElements.Name = "panelEditableElements";
+            this.panelEditableElements.Size = new System.Drawing.Size(207, 206);
+            this.panelEditableElements.TabIndex = 6;
+            // 
+            // Form3ShowDocumentContent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(482, 452);
+            this.Controls.Add(this.panelEditableElements);
             this.Controls.Add(this.labelEditabeFields);
             this.Controls.Add(this.labelContent);
             this.Controls.Add(this.labelSize);
             this.Controls.Add(this.labelType);
             this.Controls.Add(this.labelAuthor);
             this.Controls.Add(this.labelName);
-            this.Name = "Form2ShowDocumentContent";
+            this.Name = "Form3ShowDocumentContent";
             this.Text = "Form2ShowContent";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -111,5 +120,6 @@
         private System.Windows.Forms.Label labelSize;
         private System.Windows.Forms.Label labelContent;
         private System.Windows.Forms.Label labelEditabeFields;
+        private System.Windows.Forms.Panel panelEditableElements;
     }
 }

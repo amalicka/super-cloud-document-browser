@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KlientTest.ServiceGameReference;
+using MyLibrary;
 
 namespace KlientTest {
     public partial class Form1 : Form {
         Document[] documentsArray;
         Form2addDocument addDocumentForm;
         ServiceGameClient client;
+        private MyLibrary.UsageStatisticsReporter usageStatisticReporter = new MyLibrary.UsageStatisticsReporter();
 
         public Form1() {
             client = new ServiceGameClient();
@@ -35,9 +37,6 @@ namespace KlientTest {
             this.buttonAddDocument.Click += new EventHandler(buttonAddDocument_Click);
             addDocumentForm.AllowUpdate += new ReadyToUpadeHandler(refreshDocumentList);
             refreshDocumentList();
-        }
-        private void buttonAddDocument_Click(object sender, EventArgs e) {
-            addDocumentForm.ShowDialog();
         }
 
         private void refreshDocumentList() {
@@ -97,6 +96,11 @@ namespace KlientTest {
             MessageBox.Show("usunięto!");
         }
 
+        private void buttonAddDocument_Click(object sender, EventArgs e) {
+            addDocumentForm.ShowDialog();
+            
+        }
+
         private void buttonDeleteDocs_Click(object sender, EventArgs e) {
             deleteDocument();
         }
@@ -110,6 +114,8 @@ namespace KlientTest {
                 new Form3ShowDocumentContent((Document)listView1.CheckedItems[0].Tag);
             showDocumentContent.ShowDialog();
         }
+
+        
 
     }    
 }

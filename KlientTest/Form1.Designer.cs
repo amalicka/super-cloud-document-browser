@@ -23,14 +23,10 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.components = new System.ComponentModel.Container();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.buttonShowDoc = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.buttonAddDocument = new System.Windows.Forms.Button();
-            this.documentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonDeleteDocs = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.documentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonShowDoc
@@ -61,10 +57,6 @@
             this.buttonAddDocument.Text = "Dodaj dokument";
             this.buttonAddDocument.UseVisualStyleBackColor = true;
             // 
-            // documentBindingSource
-            // 
-            this.documentBindingSource.DataSource = typeof(KlientTest.ServiceGameReference.Document);
-            // 
             // buttonDeleteDocs
             // 
             this.buttonDeleteDocs.Location = new System.Drawing.Point(28, 187);
@@ -86,16 +78,13 @@
             this.Controls.Add(this.buttonShowDoc);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.documentBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button buttonShowDoc;
-        private System.Windows.Forms.BindingSource documentBindingSource;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button buttonAddDocument;
         private System.Windows.Forms.Button buttonDeleteDocs;

@@ -36,6 +36,14 @@ namespace KlientTest {
                     System.Diagnostics.Debug.WriteLine("Yupii! Got editable content!");
                     this.labelEditabeFields.Text = docEditFields[0].Name + " " + docEditFields[0].Value
                         + "\n" + docEditFields[1].Name + " " + docEditFields[1].Value;
+                    //tworzenie textboxsów
+                    var textBox = new TextBox();
+                    textBox.Text = docEditFields[0].Name + " " + docEditFields[0].Value;
+                    panelEditableElements.Controls.Add(textBox);
+                    var textBox1 = new TextBox();
+                    textBox1.Location = new Point(textBox.Location.X, textBox.Location.Y + 20);
+                    textBox1.Text = docEditFields[1].Name + " " + docEditFields[1].Value;
+                    panelEditableElements.Controls.Add(textBox1);
                 }
             } catch {
                 this.labelEditabeFields.Text = "---- nie znaleziono pól edytowalnych ---";
