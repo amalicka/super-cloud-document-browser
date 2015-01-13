@@ -23,7 +23,7 @@ namespace KlientTest {
             InitializeComponent();
             documentAddForm1.AddClick += new DodajDokumentHandler(documentAddForm1_AddClick);
             documentAddForm1.CancelClick += new EventHandler(documentAddForm1_CancelClick);
-            documentAddForm1.addTypesToComboBox(new string[] { "pdf", "doc" });
+            documentAddForm1.addTypesToComboBox(new string[] {"", "pdf", "doc" });
         }
 
         private void  documentAddForm1_AddClick(string[] dataFromControl){
@@ -42,7 +42,7 @@ namespace KlientTest {
                 DocumentPdfExp tmpDoc = new DocumentPdfExp();
                 tmpDoc.setName(dataFromControl[0]);
                 tmpDoc.setAuthor(dataFromControl[2]);
-                //tmpDoc.ContentExp.setContentString(dataFromControl[3]);
+                tmpDoc.ContentExp.setContentString(dataFromControl[3]);
                 return tmpDoc;
             } 
             else  /*(str[1] == "doc") */{

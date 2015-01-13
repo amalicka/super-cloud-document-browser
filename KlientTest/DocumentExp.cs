@@ -17,7 +17,6 @@ namespace KlientTest {
 
         public static DocumentExp from(Document doc) {
 
-            System.Diagnostics.Debug.WriteLine("jestem w fromp");
             if (doc.GetType() == typeof(DocumentDoc)) {
                 return new DocumentDocExp((DocumentDoc)doc);
             } else if (doc.GetType() == typeof(DocumentPdf)) {

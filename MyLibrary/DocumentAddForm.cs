@@ -43,7 +43,7 @@ namespace MyLibrary {
         public DocumentAddForm() {
             InitializeComponent();
             buttonAdd.Click += new EventHandler(buttonAdd_Click);
-            buttonCancel.Click += new EventHandler(buttonCancel_Click);
+            buttonCancel.Click += new EventHandler(buttonCancel_Click);                
         }
 
         public string[] getDocumentData() {
@@ -51,6 +51,11 @@ namespace MyLibrary {
         }
 
         private void buttonAdd_Click(object sender, EventArgs arg) {
+            textBoxName.Text = "";
+            textBoxAuthor.Text = "";
+            comboBoxType.Text = "";
+            richTextBoxContent.Text = "";
+
             if (AddClick != null) {
                 docData[0] = textBoxName.Text;
                 docData[1] = comboBoxType.Text;
