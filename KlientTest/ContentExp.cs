@@ -20,7 +20,9 @@ namespace KlientTest {
             }
         }
 
-        public ContentExp() { }
+        public ContentExp() {
+            this.contentData = new Content();
+        }
 
         public ContentExp(Content cont) {
             this.contentData = cont;

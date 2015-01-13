@@ -16,6 +16,8 @@ namespace KlientTest {
         }
 
         public static DocumentExp from(Document doc) {
+
+            System.Diagnostics.Debug.WriteLine("jestem w fromp");
             if (doc.GetType() == typeof(DocumentDoc)) {
                 return new DocumentDocExp((DocumentDoc)doc);
             } else if (doc.GetType() == typeof(DocumentPdf)) {
@@ -27,12 +29,12 @@ namespace KlientTest {
             }
         }
         
-        protected DocumentExp() {}
+        protected DocumentExp() {
+            this.documentData = new Document();
+        }
         protected DocumentExp(Document doc) {
             this.documentData = doc;
-            System.Diagnostics.Debug.WriteLine("konstruktor DocumentExp");
             if (doc.Content != null) {
-                System.Diagnostics.Debug.WriteLine("if not null !!!");
                 this.contentExp = ContentExp.from(doc.Content);
             }
         }

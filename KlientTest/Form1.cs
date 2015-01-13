@@ -42,10 +42,10 @@ namespace KlientTest {
             try { 
                 Document[] tmpDocsArray = client.GetDocumentsList();
                 documentsArray = new DocumentExp[tmpDocsArray.Length];
+                DocumentExp tmpDocument;
                 for(int i=0; i < tmpDocsArray.Length ; i++){
-                    System.Diagnostics.Debug.WriteLine("document :" + i + "  " + tmpDocsArray[i].Name);
-                    documentsArray[i] = DocumentExp.from(tmpDocsArray[i]); 
-                    System.Diagnostics.Debug.WriteLine("Wpisywanie dokumenyu " + i + " do tablicy"); 
+                    tmpDocument = DocumentExp.from(tmpDocsArray[i]);
+                    documentsArray[i] = tmpDocument;
                 }
             } 
             catch { 

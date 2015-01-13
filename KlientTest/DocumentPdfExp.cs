@@ -8,7 +8,9 @@ using KlientTest.ServiceGameReference;
 namespace KlientTest {
     public class DocumentPdfExp : DocumentExp {
 
-        public DocumentPdfExp() { }
+        public DocumentPdfExp() {
+            this.documentData = new DocumentPdf();
+        }
         public DocumentPdfExp(Document doc) 
             : base(doc) {
         }

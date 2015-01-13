@@ -27,21 +27,17 @@ namespace KlientTest {
         }
 
         private void  documentAddForm1_AddClick(string[] dataFromControl){
-            
             System.Diagnostics.Debug.WriteLine("documentAddForm1_AddClick");
-            client.AddDocument(makeDocumentFromData(dataFromControl).getDocument());
+            Document tmpDocument = makeDocumentFromData(dataFromControl).getDocument();
+            client.AddDocument(tmpDocument);
             if (AllowUpdate != null) {
                 AllowUpdate();
             }
             this.Close();
         }
 
-        private void documentAddForm1_CancelClick(object sender, EventArgs arg){
-            System.Diagnostics.Debug.WriteLine("documentAddForm1_CancelClick");
-            this.Close();
-        }
-
         private DocumentExp makeDocumentFromData(string[] dataFromControl) {
+            System.Diagnostics.Debug.WriteLine("makeDocumentFromData");
             if (dataFromControl[1] == "pdf") {
                 DocumentPdfExp tmpDoc = new DocumentPdfExp();
                 tmpDoc.setName(dataFromControl[0]);
@@ -53,9 +49,14 @@ namespace KlientTest {
                 DocumentDocExp tmpDoc = new DocumentDocExp();
                 tmpDoc.setName(dataFromControl[0]);
                 tmpDoc.setAuthor(dataFromControl[2]);
-                tmpDoc.ContentExp.setContentString(dataFromControl[3]);
+               // tmpDoc.ContentExp.setContentString(dataFromControl[3]);
                 return tmpDoc;
             }
+        }
+
+        private void documentAddForm1_CancelClick(object sender, EventArgs arg) {
+            System.Diagnostics.Debug.WriteLine("documentAddForm1_CancelClick");
+            this.Close();
         }
 
         private void documentAddForm1_Load(object sender, EventArgs e) {
