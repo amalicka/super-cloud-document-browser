@@ -14,23 +14,23 @@ namespace KlientTest {
 
         private EditableField[] docEditFields;
 
-        public Form3ShowDocumentContent(Document document) {
+        public Form3ShowDocumentContent(DocumentExp document) {
             InitializeComponent();
-            this.labelName.Text = document.Name;
-            this.labelSize.Text = Convert.ToString(document.Size);
+            this.labelName.Text = document.getName();
+            this.labelSize.Text = Convert.ToString(document.getSize());
             this.labelType.Text = checkWhatIsTheDocumentType(document);
-            this.labelAuthor.Text = document.Author;
+            this.labelAuthor.Text = document.getAuthor();
             try {
-                if (document.Content.DocContent != null) {
-                    this.labelContent.Text = document.Content.DocContent;
+                if (document.ContentExp!= null) {
+                    this.labelContent.Text = document.ContentExp.getContentData().DocContent;
                 }
             } 
             catch {
                 this.labelContent.Text = "---- nie znaleziono zawartości ---";
             }
             try {
-                if (document.Content.GetType() == typeof(EditableContent)) {
-                    EditableContent editableContent = (EditableContent)document.Content;
+                if (document.ContentExp.GetType() == typeof(EditableContentExp)) {
+                    EditableContentExp editableContent = (EditableContent)document.ContentExp;
                     docEditFields = editableContent.EditableFields;
                     System.Diagnostics.Debug.WriteLine("Yupii! Got editable content!");
                     this.labelEditabeFields.Text = docEditFields[0].Name + " " + docEditFields[0].Value
@@ -49,7 +49,7 @@ namespace KlientTest {
             } 
         }
 
-        public string checkWhatIsTheDocumentType(Document document) {
+        public string checkWhatIsTheDocumentType(DocumentExp document) {
             if (document.GetType() == typeof(DocumentDocExp))
                 return "doc";
             else if (document.GetType() == typeof(DocumentPdfExp))

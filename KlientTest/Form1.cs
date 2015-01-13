@@ -126,7 +126,7 @@ namespace KlientTest {
                 return;
             }
             Form3ShowDocumentContent showDocumentContent = 
-                new Form3ShowDocumentContent((Document)listView1.CheckedItems[0].Tag);
+                new Form3ShowDocumentContent((DocumentExp)listView1.CheckedItems[0].Tag);
             showDocumentContent.ShowDialog();
         }
 

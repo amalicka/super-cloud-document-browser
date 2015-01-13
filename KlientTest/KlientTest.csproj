@@ -71,6 +71,14 @@
     <Compile Include="Form3ShowDocumentContent.Designer.cs">
       <DependentUpon>Form3ShowDocumentContent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form4Print.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form4Print.Designer.cs">
+      <DependentUpon>Form4Print.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaperPrint.cs" />
+    <Compile Include="Printable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\ServiceGameReference\Reference.cs">
