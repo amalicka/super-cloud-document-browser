@@ -7,7 +7,7 @@ using KlientTest.ServiceGameReference;
 
 namespace KlientTest {
 
-    public abstract class DocumentExp : Printable {
+    public abstract class DocumentExp {
         protected Document documentData;
         protected ContentExp contentExp;
 
@@ -58,10 +58,6 @@ namespace KlientTest {
         }
         public void setSize(double size) {
             this.documentData.Size = size;
-        }
-
-        public PaperPrint getPrintableVersion() {
-            return new PaperPrint();
-        }
+        }                
     }
 }

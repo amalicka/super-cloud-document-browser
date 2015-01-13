@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace KlientTest {
     public partial class Form4Print : Form {
-        public Form4Print() {
+        public Form4Print(DocumentExp document) {
             InitializeComponent();
         }
     }

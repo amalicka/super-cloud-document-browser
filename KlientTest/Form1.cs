@@ -133,6 +133,26 @@ namespace KlientTest {
         public void statisticsSend() {
             System.Diagnostics.Debug.WriteLine("Klient app: statistics send");
         }
+
+        private void buttonPrint_Click(object sender, EventArgs e) {
+            DocumentExp docToPrint = (DocumentExp)listView1.CheckedItems[0].Tag;
+            if (listView1.CheckedItems.Count != 1) {
+                MessageBox.Show("Wybierz 1 plik");
+                return;
+            }
+            if (docToPrint is Printable) {
+                Form4Print printDocumentContent = new Form4Print(docToPrint);
+                printDocumentContent.ShowDialog();
+            } 
+            else {
+                MessageBox.Show("Tego dokumentu nie można wydrukować");
+                return;
+            }
+
+            
+
+
+        }
     }    
 }
 

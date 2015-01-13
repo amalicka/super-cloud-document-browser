@@ -96,6 +96,9 @@
     <EmbeddedResource Include="Form3ShowDocumentContent.resx">
       <DependentUpon>Form3ShowDocumentContent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form4Print.resx">
+      <DependentUpon>Form4Print.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

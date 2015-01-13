@@ -6,13 +6,16 @@ using System.Threading.Tasks;
 using KlientTest.ServiceGameReference;
 
 namespace KlientTest {
-    public class DocumentPdfExp : DocumentExp {
+    public class DocumentPdfExp : DocumentExp, Printable {
 
         public DocumentPdfExp() {
             this.documentData = new DocumentPdf();
         }
         public DocumentPdfExp(Document doc) 
             : base(doc) {
+        }
+        public PaperPrint getPrintableVersion() {
+            return new PaperPrint();
         }
     }
 }

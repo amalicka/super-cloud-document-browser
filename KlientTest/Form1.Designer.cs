@@ -28,15 +28,14 @@
             this.buttonAddDocument = new System.Windows.Forms.Button();
             this.buttonDeleteDocs = new System.Windows.Forms.Button();
             this.usageStatisticsReporter1 = new MyLibrary.UsageStatisticsReporter();
+            this.buttonPrint = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // Zarejestruj obserwatora w buttonie
-            this.buttonAddDocument.Click += new System.EventHandler(this.buttonAddDocument_Click);
             // 
             // buttonShowDoc
             // 
             this.buttonShowDoc.Location = new System.Drawing.Point(28, 28);
             this.buttonShowDoc.Name = "buttonShowDoc";
-            this.buttonShowDoc.Size = new System.Drawing.Size(75, 70);
+            this.buttonShowDoc.Size = new System.Drawing.Size(75, 57);
             this.buttonShowDoc.TabIndex = 3;
             this.buttonShowDoc.Text = "Pokaż dokument";
             this.buttonShowDoc.UseVisualStyleBackColor = true;
@@ -53,18 +52,19 @@
             // 
             // buttonAddDocument
             // 
-            this.buttonAddDocument.Location = new System.Drawing.Point(28, 104);
+            this.buttonAddDocument.Location = new System.Drawing.Point(28, 96);
             this.buttonAddDocument.Name = "buttonAddDocument";
-            this.buttonAddDocument.Size = new System.Drawing.Size(75, 77);
+            this.buttonAddDocument.Size = new System.Drawing.Size(75, 52);
             this.buttonAddDocument.TabIndex = 9;
             this.buttonAddDocument.Text = "Dodaj dokument";
             this.buttonAddDocument.UseVisualStyleBackColor = true;
+            this.buttonAddDocument.Click += new System.EventHandler(this.buttonAddDocument_Click);
             // 
             // buttonDeleteDocs
             // 
-            this.buttonDeleteDocs.Location = new System.Drawing.Point(28, 187);
+            this.buttonDeleteDocs.Location = new System.Drawing.Point(28, 159);
             this.buttonDeleteDocs.Name = "buttonDeleteDocs";
-            this.buttonDeleteDocs.Size = new System.Drawing.Size(75, 76);
+            this.buttonDeleteDocs.Size = new System.Drawing.Size(75, 51);
             this.buttonDeleteDocs.TabIndex = 10;
             this.buttonDeleteDocs.Text = "Usun wybrane dokumenty";
             this.buttonDeleteDocs.UseVisualStyleBackColor = true;
@@ -75,11 +75,22 @@
             this.usageStatisticsReporter1.FileName = "";
             this.usageStatisticsReporter1.StatisticsCollectingServer = null;
             // 
+            // buttonPrint
+            // 
+            this.buttonPrint.Location = new System.Drawing.Point(28, 225);
+            this.buttonPrint.Name = "buttonPrint";
+            this.buttonPrint.Size = new System.Drawing.Size(75, 48);
+            this.buttonPrint.TabIndex = 11;
+            this.buttonPrint.Text = "Drukuj";
+            this.buttonPrint.UseVisualStyleBackColor = true;
+            this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(588, 312);
+            this.Controls.Add(this.buttonPrint);
             this.Controls.Add(this.buttonDeleteDocs);
             this.Controls.Add(this.buttonAddDocument);
             this.Controls.Add(this.listView1);
@@ -97,6 +108,7 @@
         private System.Windows.Forms.Button buttonAddDocument;
         private System.Windows.Forms.Button buttonDeleteDocs;
         private MyLibrary.UsageStatisticsReporter usageStatisticsReporter1;
+        private System.Windows.Forms.Button buttonPrint;
     }
 }
 
