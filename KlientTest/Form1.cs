@@ -103,7 +103,8 @@ namespace KlientTest {
                 return;
             }
             foreach (ListViewItem item in listView1.CheckedItems) {
-                client.RemoveDocument((Document)item.Tag);
+                DocumentExp documentTodelete = (DocumentExp)item.Tag;
+                client.RemoveDocument(documentTodelete.getDocument());
             }
             refreshDocumentList();
             MessageBox.Show("usunięto!");
