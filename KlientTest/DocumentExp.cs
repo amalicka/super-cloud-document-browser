@@ -31,6 +31,7 @@ namespace KlientTest {
         
         protected DocumentExp() {
             this.documentData = new Document();
+            this.contentExp = new ContentExp();
         }
         protected DocumentExp(Document doc) {
             this.documentData = doc;

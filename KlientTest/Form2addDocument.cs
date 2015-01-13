@@ -42,14 +42,14 @@ namespace KlientTest {
                 DocumentPdfExp tmpDoc = new DocumentPdfExp();
                 tmpDoc.setName(dataFromControl[0]);
                 tmpDoc.setAuthor(dataFromControl[2]);
-                tmpDoc.ContentExp.setContentString(dataFromControl[3]);
+                //tmpDoc.ContentExp.setContentString(dataFromControl[3]);
                 return tmpDoc;
             } 
             else  /*(str[1] == "doc") */{
                 DocumentDocExp tmpDoc = new DocumentDocExp();
                 tmpDoc.setName(dataFromControl[0]);
                 tmpDoc.setAuthor(dataFromControl[2]);
-               // tmpDoc.ContentExp.setContentString(dataFromControl[3]);
+                tmpDoc.ContentExp.setContentString(dataFromControl[3]);
                 return tmpDoc;
             }
         }
