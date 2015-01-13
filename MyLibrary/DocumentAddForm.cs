@@ -51,10 +51,6 @@ namespace MyLibrary {
         }
 
         private void buttonAdd_Click(object sender, EventArgs arg) {
-            textBoxName.Text = "";
-            textBoxAuthor.Text = "";
-            comboBoxType.Text = "";
-            richTextBoxContent.Text = "";
 
             if (AddClick != null) {
                 docData[0] = textBoxName.Text;
@@ -67,6 +63,11 @@ namespace MyLibrary {
                 Console.WriteLine("buttonAdd_Click");
                 AddClick(docData);
             }
+
+            textBoxName.Text = "";
+            textBoxAuthor.Text = "";
+            comboBoxType.Text = "";
+            richTextBoxContent.Text = "";
         }
 
         private void buttonCancel_Click(object sender, EventArgs arg) {

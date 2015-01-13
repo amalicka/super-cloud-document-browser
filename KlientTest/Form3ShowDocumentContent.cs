@@ -30,8 +30,8 @@ namespace KlientTest {
             }
             try {
                 if (document.ContentExp.GetType() == typeof(EditableContentExp)) {
-                    EditableContentExp editableContent = (EditableContent)document.ContentExp;
-                    docEditFields = editableContent.EditableFields;
+                    EditableContentExp editableContent = (EditableContentExp)document.ContentExp;
+                    docEditFields = editableContent.getEditableContent().EditableFields;
                     System.Diagnostics.Debug.WriteLine("Yupii! Got editable content!");
                     this.labelEditabeFields.Text = docEditFields[0].Name + " " + docEditFields[0].Value
                         + "\n" + docEditFields[1].Name + " " + docEditFields[1].Value;
