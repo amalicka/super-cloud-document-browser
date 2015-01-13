@@ -16,7 +16,7 @@ namespace KlientTest {
     public partial class Form2addDocument : Form {
 
         ServiceGameClient client;
-        private Document document = new Document();
+        private DocumentExp documentExp = new DocumentExp();
         public event ReadyToUpadeHandler AllowUpdate;
 
         public Form2addDocument(ServiceGameClient client) {
@@ -24,14 +24,13 @@ namespace KlientTest {
             InitializeComponent();
             documentAddForm1.AddClick += new DodajDokumentHandler(documentAddForm1_AddClick);
             documentAddForm1.CancelClick += new EventHandler(documentAddForm1_CancelClick);
-            string[] types = {"pdf", "doc"};
-            documentAddForm1.addTypesToComboBox(types);
+            documentAddForm1.addTypesToComboBox(new string[] { "pdf", "doc" });
         }
 
-        private void  documentAddForm1_AddClick(string[] str){
+        private void  documentAddForm1_AddClick(string[] dataFromControl){
             
             System.Diagnostics.Debug.WriteLine("documentAddForm1_AddClick");
-            client.AddDocument(makeDocumentFromData(str));
+            client.AddDocument(makeDocumentFromData(dataFromControl).getDocument());
             if (AllowUpdate != null) {
                 AllowUpdate();
             }
@@ -43,23 +42,19 @@ namespace KlientTest {
             this.Close();
         }
 
-        private Document makeDocumentFromData(string[] str){
-            if (str[1] == "pdf") {
-                DocumentPdf tmpDoc = new DocumentPdf();
-                tmpDoc.Name = str[0];
-                tmpDoc.Author = str[2];
-                Content content = new Content();
-                content.DocContent = str[3];
-                tmpDoc.Content = content;
+        private DocumentExp makeDocumentFromData(string[] dataFromControl) {
+            if (dataFromControl[1] == "pdf") {
+                DocumentPdfExp tmpDoc = new DocumentPdfExp();
+                tmpDoc.setName(dataFromControl[0]);
+                tmpDoc.setAuthor(dataFromControl[2]);
+                tmpDoc.ContentExp.setContentString(dataFromControl[3]);
                 return tmpDoc;
             } 
             else  /*(str[1] == "doc") */{
-                DocumentDoc tmpDoc = new DocumentDoc();
-                tmpDoc.Name = str[0];
-                tmpDoc.Author = str[2];
-                Content content = new Content();
-                content.DocContent = str[3];
-                tmpDoc.Content = content;
+                DocumentDocExp tmpDoc = new DocumentDocExp();
+                tmpDoc.setName(dataFromControl[0]);
+                tmpDoc.setAuthor(dataFromControl[2]);
+                tmpDoc.ContentExp.setContentString(dataFromControl[3]);
                 return tmpDoc;
             }
         }

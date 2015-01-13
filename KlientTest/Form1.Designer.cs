@@ -29,6 +29,8 @@
             this.buttonDeleteDocs = new System.Windows.Forms.Button();
             this.usageStatisticsReporter1 = new MyLibrary.UsageStatisticsReporter();
             this.SuspendLayout();
+            // Zarejestruj obserwatora w buttonie
+            this.buttonAddDocument.Click += new System.EventHandler(this.buttonAddDocument_Click);
             // 
             // buttonShowDoc
             // 

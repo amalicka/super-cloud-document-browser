@@ -12,7 +12,6 @@ using KlientTest.ServiceGameReference;
 namespace KlientTest {
     public partial class Form3ShowDocumentContent : Form {
 
-        private Document document;
         private EditableField[] docEditFields;
 
         public Form3ShowDocumentContent(Document document) {
@@ -51,12 +50,11 @@ namespace KlientTest {
         }
 
         public string checkWhatIsTheDocumentType(Document document) {
-            string docType;
-            if (document.GetType() == typeof(DocumentDoc))
+            if (document.GetType() == typeof(DocumentDocExp))
                 return "doc";
-            else if (document.GetType() == typeof(DocumentPdf))
+            else if (document.GetType() == typeof(DocumentPdfExp))
                 return "pdf";
-            else if (document.GetType() == typeof(DocumentHtml))
+            else if (document.GetType() == typeof(DocumentHtmlExp))
                 return "html";
             else
                 return "unnown";

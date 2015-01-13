@@ -12,7 +12,7 @@ using MyLibrary;
 
 namespace KlientTest {
     public partial class Form1 : Form {
-        Document[] documentsArray;
+        DocumentExp[] documentsArray;
         Form2addDocument addDocumentForm;
         ServiceGameClient client;
 
@@ -20,27 +20,31 @@ namespace KlientTest {
             client = new ServiceGameClient();
             addDocumentForm = new Form2addDocument(client);
             InitializeComponent();
-            //http: //msdn.microsoft.com/pl-pl/library/system.windows.forms.listview.checkboxes(v=vs.110).aspx
-            listView1.Columns.Add("Name", 120);
-            listView1.Columns.Add("Author", 70);
-            listView1.Columns.Add("Size", 70);
-            listView1.Columns.Add("Content",70 );
-            listView1.View = View.Details;
-            listView1.CheckBoxes = true;
-            // Select the item and subitems when selection is made.
-            listView1.FullRowSelect = true;
-            listView1.GridLines = true;
-            listView1.Sorting = SortOrder.Ascending;
-
-            // Zarejestruj obserwatora w buttonie
-            this.buttonAddDocument.Click += new EventHandler(buttonAddDocument_Click);
+            makeListView();  
             addDocumentForm.AllowUpdate += new ReadyToUpadeHandler(refreshDocumentList);
             usageStatisticsReporter1.UserStatisticsSend += new UserStatisticsSendingHandler(statisticsSend);
             refreshDocumentList();
         }
+        public void makeListView() {
+            //http: //msdn.microsoft.com/pl-pl/library/system.windows.forms.listview.checkboxes(v=vs.110).aspx
+            listView1.Columns.Add("Name", 120);
+            listView1.Columns.Add("Author", 70);
+            listView1.Columns.Add("Size", 70);
+            listView1.Columns.Add("Content", 70);
+            listView1.View = View.Details;
+            listView1.CheckBoxes = true;
+            listView1.FullRowSelect = true;// Select the item and subitems when selection is made.
+            listView1.GridLines = true;
+            listView1.Sorting = SortOrder.Ascending;
+        }
 
         private void refreshDocumentList() {
-            try { documentsArray = client.GetDocumentsList(); } 
+            try { 
+                Document[] tmpDocsArray = client.GetDocumentsList();
+                for(int i=0; i < tmpDocsArray.Length ; i++){
+                    documentsArray[i] = DocumentExp.from(tmpDocsArray[i]);
+                }
+            } 
             catch { 
                 System.Diagnostics.Debug.WriteLine("Brak połaczenia z serwerem"); 
                 MessageBox.Show("Włącz serwer"); 
@@ -49,23 +53,22 @@ namespace KlientTest {
             listView1.Items.Clear();
             string tpmContent;
             foreach (var document in documentsArray) {
-                getListOfEditableFields(document);
                 try{
-                     tpmContent = document.Content.DocContent;
+                     tpmContent = document.ContentExp.getContentString();
                 }
                 catch{
                     tpmContent = "brak tresci";
                 }
                    
                 ListViewItem item = new ListViewItem();
-                item.Text = document.Name;
+                item.Text = document.getName();
                 item.Tag = document;
                 listView1.Items
                     .Add(item)
                     .SubItems
                     .AddRange(new string[] { 
-                        document.Author,
-                        Convert.ToString(document.Size), tpmContent
+                        document.getAuthor(),
+                        Convert.ToString(document.getSize()), tpmContent
                     });
             }
         }
@@ -120,6 +123,7 @@ namespace KlientTest {
                 new Form3ShowDocumentContent((Document)listView1.CheckedItems[0].Tag);
             showDocumentContent.ShowDialog();
         }
+
         public void statisticsSend() {
             System.Diagnostics.Debug.WriteLine("Klient app: statistics send");
         }

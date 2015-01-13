@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContentExp.cs" />
+    <Compile Include="DocumentDocExp.cs" />
+    <Compile Include="DocumentExp.cs" />
+    <Compile Include="DocumentHtmlExp.cs" />
+    <Compile Include="DocumentPdfExp.cs" />
+    <Compile Include="EditableContentExp.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
