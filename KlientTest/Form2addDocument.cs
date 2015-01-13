@@ -16,7 +16,6 @@ namespace KlientTest {
     public partial class Form2addDocument : Form {
 
         ServiceGameClient client;
-        private DocumentExp documentExp = new DocumentExp();
         public event ReadyToUpadeHandler AllowUpdate;
 
         public Form2addDocument(ServiceGameClient client) {

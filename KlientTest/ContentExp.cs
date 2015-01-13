@@ -25,11 +25,19 @@ namespace KlientTest {
         public ContentExp(Content cont) {
             this.contentData = cont;
         }
+
+        public Content getContentData() {
+            return this.contentData;
+        }
         public string getContentString() {
             return this.contentData.DocContent;
         }
         public void setContentString(string c) {
             this.contentData.DocContent = c; 
+        }
+        protected virtual EditableContentExp getEditableContent() {
+            System.Diagnostics.Debug.WriteLine("Metoda --getEditableContent()-- wywolana z ContentExp");
+            return new EditableContentExp();
         }
     }
 }

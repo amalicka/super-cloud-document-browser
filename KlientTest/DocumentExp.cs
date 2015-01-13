@@ -30,7 +30,11 @@ namespace KlientTest {
         protected DocumentExp() {}
         protected DocumentExp(Document doc) {
             this.documentData = doc;
-            this.contentExp = ContentExp.from(doc.Content);
+            System.Diagnostics.Debug.WriteLine("konstruktor DocumentExp");
+            if (doc.Content != null) {
+                System.Diagnostics.Debug.WriteLine("if not null !!!");
+                this.contentExp = ContentExp.from(doc.Content);
+            }
         }
         public string getAuthor(){
             return documentData.Author;

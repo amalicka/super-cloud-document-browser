@@ -41,8 +41,11 @@ namespace KlientTest {
         private void refreshDocumentList() {
             try { 
                 Document[] tmpDocsArray = client.GetDocumentsList();
+                documentsArray = new DocumentExp[tmpDocsArray.Length];
                 for(int i=0; i < tmpDocsArray.Length ; i++){
-                    documentsArray[i] = DocumentExp.from(tmpDocsArray[i]);
+                    System.Diagnostics.Debug.WriteLine("document :" + i + "  " + tmpDocsArray[i].Name);
+                    documentsArray[i] = DocumentExp.from(tmpDocsArray[i]); 
+                    System.Diagnostics.Debug.WriteLine("Wpisywanie dokumenyu " + i + " do tablicy"); 
                 }
             } 
             catch { 
@@ -73,24 +76,26 @@ namespace KlientTest {
             }
         }
 
-        private EditableField[] getListOfEditableFields(Document document) {
-            try {
-                if (document.Content.GetType() == typeof(EditableContent)) {
-                    EditableContent editableContent = (EditableContent)document.Content;
-                    EditableField[] editableFields = editableContent.EditableFields;
-                    System.Diagnostics.Debug.WriteLine("Yupii! Got editable content!");
-                    return editableFields;
-                } 
-                else {
-                    System.Diagnostics.Debug.WriteLine(document.Name + " ma EditableContent");
-                    return null;
-                }
+        //private List<EditableFieldExp> getListOfEditableFields(DocumentExp documentExp) {
+        //    try {
+        //        if (documentExp.ContentExp.getContentData().GetType() == typeof(EditableContentExp)) {
+        //            //EditableContentExp editableContentExt = (EditableContentExp)documentExp.getDocument().Content;
+        //            List<EditableFieldExp> editableFields;
+        //                documentExp.ContentExp.getEditableContent().getEditableContentData().editableFields;
+        //               // editableContentExt.getContentData().E;
+        //            System.Diagnostics.Debug.WriteLine("Yupii! Got editable content!");
+        //            return editableFields;
+        //        } 
+        //        else {
+        //            System.Diagnostics.Debug.WriteLine(documentExp.getName() + " ma EditableContent");
+        //            return null;
+        //        }
 
-            } catch {
-                 System.Diagnostics.Debug.WriteLine("Coś poszło nie tak, przy szukaniu pól edytowalnych");
-                 return null;
-            }
-        }
+        //    } catch {
+        //         System.Diagnostics.Debug.WriteLine("Coś poszło nie tak, przy szukaniu pól edytowalnych");
+        //         return null;
+        //    }
+        //}
 
         private void deleteDocument() {
             if (listView1.CheckedItems.Count == 0) {
