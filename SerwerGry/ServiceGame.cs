@@ -45,16 +45,6 @@ namespace SerwerGry {
 
             // Dodaj dokument
             documents.Add(editablePdfDoc);
-
-            //tworzenie instacnji hoosta i wskazanie jaki kontrakt ma obsługiwać (Game Service)
-            SqlConnection con = null;
-            string connectionString = "data source = NT-17.wwsi.edu.pl,1601; database = KASETY_502_14; Persist Security Info=False user id = Z502_14; password  =Z502_14 ";
-            try {
-                con = new SqlConnection(connectionString);
-                Console.WriteLine("Łączenie z bazą danych");
-            } catch {
-                Console.WriteLine("Nie udalo się połączyć z bazą danych");
-            }
         }
 
         public Document[] GetDocumentsList() {
