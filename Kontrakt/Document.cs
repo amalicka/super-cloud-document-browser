@@ -49,6 +49,12 @@ namespace Kontrakt {
 
     [DataContract]
     public class DocumentPdf : Document {
+        // http://resources.infosecinstitute.com/pdf-file-format-basic-structure/
+
+        [DataMember] public string pageTree { get; set; }
+        [DataMember] public string outlineHierarchy { get; set; }
+        [DataMember] public string documentCatalog { get; set; }
+
         public DocumentPdf() { }
         override public Content getContent() {
             return Content;
@@ -57,6 +63,13 @@ namespace Kontrakt {
 
     [DataContract]
     public class DocumentDoc : Document {
+
+        // http://www.forensicswiki.org/wiki/Word_Document_%28DOCX%29
+        [DataMember] public int cp_revision { get; set; }
+        [DataMember] public string fontTable { get; set; }
+        [DataMember] public string theme { get; set; }
+        [DataMember] public string style { get; set; }
+
         public DocumentDoc() { }
         override public Content getContent() {
             return Content;
