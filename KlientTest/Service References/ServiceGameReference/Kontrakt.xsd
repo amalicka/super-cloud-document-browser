@@ -11,6 +11,7 @@
       <xs:element minOccurs="0" name="Author" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Content" nillable="true" type="tns:Content" />
       <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:long" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Size" type="xs:double" />
     </xs:sequence>
@@ -57,11 +58,28 @@
   <xs:complexType name="DocumentDoc">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:Document">
-        <xs:sequence />
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cp_revision" type="xs:int" />
+          <xs:element minOccurs="0" name="fontTable" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="style" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="theme" nillable="true" type="xs:string" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="DocumentDoc" nillable="true" type="tns:DocumentDoc" />
+  <xs:complexType name="DocumentPdf">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Document">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="documentCatalog" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="outlineHierarchy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="pageTree" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DocumentPdf" nillable="true" type="tns:DocumentPdf" />
   <xs:complexType name="DocumentHtml">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:Document">
@@ -70,12 +88,4 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="DocumentHtml" nillable="true" type="tns:DocumentHtml" />
-  <xs:complexType name="DocumentPdf">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:Document">
-        <xs:sequence />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="DocumentPdf" nillable="true" type="tns:DocumentPdf" />
 </xs:schema>

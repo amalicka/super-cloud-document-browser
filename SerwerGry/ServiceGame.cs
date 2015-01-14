@@ -48,6 +48,13 @@ namespace SerwerGry {
         }
 
         public Document[] GetDocumentsList() {
+
+            // Wyciagnij liste dokumentow
+            // Challenge 1: tylko z tabelki Document (bez editable i parametow PDF/DOC)
+            //      UWAGA: TYP dokumentu -> odpowiednia klasa!!!
+            // Challenge 2: dodaj editable fieldsy
+            // Challenge 3: dodaj parametry dokumentow (tabelki PDF i DOC)
+
             Console.WriteLine("#### Accessing documents ####");
             foreach (var doc in documents) {
                 Console.WriteLine("Name: " + doc.Name + ", author: " + doc.Author + ", size: " + doc.Size);
@@ -61,13 +68,44 @@ namespace SerwerGry {
         }
 
         public void AddDocument(Document newDoc) {
-            Console.WriteLine("metoda: łochAddDocumentochochoooo!");
+            Console.WriteLine("metoda: AddDocument");
+            // Insert nowego dokumentu
+            // Challenge 1: do tabelki Document
+            // Nie mozna edytowac EditableField-sow, wiec nie trzeba wrzucac danych do tej tabelki
+            // Nie mozna edytowac specyficznych parametrow PDF/DOC, wiec pomijamy
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = @"Data Source=(LocalDB)\v11.0;
+                          AttachDbFilename = C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\SerwerGry\DocumentDB.mdf;
+                          Connect Timeout=30;";
+            con.Open();  
+          
+            string type;
+            if(newDoc.GetType() == typeof(DocumentPdf))
+                type = "pdf";
+            else if (newDoc.GetType() == typeof(DocumentDoc))
+                type = "doc";
+            if (newDoc.GetType() == typeof(DocumentHtml))
+                type = "html";
+            else
+                type = "unnown";
+
+
+            string insertString = "insert into Document (Name, Author, Type) values "
+                + "('" + newDoc.Name + "', '" + newDoc.Author + "', '" + type + "');";
+            Console.WriteLine("insert string : " + insertString);
+            SqlCommand cmd = new SqlCommand(insertString, con);
+            int nmbrAffected =  cmd.ExecuteNonQuery();
+            Console.WriteLine("Number of rows affected: " + nmbrAffected);
+
+            con.Close();
+            
             documents.Add(newDoc);
             Console.WriteLine("**************************\nDodano dokument wprowadzony przez usera:");
-            Console.WriteLine(newDoc.Name + " " + newDoc.Author + " " + newDoc.Content);
+            Console.WriteLine(newDoc.Name + " " + newDoc.Author + " " + newDoc.Content.DocContent);
         }
 
         public void RemoveDocument(Document delDoc) {
+            // Delete wybranego dokumentu, po ID dokumentu
             Console.WriteLine("#### Searching for document to delete ####");
             foreach(Document document in documents){
                 if (delDoc.Name == document.Name) {

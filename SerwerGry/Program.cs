@@ -17,21 +17,30 @@ namespace SerwerGry {
             Console.WriteLine("I'm in: " + Directory.GetCurrentDirectory());
             ServiceHost host = new ServiceHost(new ServiceGame());
             host.Open();
-            SqlConnection con = new SqlConnection();
-            // con.ConnectionString = @"Data Source=.\SQLEXPRESS;
-            con.ConnectionString = @"Data Source=(LocalDB)\v11.0;
-                          AttachDbFilename = C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\SerwerGry\DocumentDB.mdf;
-                          Connect Timeout=30;";
-            SqlDataReader reader = null;
-//            //try {
-            con.Open();
+//            SqlConnection con = new SqlConnection();
+//            // con.ConnectionString = @"Data Source=.\SQLEXPRESS;
+//            con.ConnectionString = @"Data Source=(LocalDB)\v11.0;
+//                          AttachDbFilename = C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\SerwerGry\DocumentDB.mdf;
+//                          Connect Timeout=30;";
+//            SqlDataReader reader = null;
+//            //            //try {
+//            con.Open();
 
-            SqlCommand cmd = new SqlCommand("select * from Document", con);
-            reader = cmd.ExecuteReader();
+//            string insertString = "insert into Document (Name, Author, Type) "
+//                + "values ('KK', 'DD', 'PDF')";
+//            Console.WriteLine("insert string : " + insertString);
+//            SqlCommand cmd = new SqlCommand(insertString, con);
+//            int nmbrAffected = cmd.ExecuteNonQuery();
+//            Console.WriteLine("Number of rows affected: " + nmbrAffected);
 
-            while (reader.Read()) {
-                Console.WriteLine(reader[1]);
-            }
+//            con.Close();
+
+//            SqlCommand cmd = new SqlCommand("select * from Document", con);
+//            reader = cmd.ExecuteReader();
+
+//            while (reader.Read()) {
+//                Console.WriteLine(reader[1]);
+//            }
             //} finally {
             //    if (reader != null) {
             //        reader.Close();

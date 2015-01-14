@@ -18,8 +18,8 @@ namespace KlientTest.ServiceGameReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="Document", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(KlientTest.ServiceGameReference.DocumentDoc))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KlientTest.ServiceGameReference.DocumentHtml))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(KlientTest.ServiceGameReference.DocumentPdf))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KlientTest.ServiceGameReference.DocumentHtml))]
     public partial class Document : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -33,6 +33,9 @@ namespace KlientTest.ServiceGameReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime CreationDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
@@ -85,6 +88,19 @@ namespace KlientTest.ServiceGameReference {
                 if ((this.CreationDateField.Equals(value) != true)) {
                     this.CreationDateField = value;
                     this.RaisePropertyChanged("CreationDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
                 }
             }
         }
@@ -176,13 +192,70 @@ namespace KlientTest.ServiceGameReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="DocumentDoc", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
     [System.SerializableAttribute()]
     public partial class DocumentDoc : KlientTest.ServiceGameReference.Document {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DocumentHtml", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
-    [System.SerializableAttribute()]
-    public partial class DocumentHtml : KlientTest.ServiceGameReference.Document {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cp_revisionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fontTableField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string styleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string themeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cp_revision {
+            get {
+                return this.cp_revisionField;
+            }
+            set {
+                if ((this.cp_revisionField.Equals(value) != true)) {
+                    this.cp_revisionField = value;
+                    this.RaisePropertyChanged("cp_revision");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fontTable {
+            get {
+                return this.fontTableField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fontTableField, value) != true)) {
+                    this.fontTableField = value;
+                    this.RaisePropertyChanged("fontTable");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string style {
+            get {
+                return this.styleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.styleField, value) != true)) {
+                    this.styleField = value;
+                    this.RaisePropertyChanged("style");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string theme {
+            get {
+                return this.themeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.themeField, value) != true)) {
+                    this.themeField = value;
+                    this.RaisePropertyChanged("theme");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -190,6 +263,61 @@ namespace KlientTest.ServiceGameReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="DocumentPdf", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
     [System.SerializableAttribute()]
     public partial class DocumentPdf : KlientTest.ServiceGameReference.Document {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string documentCatalogField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string outlineHierarchyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string pageTreeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string documentCatalog {
+            get {
+                return this.documentCatalogField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.documentCatalogField, value) != true)) {
+                    this.documentCatalogField = value;
+                    this.RaisePropertyChanged("documentCatalog");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string outlineHierarchy {
+            get {
+                return this.outlineHierarchyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.outlineHierarchyField, value) != true)) {
+                    this.outlineHierarchyField = value;
+                    this.RaisePropertyChanged("outlineHierarchy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string pageTree {
+            get {
+                return this.pageTreeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.pageTreeField, value) != true)) {
+                    this.pageTreeField = value;
+                    this.RaisePropertyChanged("pageTree");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DocumentHtml", Namespace="http://schemas.datacontract.org/2004/07/Kontrakt")]
+    [System.SerializableAttribute()]
+    public partial class DocumentHtml : KlientTest.ServiceGameReference.Document {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]

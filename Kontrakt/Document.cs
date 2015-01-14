@@ -11,11 +11,18 @@ namespace Kontrakt {
     [KnownType(typeof(DocumentPdf))]
     [KnownType(typeof(DocumentHtml))]
     public abstract class Document {
+        long id;
         string name;
         double size;
         string author;
         Content content;
         DateTime creationDate;
+
+        [DataMember]
+        public long Id {
+            get { return id; }
+            set { id = value; }
+        }
 
         [DataMember]
         public string Name {
