@@ -10,6 +10,8 @@ namespace KlientTest {
 
         public DocumentPdfExp() {
             this.documentData = new DocumentPdf();
+            this.contentExp = new ContentExp();
+            this.documentData.Content = this.ContentExp.getContentData();
         }
         public DocumentPdfExp(Document doc) 
             : base(doc) {

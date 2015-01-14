@@ -7,7 +7,7 @@ using KlientTest.ServiceGameReference;
 using System.Runtime.Serialization;
 
 namespace KlientTest {
-    public class EditableContentExp : ContentExp{
+    public class EditableContentExp : ContentExp {
                 
         private EditableContent editableContentData;
 
@@ -18,15 +18,12 @@ namespace KlientTest {
         public EditableContentExp(EditableContent editCont) {
             this.editableContentData = editCont;
         }
-
-        public EditableContent getEditableContent() {
-            System.Diagnostics.Debug.WriteLine("Metoda --getEditableContent()-- wywolana z EditableContentExp");
-            return this.editableContentData;
-        }
         
         public EditableContent getEditableContentData(){
             return this.editableContentData;
         }
-        public EditableContentExp() { }
+
+        public EditableContentExp() { 
+        }
     }
 }

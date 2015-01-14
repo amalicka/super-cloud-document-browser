@@ -31,7 +31,9 @@ namespace KlientTest {
         protected DocumentExp() {
             this.documentData = new Document();
             this.contentExp = new ContentExp();
+            this.documentData.Content = this.contentExp.getContentData();
         }
+
         protected DocumentExp(Document doc) {
             this.documentData = doc;
             if (doc.Content != null) {
@@ -58,6 +60,6 @@ namespace KlientTest {
         }
         public void setSize(double size) {
             this.documentData.Size = size;
-        }                
+        }
     }
 }
