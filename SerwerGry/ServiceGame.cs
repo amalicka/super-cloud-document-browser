@@ -47,6 +47,9 @@ namespace SerwerGry {
 
         private const string SQL_INSERT_DOC = "insert into Document (Name, Author, Type, Content) values ('{0}', '{1}', '{2}', '{3}');";
         private const string SQL_DELETE_DOC = "delete from Document where Id = {0}";
+        private const string SQL_DELETE_DOC_PDF = "delete from DocumentPdf where Doc_ID = {0};";
+        private const string SQL_DELETE_DOC_DOC = "delete from DocumentDoc where Doc_ID = {0};";
+
 
         public ServiceGame() {}
 
@@ -60,21 +63,20 @@ namespace SerwerGry {
             try {
                 List<Document> documentList = new List<Document>();
                 SqlConnection con = new SqlConnection(CONNECTOIN_STRING);
-                SqlDataReader documentReader = null;
                 con.Open();
                 Console.WriteLine("#### Connected to Database ####");
                 SqlCommand cmd = new SqlCommand(SQL_SELECT_DOCS, con);
-                documentReader = cmd.ExecuteReader();
+                SqlDataReader documentReader = cmd.ExecuteReader();
                 while (documentReader.Read()) {
                     Document document;
-
+                    int documentId = documentReader.GetInt32(ID_IDX);
                     // Stworz dokument uzywajac odpowiedniej klasy dziedziczacej po Document
                     switch (documentReader[TYPE_IDX].ToString()) {
                         case DOC_DOC: {
                                 // Wczytaj atrybuty specyficzne dla klasy DOC
                                 DocumentDoc docDoc = new DocumentDoc();
                                 SqlCommand sqlDocPropsCmd = new SqlCommand(
-                                        String.Format(SQL_SELECT_DOC_PROPS, documentReader.GetInt32(ID_IDX)),
+                                        String.Format(SQL_SELECT_DOC_PROPS, documentId),
                                         con);
                                 SqlDataReader docPropsReader = sqlDocPropsCmd.ExecuteReader();
                                 if (docPropsReader.Read()) {
@@ -83,6 +85,7 @@ namespace SerwerGry {
                                     docDoc.theme = docPropsReader[THEME_IDX].ToString();
                                     docDoc.style = docPropsReader[STYLE_IDX].ToString();
                                 }
+                                docPropsReader.Close();
                                 document = docDoc;
                                 break;
                             }
@@ -94,7 +97,7 @@ namespace SerwerGry {
                                 // Wczytaj atrybuty specyficzne dla klasy PDF
                                 DocumentPdf docPdf = new DocumentPdf();
                                 SqlCommand sqlPdfPropsCmd = new SqlCommand(
-                                        String.Format(SQL_SELECT_PDF_PROPS, documentReader.GetInt32(ID_IDX)),
+                                        String.Format(SQL_SELECT_PDF_PROPS, documentId),
                                         con);
                                 SqlDataReader pdfPropsReader = sqlPdfPropsCmd.ExecuteReader();
                                 if (pdfPropsReader.Read()) {
@@ -102,6 +105,7 @@ namespace SerwerGry {
                                     docPdf.outlineHierarchy = pdfPropsReader[OUTLINE_HIERARCHY_IDX].ToString();
                                     docPdf.documentCatalog = pdfPropsReader[DOCUMENT_CATALOG_IDX].ToString();
                                 }
+                                pdfPropsReader.Close();
                                 document = docPdf;
                                 break;
                             }
@@ -112,7 +116,7 @@ namespace SerwerGry {
                     // Jak juz mamy dokument, poustawiajmy mu reszte pol
                     document.Name = documentReader[NAME_IDX].ToString();
                     document.Author = documentReader[AUTHOR_IDX].ToString();
-                    document.Id = documentReader.GetInt32(ID_IDX);
+                    document.Id = documentId;
 
                     String sizeStr = documentReader[SIZE_IDX].ToString();
                     if (sizeStr != null && sizeStr != "") {
@@ -122,16 +126,14 @@ namespace SerwerGry {
                     // EditableContent (czy zwykly Content?)
                     // Sprawdz czy dokument ma EditableFieldsy w bazie danych
                     SqlCommand sqlEditableFieldsCmd = new SqlCommand(
-                            String.Format(SQL_SELECT_EDITABLE_FIELDS, documentReader.GetInt32(ID_IDX)),
+                            String.Format(SQL_SELECT_EDITABLE_FIELDS, documentId),
                             con);
                     SqlDataReader editableFieldsReader = sqlEditableFieldsCmd.ExecuteReader();
                     EditableContent editableContent = null;
                     while (editableFieldsReader.Read()) {
                         // Jesli weszlismy -> document ma editable content, stworz i przypnij!
                         if (editableContent == null) {
-                            editableContent = new EditableContent(
-                                documentReader[CONTENT_IDX].ToString(),
-                                new List<EditableField>());
+                            editableContent = new EditableContent();
                             document.Content = editableContent;
                         }
                         EditableField field = new EditableField();
@@ -153,6 +155,7 @@ namespace SerwerGry {
                         // Dodaj editableField do editableContent
                         editableContent.EditableFields.Add(field);
                     }
+                    editableFieldsReader.Close();
 
                     // Ustaw content (jesli byl editable content, jest juz wpiety w dokument)
                     document.Content.DocContent = documentReader[CONTENT_IDX].ToString();
@@ -187,13 +190,13 @@ namespace SerwerGry {
             string type;
             if (newDoc.GetType() == typeof(DocumentPdf)) {
                 Console.WriteLine("to jest pdf");
-                type = "pdf";
+                type = DOC_PDF;
             } else if (newDoc.GetType() == typeof(DocumentDoc)) {
                 Console.WriteLine("to jest doc");
-                type = "doc";
+                type = DOC_DOC;
             } else if (newDoc.GetType() == typeof(DocumentHtml)) {
                 Console.WriteLine("to jest html");
-                type = "html";
+                type = DOC_HTML;
             } else {
                 Console.WriteLine("to jest unnown");
                 type = "unnown";
@@ -215,10 +218,28 @@ namespace SerwerGry {
             Console.WriteLine("#### Searching for document to delete ####");
             SqlConnection con = new SqlConnection(CONNECTOIN_STRING);
             con.Open();
-            SqlCommand deleteCommand = new SqlCommand(String.Format(SQL_DELETE_DOC, delDoc.Id), con);
-            Console.WriteLine("Del str: " + String.Format(SQL_DELETE_DOC, delDoc.Id));
-            int rowsAffected = deleteCommand.ExecuteNonQuery();
-            Console.WriteLine("Deleted: " + rowsAffected + " lines.");
+            if(delDoc.GetType() == typeof(DocumentPdf)){
+                SqlCommand deleteCommand = new SqlCommand(String.Format(SQL_DELETE_DOC_PDF, delDoc.Id), con);
+                int rowsAffected = deleteCommand.ExecuteNonQuery();
+                Console.WriteLine("Deleted: " + rowsAffected + " lines. - doc PDF deleted");
+                deleteCommand = new SqlCommand(String.Format(SQL_DELETE_DOC, delDoc.Id), con);
+                rowsAffected = deleteCommand.ExecuteNonQuery();
+                Console.WriteLine("Deleted: " + rowsAffected + " lines. - doc deleted");
+            }
+            else if(delDoc.GetType() == typeof(DocumentDoc)){
+                SqlCommand deleteCommand = new SqlCommand(String.Format(SQL_DELETE_DOC_DOC, delDoc.Id), con);
+                int rowsAffected = deleteCommand.ExecuteNonQuery();
+                Console.WriteLine("Deleted: " + rowsAffected + " lines. - doc DOC deleted");
+                deleteCommand = new SqlCommand(String.Format(SQL_DELETE_DOC, delDoc.Id), con);
+                rowsAffected = deleteCommand.ExecuteNonQuery();
+                Console.WriteLine("Deleted: " + rowsAffected + " lines. - doc deleted");
+            }
+            else{
+                SqlCommand deleteCommand = new SqlCommand(String.Format(SQL_DELETE_DOC, delDoc.Id), con);
+                int rowsAffected = deleteCommand.ExecuteNonQuery();
+                Console.WriteLine("Deleted: " + rowsAffected + " lines.- doc (no type) deleted");
+            }                    
+            
             con.Close();
         }
     }
