@@ -23,12 +23,17 @@ namespace KlientTest {
             InitializeComponent();
             documentAddForm1.AddClick += new DodajDokumentHandler(documentAddForm1_AddClick);
             documentAddForm1.CancelClick += new EventHandler(documentAddForm1_CancelClick);
-            documentAddForm1.addTypesToComboBox(new string[] {"html", "pdf", "doc" });
+            documentAddForm1.addTypesToComboBox(new string[] {"","html", "pdf", "doc" });
         }
 
         private void  documentAddForm1_AddClick(string[] dataFromControl){
             System.Diagnostics.Debug.WriteLine("documentAddForm1_AddClick");
+            if (dataFromControl[1] == null || dataFromControl[1] == "") {
+                MessageBox.Show("Wybierz typ dokumentu");
+                return;
+            }
             Document tmpDocument = makeDocumentFromData(dataFromControl).getDocument();
+            
             client.AddDocument(tmpDocument);
             if (AllowUpdate != null) {
                 AllowUpdate();
@@ -50,13 +55,16 @@ namespace KlientTest {
                 tmpDoc.setAuthor(dataFromControl[2]);
                 tmpDoc.ContentExp.setContentString(dataFromControl[3]);
                 return tmpDoc;
-            } else /*if (dataFromControl[1] == "html")*/ {
+            } else if (dataFromControl[1] == "html") {
                 DocumentHtmlExp tmpDoc = new DocumentHtmlExp();
                 tmpDoc.setName(dataFromControl[0]);
                 tmpDoc.setAuthor(dataFromControl[2]);
                 tmpDoc.ContentExp.setContentString(dataFromControl[3]);
                 return tmpDoc;
+            } else {
+                return null;
             }
+
         }
 
         private void documentAddForm1_CancelClick(object sender, EventArgs arg) {
