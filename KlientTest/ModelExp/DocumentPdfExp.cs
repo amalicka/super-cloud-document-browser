@@ -16,8 +16,9 @@ namespace KlientTest {
         public DocumentPdfExp(Document doc) 
             : base(doc) {
         }
+
         public PaperPrint getPrintableVersion() {
-            return new PaperPrint();
+            return new PaperPrint(this.ContentExp.getContentString());
         }
     }
 }
