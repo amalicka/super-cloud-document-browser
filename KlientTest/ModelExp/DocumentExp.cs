@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KlientTest.ServiceGameReference;
+using System.Reflection;
 
 namespace KlientTest {
 
@@ -65,7 +66,12 @@ namespace KlientTest {
         }
 
         public virtual int getNumberOfCustomProperties() {
-            return 0;
+            // Get the public properties.
+            Type t = typeof(DocumentDoc);
+            PropertyInfo[] propInfos = t.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            Console.WriteLine("The number of public properties: {0}.\n",
+                              propInfos.Length);
+            return propInfos.Length;
         }
     }
 }

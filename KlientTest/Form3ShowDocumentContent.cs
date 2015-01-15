@@ -18,7 +18,7 @@ namespace KlientTest {
             InitializeComponent();
             this.labelName.Text = document.getName();
             this.labelSize.Text = Convert.ToString(document.getSize());
-            this.labelType.Text = checkWhatIsTheDocumentType(document);
+            this.labelType.Text = document.DocumentType;//checkWhatIsTheDocumentType(document);
             this.labelAuthor.Text = document.getAuthor();
             try {
                 if (document.ContentExp!= null) {
