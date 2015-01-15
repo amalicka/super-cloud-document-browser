@@ -8,14 +8,17 @@ using KlientTest.ServiceGameReference;
 namespace KlientTest {
     public class DocumentHtmlExp : DocumentExp {
 
+        private const string HTML = "html";
+        public override string DocumentType { get; set; }
+
         public DocumentHtmlExp(){
+            this.DocumentType = HTML;
             this.documentData = new DocumentHtml();
             this.contentExp = new ContentExp();
             this.documentData.Content = this.contentExp.getContentData();
         }
         public DocumentHtmlExp(DocumentHtml doc)
             : base(doc) {
-
         }
     }
 }

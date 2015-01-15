@@ -10,6 +10,7 @@ namespace KlientTest {
     public abstract class DocumentExp {
         protected Document documentData;
         protected ContentExp contentExp;
+        public virtual string DocumentType { get; set; }
 
         public ContentExp ContentExp {
             get { return contentExp; }
@@ -40,6 +41,7 @@ namespace KlientTest {
                 this.contentExp = ContentExp.from(doc.Content);
             }
         }
+
         public string getAuthor(){
             return documentData.Author;
         }
@@ -60,6 +62,10 @@ namespace KlientTest {
         }
         public void setSize(double size) {
             this.documentData.Size = size;
+        }
+
+        public virtual int getNumberOfCustomProperties() {
+            return 0;
         }
     }
 }

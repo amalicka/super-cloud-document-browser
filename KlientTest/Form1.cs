@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using KlientTest.ServiceGameReference;
 using MyLibrary;
+using System.Reflection;
 
 namespace KlientTest {
     public partial class Form1 : Form {
@@ -133,6 +134,7 @@ namespace KlientTest {
             }
             Form3ShowDocumentContent showDocumentContent = 
                 new Form3ShowDocumentContent((DocumentExp)listView1.CheckedItems[0].Tag);
+            ((DocumentExp)listView1.CheckedItems[0].Tag).getNumberOfCustomProperties();
             showDocumentContent.ShowDialog();
         }
         
