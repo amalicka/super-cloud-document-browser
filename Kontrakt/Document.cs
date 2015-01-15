@@ -50,7 +50,9 @@ namespace Kontrakt {
             get { return content; }
             set { content = value; }
         }
-
+        public Document() {
+            content = new Content();
+        }
         public abstract Content getContent();
     }
 

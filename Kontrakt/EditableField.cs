@@ -7,6 +7,12 @@ using System.Runtime.Serialization;
 namespace Kontrakt {
     [DataContract]
     public class EditableField {
+
+        // Mapowanie enum <-> baza danych
+        public const string TYPE_STRING = "STRING";
+        public const string TYPE_NUMBER = "NUMBER";
+        public const string TYPE_DATE = "DATE";
+
         private FieldType fieldType;
         private String name;
         private String value;
