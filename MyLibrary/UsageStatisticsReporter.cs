@@ -42,8 +42,6 @@ namespace MyLibrary {
             if(UserStatisticsSend != null){
                 UserStatisticsSend();
             }
-           
-            //clear the list 
             userActions.Clear();
             timer.Elapsed += new ElapsedEventHandler(sendDataToTheStatisticsCollectingServer);
             timer.Start();
@@ -60,12 +58,11 @@ namespace MyLibrary {
         }
 
         public void sendDataToTheStatisticsCollectingServer(object sender, ElapsedEventArgs e) {
-            System.Diagnostics.Debug.WriteLine(fileName.GetType().ToString() + " fileName: " + fileName);
             if (fileName == null || fileName =="" || fileName == String.Empty) {
                 fileName = "statistics";
             }
-            System.Diagnostics.Debug.WriteLine("StatisticsReporter: statistics send");
             if (userActions.Count > 0){
+                System.Diagnostics.Debug.WriteLine("StatisticsReporter: statistics send");
                 System.IO.StreamWriter file = new System.IO.StreamWriter(
                     @"C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\"+ fileName + ".txt", true);
                 file.WriteLine(string.Join("\r\n", userActions));

@@ -110,6 +110,11 @@ namespace KlientTest {
             MessageBox.Show("usunięto!");
         }
 
+
+        public void statisticsSend() {
+            System.Diagnostics.Debug.WriteLine("Klient app: statistics send");
+        }
+
         private void buttonAddDocument_Click(object sender, EventArgs e) {
             usageStatisticsReporter1.reportClickedButton("Button Add");
             addDocumentForm.ShowDialog();
@@ -121,6 +126,7 @@ namespace KlientTest {
         }
 
         private void buttonShowDoc_Click(object sender, EventArgs e) {
+            usageStatisticsReporter1.reportClickedButton("Button Show");
             if (listView1.CheckedItems.Count != 1) {
                 MessageBox.Show("Wybierz 1 plik");
                 return;
@@ -129,12 +135,9 @@ namespace KlientTest {
                 new Form3ShowDocumentContent((DocumentExp)listView1.CheckedItems[0].Tag);
             showDocumentContent.ShowDialog();
         }
-
-        public void statisticsSend() {
-            System.Diagnostics.Debug.WriteLine("Klient app: statistics send");
-        }
-
+        
         private void buttonPrint_Click(object sender, EventArgs e) {
+            usageStatisticsReporter1.reportClickedButton("Button Print");
             DocumentExp docToPrint = (DocumentExp)listView1.CheckedItems[0].Tag;
             if (listView1.CheckedItems.Count != 1) {
                 MessageBox.Show("Wybierz 1 plik");
@@ -151,6 +154,7 @@ namespace KlientTest {
         }
 
         private void buttonRefresh_Click(object sender, EventArgs e) {
+            usageStatisticsReporter1.reportClickedButton("Button Refresh");
             refreshDocumentList();
         }
     }    
