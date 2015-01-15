@@ -23,12 +23,14 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.buttonShowDoc = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.buttonAddDocument = new System.Windows.Forms.Button();
             this.buttonDeleteDocs = new System.Windows.Forms.Button();
             this.usageStatisticsReporter1 = new MyLibrary.UsageStatisticsReporter();
             this.buttonPrint = new System.Windows.Forms.Button();
+            this.buttonRefresh = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonShowDoc
@@ -85,11 +87,23 @@
             this.buttonPrint.UseVisualStyleBackColor = true;
             this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
             // 
+            // buttonRefresh
+            // 
+            this.buttonRefresh.BackColor = System.Drawing.Color.YellowGreen;
+            this.buttonRefresh.Image = ((System.Drawing.Image)(resources.GetObject("buttonRefresh.Image")));
+            this.buttonRefresh.Location = new System.Drawing.Point(140, 28);
+            this.buttonRefresh.Name = "buttonRefresh";
+            this.buttonRefresh.Size = new System.Drawing.Size(40, 40);
+            this.buttonRefresh.TabIndex = 12;
+            this.buttonRefresh.UseVisualStyleBackColor = false;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(588, 312);
+            this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.buttonPrint);
             this.Controls.Add(this.buttonDeleteDocs);
             this.Controls.Add(this.buttonAddDocument);
@@ -109,6 +123,7 @@
         private System.Windows.Forms.Button buttonDeleteDocs;
         private MyLibrary.UsageStatisticsReporter usageStatisticsReporter1;
         private System.Windows.Forms.Button buttonPrint;
+        private System.Windows.Forms.Button buttonRefresh;
     }
 }
 

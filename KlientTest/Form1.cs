@@ -148,10 +148,10 @@ namespace KlientTest {
                 MessageBox.Show("Tego dokumentu nie można wydrukować");
                 return;
             }
+        }
 
-            
-
-
+        private void buttonRefresh_Click(object sender, EventArgs e) {
+            refreshDocumentList();
         }
     }    
 }
