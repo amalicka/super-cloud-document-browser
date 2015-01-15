@@ -97,3 +97,6 @@ Clicked:  Button Add
 Clicked:  Button Delete
 Clicked:  Button Delete
 Clicked:  Button Delete
+Clicked:  Button Add
+Clicked:  Button Add
+Clicked:  Button Add

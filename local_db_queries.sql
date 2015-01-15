@@ -17,3 +17,23 @@ insert into Document (Name, Author, Type, Size, Content)
 values ('Moj Doc', 'Ola', 'doc', 100, 'zawartsoc i tresc')
 insert into Document (Name, Author, Type, Size, Content)
 values ('Moj dokument', 'Ola', 'pdf', 100, 'zawartsoc i tresc')
+
+
+
+select * from EditableField
+select * from DocumentDoc
+select * from Document
+
+insert into Document (Name, Author, Type, Size, Content)
+values ('Moj Doc1', 'Ola', 'doc', 100, 'zawartsoc i tresc')
+insert into Document (Name, Author, Type, Size, Content)
+values ('Moj dokument', 'Ola', 'pdf', 100, 'zawartsoc i tresc')
+
+insert into EditableField (Doc_ID, Name, Type, Value)
+values (44, 'Miejsce zamieszkania', 'STRING', 'Warszawa');
+
+insert into EditableField (Doc_ID, Name, Type, Value)
+values (45, 'Miejsce zamieszkania', 'STRING', 'Warszawa');
+
+insert into DocumentDoc (Doc_ID, cp_revision, fontTable, theme, style)
+values (45, 3, 'default', 'Aero', 'formal-presentation');

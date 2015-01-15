@@ -54,12 +54,6 @@ namespace SerwerGry {
         public ServiceGame() {}
 
         public Document[] GetDocumentsList() {
-
-            // Wyciagnij liste dokumentow
-            // Challenge 1: tylko z tabelki Document (bez editable i parametow PDF/DOC)
-            //      UWAGA: TYP dokumentu -> odpowiednia klasa!!!
-            // Challenge 2: dodaj editable fieldsy
-//            // Challenge 3: dodaj parametry dokumentow (tabelki PDF i DOC)
             try {
                 List<Document> documentList = new List<Document>();
                 SqlConnection con = new SqlConnection(CONNECTOIN_STRING);
@@ -180,37 +174,37 @@ namespace SerwerGry {
 
         public void AddDocument(Document newDoc) {
             Console.WriteLine("metoda: AddDocument");
-            // Insert nowego dokumentu
-            // Challenge 1: do tabelki Document
-            // Nie mozna edytowac EditableField-sow, wiec nie trzeba wrzucac danych do tej tabelki
-            // Nie mozna edytowac specyficznych parametrow PDF/DOC, wiec pomijamy
             SqlConnection con = new SqlConnection(CONNECTOIN_STRING);
             con.Open();  
           
             string type;
             if (newDoc.GetType() == typeof(DocumentPdf)) {
                 Console.WriteLine("to jest pdf");
-                type = DOC_PDF;
-            } else if (newDoc.GetType() == typeof(DocumentDoc)) {
-                Console.WriteLine("to jest doc");
-                type = DOC_DOC;
+                type = DOC_PDF.ToString();
+            } else if (newDoc.GetType() == typeof(DocumentDoc)) {                
+                type = DOC_DOC.ToString();
+                Console.WriteLine(type + " to jest doc");
             } else if (newDoc.GetType() == typeof(DocumentHtml)) {
                 Console.WriteLine("to jest html");
-                type = DOC_HTML;
+                type = DOC_HTML.ToString();
             } else {
                 Console.WriteLine("to jest unnown");
-                type = "unnown";
+                type = "";
             }
-
-            SqlCommand cmd = new SqlCommand(
-                String.Format(SQL_INSERT_DOC, newDoc.Name, newDoc.Author, type, newDoc.Content.DocContent), 
-                con);
-            int nmbrAffected =  cmd.ExecuteNonQuery();
-            Console.WriteLine("#### Number of rows affected: " + nmbrAffected);
+            try{
+                string conStr = String.Format(SQL_INSERT_DOC, newDoc.Name, newDoc.Author, type, newDoc.Content.DocContent);
+                Console.WriteLine("Connection sting: " + conStr);
+                SqlCommand cmd = new SqlCommand(
+                        String.Format(SQL_INSERT_DOC, newDoc.Name, newDoc.Author, type, newDoc.Content.DocContent), 
+                        con);
+                int nmbrAffected =  cmd.ExecuteNonQuery();
+                Console.WriteLine("#### Number of rows affected: " + nmbrAffected);
+            }catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+                throw ex;
+            }
             con.Close();
-            
-            //Console.WriteLine("**************************\nDodano dokument wprowadzony przez usera:");
-            //Console.WriteLine(newDoc.Name + " " + newDoc.Author + " " + newDoc.Content.DocContent);
         }
 
         public void RemoveDocument(Document delDoc) {
