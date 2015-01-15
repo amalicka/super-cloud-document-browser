@@ -49,7 +49,7 @@ namespace SerwerGry {
         private const string SQL_DELETE_DOC = "delete from Document where Id = {0}";
         private const string SQL_DELETE_DOC_PDF = "delete from DocumentPdf where Doc_ID = {0};";
         private const string SQL_DELETE_DOC_DOC = "delete from DocumentDoc where Doc_ID = {0};";
-
+        private const string SQL_DELETE_EDITABLE_FIELDS = "delete from EditableField where Doc_ID = {0};";
 
         public ServiceGame() {}
 
@@ -218,6 +218,13 @@ namespace SerwerGry {
             Console.WriteLine("#### Searching for document to delete ####");
             SqlConnection con = new SqlConnection(CONNECTOIN_STRING);
             con.Open();
+
+            if (delDoc.Content.GetType() == typeof(EditableContent)) {
+                SqlCommand deleteCommand = new SqlCommand(String.Format(SQL_DELETE_EDITABLE_FIELDS, delDoc.Id), con);
+                int rowsAffected = deleteCommand.ExecuteNonQuery();
+                Console.WriteLine("Deleted: " + rowsAffected + " lines form editable fields");
+            }
+
             if(delDoc.GetType() == typeof(DocumentPdf)){
                 SqlCommand deleteCommand = new SqlCommand(String.Format(SQL_DELETE_DOC_PDF, delDoc.Id), con);
                 int rowsAffected = deleteCommand.ExecuteNonQuery();
