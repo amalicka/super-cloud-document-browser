@@ -18,15 +18,35 @@ namespace MyLibrary {
         public event EventHandler CancelClick;
 
         [Category("Document's info")]
-        public string DocumentName {
-            get { return textBoxName.Text; }
-            set { textBoxName.Text = value; }
+        public string ControlTitle {
+            get { return labelTitle.Text; }
+            set { labelTitle.Text = value; }
+        }
+        [Category("Document's info")]
+        public string LabelName {
+            get { return labelName.Text; }
+            set { labelName.Text = value; }
+        }
+        [Category("Document's info")]
+        public string LabelAuthor {
+            get { return labelAuthor.Text; }
+            set { labelAuthor.Text = value; }
+        }
+        [Category("Document's info")]
+        public string LabelType {
+            get { return labelType.Text; }
+            set { labelType.Text = value; }
+        }
+        [Category("Document's info")]
+        public string LabelContent {
+            get { return labelContent.Text; }
+            set { labelContent.Text = value; }
         }
 
         [Category("Document's info")]
-        public string Type {
-            get { return comboBoxType.Text; }
-            set { comboBoxType.Text = value; }
+        public string DocumentName {
+            get { return textBoxName.Text; }
+            set { textBoxName.Text = value; }
         }
 
         [Category("Document's info")]
@@ -38,6 +58,22 @@ namespace MyLibrary {
         public string Content {
             get { return richTextBoxContent.Text; }
             set {richTextBoxContent.Text = value; }
+        }
+
+        [Category("Customise buttons")]
+        public string ButtonAddText {
+            get { return buttonAdd.Text; }
+            set { buttonAdd.Text = value; }
+        }
+        [Category("Customise buttons")]
+        public string ButtonCancelText {
+            get { return buttonCancel.Text; }
+            set { buttonCancel.Text = value; }
+        }
+
+        public string Type {
+            get { return comboBoxType.Text; }
+            set { comboBoxType.Text = value; }
         }
 
         public DocumentAddForm() {

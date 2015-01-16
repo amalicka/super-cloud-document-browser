@@ -29,12 +29,19 @@
             // 
             // documentAddForm1
             // 
-            this.documentAddForm1.Author = "----";
+            this.documentAddForm1.Author = "";
             this.documentAddForm1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.documentAddForm1.Content = "----";
-            this.documentAddForm1.DocumentName = "----";
-            this.documentAddForm1.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.documentAddForm1.ButtonAddText = "Add";
+            this.documentAddForm1.ButtonCancelText = "Cancel";
+            this.documentAddForm1.Content = "";
+            this.documentAddForm1.ControlTitle = "---Insert custom text here---";
             resources.ApplyResources(this.documentAddForm1, "documentAddForm1");
+            this.documentAddForm1.DocumentName = "";
+            this.documentAddForm1.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.documentAddForm1.LabelAuthor = "Author";
+            this.documentAddForm1.LabelContent = "Content";
+            this.documentAddForm1.LabelName = "Name";
+            this.documentAddForm1.LabelType = "Type";
             this.documentAddForm1.Name = "documentAddForm1";
             this.documentAddForm1.Type = "";
             // 
@@ -51,6 +58,9 @@
         #endregion
 
         private MyLibrary.DocumentAddForm documentAddForm1;
+
+
+
 
 
 

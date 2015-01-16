@@ -46,9 +46,9 @@
             this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelTitle.Location = new System.Drawing.Point(10, 11);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(188, 20);
+            this.labelTitle.Size = new System.Drawing.Size(231, 20);
             this.labelTitle.TabIndex = 0;
-            this.labelTitle.Text = "Fill the document data";
+            this.labelTitle.Text = "---Insert custom text here---";
             // 
             // labelType
             // 

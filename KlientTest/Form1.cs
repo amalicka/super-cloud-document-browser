@@ -36,10 +36,6 @@ namespace KlientTest {
                     docRenderer = fullRenderer;
                 }
             }
-            
-
-
-            
         }
 
         public void makeListView() {
