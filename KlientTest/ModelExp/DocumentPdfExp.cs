@@ -12,7 +12,7 @@ namespace KlientTest {
         public override string DocumentType { get; set; }
 
         public DocumentPdfExp() {
-            this.DocumentType = PDF;
+            this.DocumentType = PDF.ToString();
             this.documentData = new DocumentPdf();
             this.contentExp = new ContentExp();
             this.documentData.Content = this.ContentExp.getContentData();

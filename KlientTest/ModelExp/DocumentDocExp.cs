@@ -12,7 +12,7 @@ namespace KlientTest {
         public override string DocumentType { get; set; }
 
         public DocumentDocExp() {
-            this.DocumentType = DOC;
+            this.DocumentType = DOC.ToString();
             this.documentData = new DocumentDoc();
             this.contentExp = new ContentExp();
             this.documentData.Content = this.ContentExp.getContentData();
