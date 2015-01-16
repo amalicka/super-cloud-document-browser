@@ -67,7 +67,7 @@ namespace KlientTest {
 
         public virtual int getNumberOfCustomProperties() {
             // Get the public properties.
-            Type t = typeof(DocumentDoc);
+            Type t = typeof(Document);
             PropertyInfo[] propInfos = t.GetProperties(BindingFlags.Public | BindingFlags.Instance);
             Console.WriteLine("The number of public properties: {0}.\n",
                               propInfos.Length);

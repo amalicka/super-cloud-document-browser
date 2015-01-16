@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlientTest", "KlientTest\Kl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLibrary", "MyLibrary\MyLibrary.csproj", "{B725E55B-771C-4A59-B233-28758737BABD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocRendererFullVersionDll", "DocRendererFullVersionDll\DocRendererFullVersionDll.csproj", "{93C37A6B-A425-494E-BEE3-EDE1FCD31283}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +36,10 @@ Global
 		{B725E55B-771C-4A59-B233-28758737BABD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B725E55B-771C-4A59-B233-28758737BABD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B725E55B-771C-4A59-B233-28758737BABD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93C37A6B-A425-494E-BEE3-EDE1FCD31283}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93C37A6B-A425-494E-BEE3-EDE1FCD31283}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93C37A6B-A425-494E-BEE3-EDE1FCD31283}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93C37A6B-A425-494E-BEE3-EDE1FCD31283}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

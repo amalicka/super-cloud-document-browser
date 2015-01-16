@@ -8,26 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KlientTest.ServiceGameReference;
+using KlientTest.Renderer;
 
 namespace KlientTest {
     public partial class Form3ShowDocumentContent : Form {
 
         private EditableField[] docEditFields;
 
-        public Form3ShowDocumentContent(DocumentExp document) {
+        public Form3ShowDocumentContent(DocumentExp document, IDocRenderer docRenderer) {
             InitializeComponent();
             this.labelName.Text = document.getName();
             this.labelSize.Text = Convert.ToString(document.getSize());
             this.labelType.Text = document.DocumentType;//checkWhatIsTheDocumentType(document);
             this.labelAuthor.Text = document.getAuthor();
-            try {
-                if (document.ContentExp!= null) {
-                    this.labelContent.Text = document.ContentExp.getContentData().DocContent;
-                }
-            } 
-            catch {
-                this.labelContent.Text = "---- nie znaleziono zawartości ---";
-            }
+
+            this.labelContent.Text = docRenderer.render(document);
             try {
                 if (document.ContentExp.GetType() == typeof(EditableContentExp)) {
                     EditableContentExp editableContent = (EditableContentExp)document.ContentExp;

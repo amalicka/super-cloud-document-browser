@@ -10,12 +10,15 @@ using System.Windows.Forms;
 using KlientTest.ServiceGameReference;
 using MyLibrary;
 using System.Reflection;
+using KlientTest.Renderer;
 
 namespace KlientTest {
     public partial class Form1 : Form {
         DocumentExp[] documentsArray;
         Form2addDocument addDocumentForm;
         ServiceGameClient client;
+
+        IDocRenderer docRenderer;
 
         public Form1() {
             client = new ServiceGameClient();
@@ -25,7 +28,13 @@ namespace KlientTest {
             addDocumentForm.AllowUpdate += new ReadyToUpadeHandler(refreshDocumentList);
             usageStatisticsReporter1.UserStatisticsSend += new UserStatisticsSendingHandler(statisticsSend);
             refreshDocumentList();
+
+            docRenderer = new DocRendererDemo();
+
+            // TODO: Sproboj wczytac DocRendererFullVersoin z DLLki -> bedzie potrafil wyrenderowac PDFa
+            
         }
+
         public void makeListView() {
             //http: //msdn.microsoft.com/pl-pl/library/system.windows.forms.listview.checkboxes(v=vs.110).aspx
             listView1.Columns.Add("Name", 120);
@@ -132,19 +141,23 @@ namespace KlientTest {
                 MessageBox.Show("Wybierz 1 plik");
                 return;
             }
-            Form3ShowDocumentContent showDocumentContent = 
-                new Form3ShowDocumentContent((DocumentExp)listView1.CheckedItems[0].Tag);
+            Form3ShowDocumentContent showDocumentContent = new Form3ShowDocumentContent(
+                    (DocumentExp)listView1.CheckedItems[0].Tag, 
+                    docRenderer);
             ((DocumentExp)listView1.CheckedItems[0].Tag).getNumberOfCustomProperties();
             showDocumentContent.ShowDialog();
         }
         
         private void buttonPrint_Click(object sender, EventArgs e) {
             usageStatisticsReporter1.reportClickedButton("Button Print");
-            DocumentExp docToPrint = (DocumentExp)listView1.CheckedItems[0].Tag;
+            DocumentExp docToPrint;
             if (listView1.CheckedItems.Count != 1) {
                 MessageBox.Show("Wybierz 1 plik");
                 return;
+            } else {
+                docToPrint = (DocumentExp)listView1.CheckedItems[0].Tag;
             }
+
             if (docToPrint is Printable) {
                 Form4Print printDocumentContent = new Form4Print(docToPrint);
                 printDocumentContent.ShowDialog();

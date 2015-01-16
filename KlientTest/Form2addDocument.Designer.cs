@@ -29,10 +29,10 @@
             // 
             // documentAddForm1
             // 
-            this.documentAddForm1.Author = "";
+            this.documentAddForm1.Author = "----";
             this.documentAddForm1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.documentAddForm1.Content = "";
-            this.documentAddForm1.DocumentName = "";
+            this.documentAddForm1.Content = "----";
+            this.documentAddForm1.DocumentName = "----";
             this.documentAddForm1.ForeColor = System.Drawing.SystemColors.WindowFrame;
             resources.ApplyResources(this.documentAddForm1, "documentAddForm1");
             this.documentAddForm1.Name = "documentAddForm1";
