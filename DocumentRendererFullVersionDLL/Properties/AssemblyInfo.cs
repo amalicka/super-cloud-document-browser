@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DocRendererFullVersionDll")]
+[assembly: AssemblyTitle("DocumentRendererFullVersionDLL")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DocRendererFullVersionDll")]
+[assembly: AssemblyProduct("DocumentRendererFullVersionDLL")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("b0524617-5342-4895-8725-e273a4cb1bab")]
+[assembly: Guid("8413f98e-74ae-4aef-b082-d1077495ad5d")]
 
 // Version information for an assembly consists of the following four values:
 //

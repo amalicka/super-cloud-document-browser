@@ -81,8 +81,8 @@
     <Compile Include="ModelExp\Printable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Renderer\DocRendererDemo.cs" />
-    <Compile Include="Renderer\IDocRenderer.cs" />
+    <Compile Include="Renderer\DemoDocumentRenderer.cs" />
+    <Compile Include="Renderer\IDocumentRenderer.cs" />
     <Compile Include="Service References\ServiceGameReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

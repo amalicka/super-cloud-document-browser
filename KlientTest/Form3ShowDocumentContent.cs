@@ -15,7 +15,7 @@ namespace KlientTest {
 
         private EditableField[] docEditFields;
 
-        public Form3ShowDocumentContent(DocumentExp document, IDocRenderer docRenderer) {
+        public Form3ShowDocumentContent(DocumentExp document, IDocumentRenderer docRenderer) {
             InitializeComponent();
             this.labelName.Text = document.getName();
             this.labelSize.Text = Convert.ToString(document.getSize());
@@ -23,6 +23,7 @@ namespace KlientTest {
             this.labelAuthor.Text = document.getAuthor();
 
             this.labelContent.Text = docRenderer.render(document);
+
             try {
                 if (document.ContentExp.GetType() == typeof(EditableContentExp)) {
                     EditableContentExp editableContent = (EditableContentExp)document.ContentExp;

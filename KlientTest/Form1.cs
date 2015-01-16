@@ -11,14 +11,12 @@ using KlientTest.ServiceGameReference;
 using MyLibrary;
 using System.Reflection;
 using KlientTest.Renderer;
-
 namespace KlientTest {
     public partial class Form1 : Form {
         DocumentExp[] documentsArray;
         Form2addDocument addDocumentForm;
         ServiceGameClient client;
-
-        IDocRenderer docRenderer;
+        public IDocumentRenderer docRenderer;
 
         public Form1() {
             client = new ServiceGameClient();
@@ -27,11 +25,20 @@ namespace KlientTest {
             makeListView();  
             addDocumentForm.AllowUpdate += new ReadyToUpadeHandler(refreshDocumentList);
             usageStatisticsReporter1.UserStatisticsSend += new UserStatisticsSendingHandler(statisticsSend);
-            refreshDocumentList();
+            docRenderer = new DemoDocumentRenderer();
 
-            docRenderer = new DocRendererDemo();
+            //Wczytanie DLL ---http://www.codeproject.com/Articles/30612/Load-a-User-DLL-implementing-an-AppIn-interface
+            Assembly ass = Assembly.LoadFrom(@"C:\Users\Aleksandra\Desktop\JPP_W_Ptasznik\SerwerGry\DocumentRendererFullVersionDLL.dll");
+            foreach (Type t in ass.GetExportedTypes())
+            {
+                if (t.GetInterface("IDocumentRenderer", true) != null){
+                    var fullRenderer = Activator.CreateInstance(t) as IDocumentRenderer;
+                    docRenderer = fullRenderer;
+                }
+            }
+            
 
-            // TODO: Sproboj wczytac DocRendererFullVersoin z DLLki -> bedzie potrafil wyrenderowac PDFa
+
             
         }
 
