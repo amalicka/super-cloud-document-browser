@@ -90,26 +90,6 @@ namespace KlientTest {
             }
         }
 
-        //private List<EditableFieldExp> getListOfEditableFields(DocumentExp documentExp) {
-        //    try {
-        //        if (documentExp.ContentExp.getContentData().GetType() == typeof(EditableContentExp)) {
-        //            //EditableContentExp editableContentExt = (EditableContentExp)documentExp.getDocument().Content;
-        //            List<EditableFieldExp> editableFields;
-        //                documentExp.ContentExp.getEditableContent().getEditableContentData().editableFields;
-        //               // editableContentExt.getContentData().E;
-        //            System.Diagnostics.Debug.WriteLine("Yupii! Got editable content!");
-        //            return editableFields;
-        //        } 
-        //        else {
-        //            System.Diagnostics.Debug.WriteLine(documentExp.getName() + " ma EditableContent");
-        //            return null;
-        //        }
-
-        //    } catch {
-        //         System.Diagnostics.Debug.WriteLine("Coś poszło nie tak, przy szukaniu pól edytowalnych");
-        //         return null;
-        //    }
-        //}
 
         private void deleteDocument() {
             if (listView1.CheckedItems.Count == 0) {
