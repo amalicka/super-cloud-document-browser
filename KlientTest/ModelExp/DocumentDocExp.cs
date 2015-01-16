@@ -19,6 +19,7 @@ namespace KlientTest {
         }
         public DocumentDocExp(Document doc) 
             : base(doc) {
+             this.DocumentType = DOC.ToString();
         }
 
         public PaperPrint getPrintableVersion() {

@@ -19,6 +19,7 @@ namespace KlientTest {
         }
         public DocumentHtmlExp(DocumentHtml doc)
             : base(doc) {
+                this.DocumentType = HTML.ToString();
         }
     }
 }

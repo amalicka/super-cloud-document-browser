@@ -29,25 +29,18 @@ namespace KlientTest {
                 EditableContentExp editableContent = (EditableContentExp)document.ContentExp;
                 docEditFields = editableContent.getEditableContentData().EditableFields;
                 System.Diagnostics.Debug.WriteLine("Yupii! Got editable content!");
-                //this.labelEditabeFields.Text = docEditFields[0].Name + " " + docEditFields[0].Value
-                //    + "\n" + docEditFields[1].Name + " " + docEditFields[1].Value;
                 labelEditabeFields.Text = "Pola edytowalne:";
+                
                 //tworzenie textboxsów
-
                 Point location = new Point(0,0);
-
                 for (int i = 0; i < docEditFields.Length; i++) {
                     var textBox = new TextBox();
                     textBox.Text = docEditFields[i].Name + " " + docEditFields[i].Value;
                     textBox.Location = location;
                     location = new Point(textBox.Location.X, textBox.Location.Y + 25);
+                    textBox.Width = panelEditableElements.Width - 5;
                     panelEditableElements.Controls.Add(textBox);
                 }
-                
-                //textBox.Width = panelEditableElements.Width;
-                //textBox1.Location = new Point(textBox.Location.X, textBox.Location.Y + 25);
-                //textBox1.Text = docEditFields[1].Name + " " + docEditFields[1].Value;
-                //panelEditableElements.Controls.Add(textBox1);
             } 
             else {
                 labelEditabeFields.Text = " ";

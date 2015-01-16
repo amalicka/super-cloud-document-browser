@@ -40,10 +40,11 @@ namespace KlientTest {
 
         public void makeListView() {
             //http: //msdn.microsoft.com/pl-pl/library/system.windows.forms.listview.checkboxes(v=vs.110).aspx
-            listView1.Columns.Add("Name", 120);
-            listView1.Columns.Add("Author", 70);
-            listView1.Columns.Add("Size", 70);
-            listView1.Columns.Add("Content", 70);
+            listView1.Columns.Add("Nazwa",100);
+            listView1.Columns.Add("Autor");
+            listView1.Columns.Add("Rozmiar",60);
+            listView1.Columns.Add("Zawartość",150);
+            listView1.Columns.Add("Typ",100);
             listView1.View = View.Details;
             listView1.CheckBoxes = true;
             listView1.FullRowSelect = true;// Select the item and subitems when selection is made.
@@ -84,7 +85,7 @@ namespace KlientTest {
                     .SubItems
                     .AddRange(new string[] { 
                         document.getAuthor(),
-                        Convert.ToString(document.getSize()), tpmContent
+                        Convert.ToString(document.getSize()), tpmContent, document.DocumentType
                     });
             }
         }

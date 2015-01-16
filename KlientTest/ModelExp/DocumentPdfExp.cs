@@ -19,6 +19,7 @@ namespace KlientTest {
         }
         public DocumentPdfExp(Document doc) 
             : base(doc) {
+                this.DocumentType = PDF.ToString();
         }
 
         public PaperPrint getPrintableVersion() {
